@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Generator tekstu</title>
+    <link rel="stylesheet" type="text/css" href="../reset.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Slabo+27px|Oswald|Source+Sans+Pro|Raleway|Roboto+Slab:400,700|Open+Sans+Condensed:300,700|Titillium+Web|Playfair+Display|Dosis|Poiret+One|Lobster|Bree+Serif|Anton|Merriweather+Sans|Cuprum:400,700|Francois+One|Play|Poppins|Exo|Amatic+SC|Righteous|BenchNine|Comfortaa|Russo+One|Kaushan+Script|Source+Code+Pro|Armata|Courgette|Archivo+Black|Jura|Great+Vibes|Marck+Script|Shadows+Into+Light+Two|Audiowide|Coda|Kalam|Sacramento|Rajdhani|Jockey+One|Khand|Unica+One|Allura|Caveat+Brush|Limelight|Freckle+Face|Black+Ops+One|Advent+Pro|Press+Start+2P|Berkshire+Swash|Mouse+Memoirs|Gruppo|Racing+Sans+One|Just+Me+Again+Down+Here|Patrick+Hand+SC|Shojumaru|Life+Savers|Titan+One|Coda+Caption:800|Nosifer|Sancreek|Krona+One|Butcherman|Ruslan+Display|Sonsie+One|Akronim|Arbutus|Eater|Emblema+One|Bigelow+Rules|Hanalei|Modak&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <style id="previewSheet">
+
+    </style>
+</head>
+<body>
+<section>
+    <header>
+        <nav>
+            <a href="../index.html">< </a>
+        </nav>
+        <section>
+            <h1>Generator tekstu</h1>
+        </section>
+    </header>
+</section>
+<section>
+    <section>
+        <section>
+            <div id="dostosuj" class="showList">
+                <div class="triangle"></div><h3>Dostosowanie</h3>
+            </div>
+            <ul id="list1" class="">
+                <li>
+                    <code>background-color:</code>
+                    <strong class="showHelp">?
+                            <span class="help"><span>
+                                <code>background-color:</code><br>Właściwość <code>background-color:</code> ustawia kolor tła elementu.
+                                <br>W tym przypadku jest to kolor tła ramki podlądu.
+                                <br>Jeśli już masz stronę internetową i to właśnie dla niej generujesz ikony, warto zacząć od ustawienia tła na takie samo jakie jest na Twojej stronie.
+                                <br>Wtedy stworzysz ikony idealnie pasujące do niej.
+                            </span>
+                            </span>
+                    </strong>
+                    <input type="color" id="bgColor" title="bgColor" value="#FFFFFF">
+                </li>
+                <li>
+                    <code>background-image:</code>
+                    <strong class="showHelp">?
+                            <span class="help"><span>
+                                <code>background-image:</code><br>Właściwość <code>background-image:</code> ustawia obraz tła dla elementu.
+                                <br>W tym przypadku jest to obraz dla tła ramki podlądu.
+                                <br>Jeśli już masz stronę internetową i to właśnie dla niej generujesz ikony, warto zacząć od ustawienia tła na takie samo jakie jest na Twojej stronie.
+                                <br>Wtedy stworzysz ikony idealnie pasujące do niej.
+                                <p>W polu tekstowym należy wprowadzić dokładny adres do zdjęcia. Adres powinien być skopiowany z pola adresu przeglądarki internetowej aby uniknąć problemów.
+                                <br>Przykład:<br>http://bestwallpaperhd.com/wp-content/uploads/2014/02/Snowy-Mountain-Wallpaper.jpg
+                                </p>
+                            </span>
+                            </span>
+                    </strong>
+                    <input type="text" id="bgImage" title="bgImage" value="" placeholder="Wprowadź ścieżkę dla tła">
+                </li>
+            </ul>
+        </section>
+        <section>
+            <div id="wybor" class="showList">
+                <div class="triangle"></div><h3>Wprowadzenie tekstu</h3>
+            <ul>
+                <li><code>Wprowadzony teskt może zawierać wszystkie litery alfabetu plus znaki: <br>! @ # ? .<br>Pozostałe znaki będą ignorowane.</code></li>
+                <li>
+                    <input type="text" id="inputText" title="inputText" placeholder="Wprowadź tekst">
+                    <button id="makeLetters" onclick="Letters()">Zastosuj i przejdź dalej</button>
+                </li>
+            </ul>
+            </div>
+            <div id="manipulate" style="display: none;">
+            <div id="manipulacja" class="showList">
+                <div class="triangle"></div><h3>Manipulacja</h3>
+            </div>
+            <ul>
+                <li id="fontChoose">
+                    <label>Wybór czcionki: </label>
+                    <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                    Poniższa lista zawiera czcionki zaimportowane ze strony https://www.google.com/fonts<br>
+                                    Aby zmienić czcionkę, wybierz jakąś opcję z listy poniżej.
+                                </span>
+                            </span>
+                    </strong>
+                </li>
+
+                <li id="whichLetter">
+                    <label>Manipulacja tekstem/literami: </label>
+                    <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                    Z poniższej listy możesz wybrać czym chcesz manipulować.<br>Możesz manipulować całym tekstem lub jego poszczególnymi literami/znakami.
+                                </span>
+                            </span>
+                    </strong>
+                </li>
+                <li>
+                    <code>Wielkość czcionki: </code>
+                    <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                    <code>font-size:</code><br>Właściwość <code>font-size:</code> odpowiada za rozmiar liter/litery.<br>
+                                </span>
+                            </span>
+                    </strong>
+                    <input id="textSize" title="textSize" type="range" name="Size" value="100" min="10" max="500" step="1" oninput="textSize()">
+                </li>
+                <li class="bordertopbottom">
+                    <code>Kolor tekstu: </code>
+                    <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                    <code>color:</code><br>Właściwość <code>color:</code> odpowiada za kolor liter/litery.<br>
+                                </span>
+                            </span>
+                    </strong>
+                    <input type="color" id="textColor" title="textColor" value="#000000" onclick="textColor()">
+                </li>
+                <li class="bordertopbottom">
+                    <code>Cień tekstu: </code>
+                    <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                    <code>text-shadow:</code><br>Właściwość <code>text-shadow:</code> odpowiada za cień liter/litery.<br>
+                                </span>
+                            </span>
+                    </strong>
+                    <ul>
+                        <li>
+                            <code>h-shadow: </code>
+                            <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                       <code >h-shadow: </code><br>Właściwość <code >h-shadow: </code> odpowiada za ustalenie cienia w poziomie.<br>
+                                </span>
+                            </span>
+                            </strong>
+                            <input type="range" class="helpInput" id="hShadow" title="hShadow" value="0" min="-100" max="100" step="1" oninput="textHShadow()">
+                        </li>
+                        <li>
+                            <code>v-shadow: </code>
+                            <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                      <code >v-shadow: </code><br>Właściwość <code >v-shadow: </code> odpowiada za ustalenie cienia w pionie.<br>
+                                </span>
+                            </span>
+                            </strong>
+                            <input type="range" class="helpInput" id="vShadow" title="vShadow" value="0" min="-100" max="100" step="1" oninput="textVShadow()">
+                        </li>
+                        <li>
+                            <code>blur: </code>
+                            <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                     <code >blur: </code><br>Właściwość <code >blur: </code> odpowiada za odległość rozmycia cienia.<br>
+                                </span>
+                            </span>
+                            </strong>
+                            <input type="range" class="helpInput" id="blurShadow" title="blurShadow" value="0" min="0" max="100" step="1" oninput="textBlurShadow()">
+                        </li>
+                        <li>
+                            <code>color: </code>
+                            <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                     <code >color: </code><br>Właściwość <code >color: </code> odpowiada za kolor cienia.<br>
+                                </span>
+                            </span>
+                            </strong>
+                            <input type="color" id="colorShadow" title="colorShadow" value="#000000" onclick="textColorShadow()">
+                        </li>
+                    </ul>
+                </li>
+                <li class="bordertopbottom">
+                    <code>Perspective: </code>
+                    <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                     <code >perspective: </code><br>Właściwość <code>perspective: </code> określa odległość pomiędzy płaszczyzną z=0 a użytkownikiem.<br>
+                                    Zmiana tej wartości umożliwia wybranemu elementowi nadanie perspektywy 3D.<br>
+                                    Każdy element 3D z wartością z>0 będzie większy, a z<0 będzie mniejszy.
+                                    <br>Siła efektu zależy od wartości własności <code>perspective</code> oraz wartości <code>translateZ</code>.
+                                </span>
+                            </span>
+                    </strong>
+                    <ul>
+                        <li>
+                            <input type="range" class="helpInput" title="Perspective" id="Perspective" min="0" max="1000" value="0" step="1" oninput="Perspective()">
+                        </li>
+                    </ul>
+                </li>
+                <li class="bordertopbottom">
+                    <code>Translate3d: </code>
+                    <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                    <code>translate3d: </code><br>Właściwość <code >translate3d: </code> określa przesunięcie elementu w przestrzeni 3D.<br>
+                                    Transformacja jest ustalana na podstawie współrzędnych trójwymiarowego wektora [translateX,translateY,translateZ].<br>
+                                    Współrzędne te są ustalane przy pomocy trzech poniższych suwaków.
+                                </span>
+                            </span>
+                    </strong>
+                    <ul>
+                        <li>
+                            <code>translateX: </code>
+                            <input type="range" class="helpInput" title="translateX" id="translateX" min="-400" max="400" value="0" oninput="translateX()">
+                        </li>
+                        <li>
+                            <code>translateY: </code>
+                            <input type="range" class="helpInput" title="translateY" id="translateY" min="-400" max="400" value="0" oninput="translateY()">
+                        </li>
+                        <li>
+                            <code>translateZ: </code>
+                            <input type="range" class="helpInput" title="translateZ" id="translateZ" min="-400" max="400" value="0" oninput="translateZ()">
+                        </li>
+                    </ul>
+                </li>
+                <li class="bordertopbottom">
+                    <code>Rotate3d: </code>
+                    <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                    <code>rotate3d: </code><br>Właściwość <code >rotate3d: </code> określa przesunięcie elementu wokół stałej osi.<br>
+                                    Rotacja jest ustalana na podstawie określonego kąta. Jeśli wartość kąta jest dodatnia, obrót będzie w prawo, w przeciwnym przypadku w lewo.<br>
+                                    Kąty te są ustalane przy pomocy trzech poniższych suwaków.
+                                </span>
+                            </span>
+                    </strong>
+                    <ul>
+                        <li>
+                            <code>rotateX: </code>
+                            <input type="range" class="helpInput" title="rotateX" id="rotateX" min="-180" max="180" value="0" oninput="rotateX()">
+                        </li>
+                        <li>
+                            <code>rotateY: </code>
+                            <input type="range" class="helpInput" title="rotateY" id="rotateY" min="-180" max="180" value="0" oninput="rotateY()">
+                        </li>
+                        <li>
+                            <code>rotateZ: </code>
+                            <input type="range" class="helpInput" title="rotateZ" id="rotateZ" min="-180" max="180" value="0" oninput="rotateZ()">
+                        </li>
+                    </ul>
+                </li>
+                <li class="bordertopbottom">
+                    <code>Skew2d: </code>
+                    <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                    <code>skew: </code><br>Właściwość <code >skew: </code> określa pochylenie elementu wzdłuż osi X i Y w obu kierunkach.<br>
+                                    Pochylenie jest ustalane na podstawie określonego kąta.<br>
+                                    Kąty te są ustalane przy pomocy dwóch poniższych suwaków.
+                                </span>
+                            </span>
+                    </strong>
+                    <ul>
+                        <li>
+                            <code>SkewX: </code>
+                            <input type="range" class="helpInput" title="skewx" id="skewx" min="-45" max="45" value="0" oninput="skewX()">
+                        </li>
+                        <li>
+                            <code>SkewY: </code>
+                            <input type="range" class="helpInput" title="skewx" id="skewy" min="-45" max="45" value="0" oninput="skewY()">
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+                <button id="generateCode">GENERUJ KOD</button>
+            </div>
+        </section>
+        <section> </section>
+    </section>
+    <section id="workingLayout">
+        <section id="livePreview">
+            <div id="textDiv" style="width: 100%; height: auto; position: relative; overflow: hidden; padding: 50px 0;">
+                <div id="textAnimation">
+                    <div id="textHolder" style="width: 80%; display:block; margin: 0 auto; text-align: center;"></div>
+                </div>
+            </div>
+        </section>
+        <div></div>
+    </section>
+</section>
+<section id="Code" style="display: none;">
+    <div id="CodeInfo">
+        <p><strong>Chcesz coś poprawić?</strong> <button id="backToCode">Powrót do generatora</button></p>
+        <h5>Twój napis jest już gotowy!</h5>
+        <h5>Aby dodać go na swoją stronę, wykonaj poniższe instrukcje.</h5>
+        <p><strong>Krok 1.</strong></p>
+        <p>Poniższy kod skopiuj na swoją stronę i umieść go gdziekolwiek w sekcji <strong>head</strong>.</p>
+        <p>W celu ułatwienia kopiowania, kliknij kursorem myszy w poniższą tabelę i naciśnij na klawiaturze <strong>Ctrl+a</strong>. Spowoduje to zaznaczenie całego kodu, który następnie możesz skopiować klikając <strong>Ctrl+c</strong>.<br>Skopiowany tekst możesz łatwo wkleić naciskając na klawiaturze <strong>Ctrl+v</strong>.<br>
+        <p><strong>Przykład wklejania kodu.</strong><br>
+            <code style="color: darkred;">
+                &lt;html&gt;<br>
+                &lt;head&gt;<br>
+                <strong>
+                    &lt;- KOD WKLEJ TUTAJ<br>
+                </strong>
+                Twój kod<br>.<br>.<br>
+                <strong>
+                    &lt;- LUB TUTAJ<br>
+                </strong>
+                .<br>
+                <strong>
+                    &lt;- ALE NIE DALEJ NIŻ TUTAJ<br>
+                </strong>
+                &lt;/head&gt;
+            </code>
+        </p>
+        <label for="headCode"></label>
+            <textarea id="headCode" class="styleCode">
+
+            </textarea>
+        <p><strong>Krok 2.</strong></p>
+        <p>Poniższy kod skopiuj na swoją stronę i umieść go w sekcji <strong>body</strong>, gdziekolwiek chcesz, aby Twój napis się pojawił.</p>
+        <p><strong>Przykład wklejania kodu.</strong><br>
+            <code style="color: darkred;">
+                &lt;html&gt;<br>
+                &lt;head&gt;<br>
+                &lt;/head&gt;<br>
+                &lt;body&gt;<br><br>
+                &lt;- W tej sekcji wklej kod -&gt;<br><br>
+                &lt;/body&gt;<br>
+            </code>
+        </p>
+        <label for="htmlCode"></label>
+            <textarea id="htmlCode" class="styleCode">
+
+            </textarea>
+        <p>To już wszystko! Ciesz się swoim własnym napisem na stronie!</p>
+        <p style="float: right;"><strong>Wszystko gotowe?</strong> <button id="reloadPage"><a href="text.html" style="color: red;">Zamknij</a></button></p>
+    </div>
+</section>
+<script type="text/javascript">
+    var generateCode = document.getElementById('generateCode');
+    var backToCode = document.getElementById('backToCode');
+    var previewSheet = document.getElementById('previewSheet');
+
+    function zastosuj() {
+        document.getElementById('htmlCode').innerHTML = document.getElementById('livePreview').innerHTML;
+        document.getElementById('headCode').innerHTML = "<link href='https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Slabo+27px|Oswald|Source+Sans+Pro|Raleway|Roboto+Slab:400,700|Open+Sans+Condensed:300,700|Titillium+Web|Playfair+Display|Dosis|Poiret+One|Lobster|Bree+Serif|Anton|Merriweather+Sans|Cuprum:400,700|Francois+One|Play|Poppins|Exo|Amatic+SC|Righteous|BenchNine|Comfortaa|Russo+One|Kaushan+Script|Source+Code+Pro|Armata|Courgette|Archivo+Black|Jura|Great+Vibes|Marck+Script|Shadows+Into+Light+Two|Audiowide|Coda|Kalam|Sacramento|Rajdhani|Jockey+One|Khand|Unica+One|Allura|Caveat+Brush|Limelight|Freckle+Face|Black+Ops+One|Advent+Pro|Press+Start+2P|Berkshire+Swash|Mouse+Memoirs|Gruppo|Racing+Sans+One|Just+Me+Again+Down+Here|Patrick+Hand+SC|Shojumaru|Life+Savers|Titan+One|Coda+Caption:800|Nosifer|Sancreek|Krona+One|Butcherman|Ruslan+Display|Sonsie+One|Akronim|Arbutus|Eater|Emblema+One|Bigelow+Rules|Hanalei|Modak&subset=latin,latin-ext' rel='stylesheet' type='text/css'>";
+        document.getElementById('headCode').innerHTML += "\n&ltstyle&gt\n";
+        document.getElementById('headCode').innerHTML += previewSheet.innerHTML;
+        document.getElementById('headCode').innerHTML += "\n&lt/style&gt\n";
+    }
+
+    generateCode.onclick = function () {
+        document.getElementById('Code').style.display = 'block';
+            zastosuj();
+    };
+
+    backToCode.onclick = function () {
+        document.getElementById('Code').style.display = 'none';
+    };
+
+    window.onload = function () {
+        var fontsTab = ["'Open Sans', sans-serif","'Roboto', sans-serif","'Slabo', serif","'Oswald', sans-serif","'Source Sans Pro', sans-serif","'Raleway', sans-serif","'Roboto Slab', serif","'Open Sans Condensed', sans-serif","'Titillium Web', sans-serif","'Playfair Display', serif","'Dosis', sans-serif","'Poiret One', cursive","'Lobster', cursive","'Bree Serif', serif","'Anton', sans-serif","'Merriweather Sans', sans-serif","'Cuprum', sans-serif","'Francois One', sans-serif","'Play', sans-serif","'Poppins', sans-serif","'Exo', sans-serif","'Amatic SC', cursive","'Righteous', cursive","'BenchNine', sans-serif","'Comfortaa', cursive","'Russo One', sans-serif","'Kaushan Script', cursive","'Source Code Pro', sans-serif","'Armata', sans-serif","'Courgette', cursive","'Archivo Black', sans-serif","'Jura', sans-serif","'Great Vibes', cursive","'Marck Script', cursive","'Shadows Into Light Two', cursive","'Audiowide', cursive","'Coda', cursive","'Kalam', cursive","'Sacramento', cursive","'Rajdhani', sans-serif","'Jockey One', sans-serif","'Khand', sans-serif","'Unica One', cursive","'Allura', cursive","'Caveat Brush', cursive","'Limelight', cursive","'Freckle Face', cursive","'Black Ops One', cursive","'Advent Pro', sans-serif","'Press Start 2P', cursive","'Berkshire Swash', cursive","'Mouse Memoirs', sans-serif","'Gruppo', cursive","'Racing Sans One', cursive","'Just Me Again Down Here', cursive","'Patrick Hand SC', cursive","'Shojumaru', cursive","'Life Savers', cursive","'Titan One', cursive","'Coda Caption', sans-serif","'Nosifer', cursive","'Sancreek', cursive","'Krona One', sans-serif","'Butcherman', cursive","'Ruslan Display', cursive","'Sonsie One', cursive","'Akronim', cursive","'Arbutus', cursive","'Eater', cursive","'Emblema One', cursive","'Bigelow Rules', cursive","'Hanalei', cursive","'Modak', cursive"];
+        var len = fontsTab.length;
+        var fontLi = document.getElementById('fontChoose');
+        var selectFont = document.createElement("select");
+        selectFont.setAttribute("id", "fontF");
+        selectFont.setAttribute("title", "fontFamily");
+        selectFont.setAttribute("onchange", "fontFamily()");
+        fontLi.appendChild(selectFont);
+
+
+        for(var i=0; i< len; i++){
+            var selectOption = document.createElement("option");
+            selectOption.setAttribute("value", fontsTab[i]);
+            selectOption.innerHTML = ''+fontsTab[i]+'';
+            selectFont.appendChild(selectOption);
+        }
+    };
+
+    /* Dostosowywanie */
+    var bgColor = document.getElementById('bgColor');
+    bgColor.addEventListener("input", function () {
+        document.getElementById('workingLayout').style.backgroundColor = bgColor.value;
+    });
+
+    var bgImage = document.getElementById('bgImage');
+    bgImage.addEventListener("input", function () {
+        document.getElementById('workingLayout').style.background = "url('"+bgImage.value+"')"+bgColor.value+" repeat center center";
+    });
+
+    /* End Dostosowywanie */
+    var preview                 = document.getElementById('livePreview');
+
+    var inputText               = document.getElementById("inputText");
+    var textDiv                 = document.getElementById("textDiv");
+    var textAnimation           = document.getElementById("textAnimation");
+    var textHolder              = document.getElementById("textHolder");
+
+    inputText.onkeyup = function () {
+        var newValue = this.value.replace(/[^0-9a-zęóśłżźćńA-ZĘÓĄŚŁŻŹĆŃ?!.@#&]/gi, '');
+        if (this.value != newValue) {
+            this.value = newValue;
+        }
+        textHolder.innerHTML = newValue;
+    };
+
+
+    function fontFamily() {
+        var fontF = document.getElementById('fontF');
+        var userSelect = fontF.options[fontF.selectedIndex];
+        previewSheet.innerHTML = "#textHolder { font-family: "+userSelect.value+"};";
+        console.log(userSelect.value);
+    }
+
+
+    var letterTab = ["textHolder"];
+    var tabOfLetterTabs;
+    function Letters(){
+        if(inputText.value == ''){
+            alert("Musisz wprowadzić jakiś tekst.");
+            return;
+        }
+        var text = textHolder.innerHTML;
+        var textLen = text.length;
+
+        textHolder.innerHTML = '';
+        tabOfLetterTabs = [];
+        document.getElementById('manipulate').style.display = 'block';
+        document.getElementById('wybor').style.display = 'none';
+
+
+        var whichLetter = document.getElementById('whichLetter');
+        var selectLetter = document.createElement("select");
+        selectLetter.setAttribute("id", "wichL");
+        selectLetter.setAttribute("onchange", "whichLetter()");
+        var allLetters = document.createElement("option");
+        allLetters.setAttribute("value", "textHolder");
+        allLetters.setAttribute("selected", "selected");
+        allLetters.innerHTML = "Cały tekst";
+        whichLetter.appendChild(selectLetter);
+        selectLetter.appendChild(allLetters);
+        for(var i=0; i<textLen; i++){
+            var div = document.createElement("div");
+            var letter = text.slice(i, i+1);
+            letterTab.push("letter"+i);
+            div.setAttribute("id", "Litera"+i+"");
+            div.setAttribute("style", "position: relative; display: inline-block; transform-style: preserve-3d;");
+            div.innerHTML = letter;
+            textHolder.appendChild(div);
+            console.log(letter.charCodeAt(0));
+            var letterOption = document.createElement("option");
+            if(letter.charCodeAt(0) >47 && letter.charCodeAt(0) < 58){
+                letterOption.setAttribute("value", "Litera"+i);
+                letterOption.innerHTML = "Cyfra "+letter+"";
+            }else if(letter.charCodeAt(0) > 64 && letter.charCodeAt(0) < 381){
+                letterOption.setAttribute("value", "Litera"+i);
+                letterOption.innerHTML = "Litera "+letter+"";
+            }else {
+                letterOption.setAttribute("value", "Litera"+i);
+                letterOption.innerHTML = "Znak "+letter+"";
+            }
+            selectLetter.appendChild(letterOption);
+        }
+
+        for(var j=0; j<letterTab.length; j++){
+            var obj = {};
+            obj['fontSize'] = '100';
+            obj['fontColor'] = '#000000';
+            obj['hShadow'] = 0;
+            obj['vShadow'] = 0;
+            obj['blurShadow'] = 0;
+            obj['colorShadow'] = '#000000';
+            obj['skewX'] = 0;
+            obj['skewY'] = 0;
+            obj['translateX'] = 0;
+            obj['translateY'] = 0;
+            obj['translateZ'] = 0;
+            obj['perspective'] = 0;
+            obj['rotateX'] = 0;
+            obj['rotateY'] = 0;
+            obj['rotateZ'] = 0;
+            tabOfLetterTabs.push(obj);
+        }
+        return letterTab;
+    }
+
+    function whichLetter() {
+        var whichLetter = document.getElementById('wichL');
+        var userSelect = whichLetter.options[whichLetter.selectedIndex];
+        fontSize.onchange = function () {
+            fontSize.value = tabOfLetterTabs[userSelect.index]['fontSize'];
+        }.call(this);
+
+        fontColor.onchange = function () {
+            fontColor.value = tabOfLetterTabs[userSelect.index]['fontColor'];
+        }.call(this);
+
+        colorShadow.onchange = function () {
+            colorShadow.value = tabOfLetterTabs[userSelect.index]['colorShadow'];
+        }.call(this);
+
+        hShadow.onchange = function () {
+            hShadow.value = tabOfLetterTabs[userSelect.index]['hShadow'];
+        }.call(this);
+
+        vShadow.onchange = function () {
+            vShadow.value = tabOfLetterTabs[userSelect.index]['vShadow'];
+        }.call(this);
+
+        blurShadow.onchange = function () {
+            blurShadow.value = tabOfLetterTabs[userSelect.index]['blurShadow'];
+        }.call(this);
+
+        skewx.onchange = function () {
+            skewx.value = tabOfLetterTabs[userSelect.index]['skewX'];
+        }.call(this);
+
+        skewy.onchange = function () {
+            skewy.value = tabOfLetterTabs[userSelect.index]['skewY'];
+        }.call(this);
+
+        translatex.onchange = function () {
+            translatex.value = tabOfLetterTabs[userSelect.index]['translateX'];
+        }.call(this);
+
+        translatey.onchange = function () {
+            translatey.value = tabOfLetterTabs[userSelect.index]['translateY'];
+        }.call(this);
+
+        translatez.onchange = function () {
+            translatez.value = tabOfLetterTabs[userSelect.index]['translateZ'];
+        }.call(this);
+
+        perspective.onchange = function () {
+            perspective.value = tabOfLetterTabs[userSelect.index]['perspective'];
+        }.call(this);
+
+        rotatex.onchange = function () {
+            rotatex.value = tabOfLetterTabs[userSelect.index]['rotateX'];
+        }.call(this);
+
+        rotatey.onchange = function () {
+            rotatey.value = tabOfLetterTabs[userSelect.index]['rotateY'];
+        }.call(this);
+
+        rotatez.onchange = function () {
+            rotatez.value = tabOfLetterTabs[userSelect.index]['rotateZ'];
+        }.call(this);
+
+        return userSelect.value;
+    }
+
+    var fontSize                = document.getElementById('textSize');
+    var fontColor               = document.getElementById('textColor');
+    var skewy                   = document.getElementById('skewy');
+    var skewx                   = document.getElementById('skewx');
+    var translatex              = document.getElementById('translateX');
+    var translatey              = document.getElementById('translateY');
+    var translatez              = document.getElementById('translateZ');
+    var perspective             = document.getElementById('Perspective');
+    var rotatex                 = document.getElementById('rotateX');
+    var rotatey                 = document.getElementById('rotateY');
+    var rotatez                 = document.getElementById('rotateZ');
+    var hShadow                 = document.getElementById('hShadow');
+    var vShadow                 = document.getElementById('vShadow');
+    var blurShadow              = document.getElementById('blurShadow');
+    var colorShadow             = document.getElementById('colorShadow');
+
+
+
+
+    function textSize() {
+        fontSize.addEventListener("input", function () {
+            var option = document.getElementById('wichL');
+            var userSelect = option.options[option.selectedIndex];
+            //console.log(userSelect.index);
+            document.getElementById(''+userSelect.value+'').style.fontSize = ""+fontSize.value+"%";
+            tabOfLetterTabs[userSelect.index]['fontSize'] = fontSize.value;
+        })
+    }
+
+    function textColor() {
+        fontColor.addEventListener("input", function () {
+            var option = document.getElementById('wichL');
+            var userSelect = option.options[option.selectedIndex];
+            document.getElementById(''+userSelect.value+'').style.color = ""+fontColor.value+"";
+            tabOfLetterTabs[userSelect.index]['fontColor'] = fontColor.value;
+        })
+    }
+
+    function textHShadow() {
+        hShadow.addEventListener("input", function () {
+            var option = document.getElementById('wichL');
+            var userSelect = option.options[option.selectedIndex];
+            document.getElementById(''+userSelect.value+'').style.textShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+colorShadow.value+"";
+            tabOfLetterTabs[userSelect.index]['hShadow'] = hShadow.value;
+        })
+    }
+
+    function textVShadow() {
+        vShadow.addEventListener("input", function () {
+            var option = document.getElementById('wichL');
+            var userSelect = option.options[option.selectedIndex];
+            document.getElementById(''+userSelect.value+'').style.textShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+colorShadow.value+"";
+            tabOfLetterTabs[userSelect.index]['vShadow'] = vShadow.value;
+        })
+    }
+
+    function textBlurShadow() {
+        blurShadow.addEventListener("input", function () {
+            var option = document.getElementById('wichL');
+            var userSelect = option.options[option.selectedIndex];
+            document.getElementById(''+userSelect.value+'').style.textShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+colorShadow.value+"";
+            tabOfLetterTabs[userSelect.index]['blurShadow'] = blurShadow.value;
+        })
+    }
+
+    function textColorShadow() {
+        colorShadow.addEventListener("input", function () {
+            var option = document.getElementById('wichL');
+            var userSelect = option.options[option.selectedIndex];
+            document.getElementById(''+userSelect.value+'').style.textShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+colorShadow.value+"";
+            tabOfLetterTabs[userSelect.index]['colorShadow'] = colorShadow.value;
+        })
+    }
+
+    function skewX() {
+        skewx.addEventListener("input", function () {
+            var option = document.getElementById('wichL');
+            var userSelect = option.options[option.selectedIndex];
+            //console.log(userSelect.value);
+
+            document.getElementById(''+userSelect.value+'').style.transform = "perspective("+perspective.value+"px) translate3d("+translatex.value+"px,"+translatey.value+"px,"+translatez.value+"px) skew("+skewx.value+"deg,"+skewy.value+"deg) rotateX("+rotatex.value+"deg) rotateY("+rotatey.value+"deg) rotateZ("+rotatez.value+"deg)";
+
+            tabOfLetterTabs[userSelect.index]['skewX'] = skewx.value;
+        });
+    }
+
+    function skewY() {
+        skewy.addEventListener("input", function () {
+            var option = document.getElementById('wichL');
+            var userSelect = option.options[option.selectedIndex];
+            //console.log(userSelect.value);
+
+            document.getElementById(''+userSelect.value+'').style.transform = "perspective("+perspective.value+"px) translate3d("+translatex.value+"px,"+translatey.value+"px,"+translatez.value+"px) skew("+skewx.value+"deg,"+skewy.value+"deg) rotateX("+rotatex.value+"deg) rotateY("+rotatey.value+"deg) rotateZ("+rotatez.value+"deg)";
+            tabOfLetterTabs[userSelect.index]['skewY'] = skewy.value;
+        });
+    }
+
+    function Perspective() {
+        perspective.addEventListener("input", function () {
+            var option = document.getElementById('wichL');
+            var userSelect = option.options[option.selectedIndex];
+            //console.log(userSelect.value);
+
+            document.getElementById(''+userSelect.value+'').style.transform = "perspective("+perspective.value+"px) translate3d("+translatex.value+"px,"+translatey.value+"px,"+translatez.value+"px) skew("+skewx.value+"deg,"+skewy.value+"deg) rotateX("+rotatex.value+"deg) rotateY("+rotatey.value+"deg) rotateZ("+rotatez.value+"deg)";
+
+            tabOfLetterTabs[userSelect.index]['perspective'] = perspective.value;});
+    }
+    function translateX() {
+        translatex.addEventListener("input", function () {
+            var option = document.getElementById('wichL');
+            var userSelect = option.options[option.selectedIndex];
+            //console.log(userSelect.value);
+
+            document.getElementById(''+userSelect.value+'').style.transform = "perspective("+perspective.value+"px) translate3d("+translatex.value+"px,"+translatey.value+"px,"+translatez.value+"px) skew("+skewx.value+"deg,"+skewy.value+"deg) rotateX("+rotatex.value+"deg) rotateY("+rotatey.value+"deg) rotateZ("+rotatez.value+"deg)";
+
+            tabOfLetterTabs[userSelect.index]['translateX'] = translatex.value;
+        });
+    }
+    function translateY() {
+        translatey.addEventListener("input", function () {
+            var option = document.getElementById('wichL');
+            var userSelect = option.options[option.selectedIndex];
+            //console.log(userSelect.value);
+
+            document.getElementById(''+userSelect.value+'').style.transform = "perspective("+perspective.value+"px) translate3d("+translatex.value+"px,"+translatey.value+"px,"+translatez.value+"px) skew("+skewx.value+"deg,"+skewy.value+"deg) rotateX("+rotatex.value+"deg) rotateY("+rotatey.value+"deg) rotateZ("+rotatez.value+"deg)";
+            tabOfLetterTabs[userSelect.index]['translateY'] = translatey.value;
+        });
+    }
+    function translateZ() {
+        translatez.addEventListener("input", function () {
+            var option = document.getElementById('wichL');
+            var userSelect = option.options[option.selectedIndex];
+            //console.log(userSelect.value);
+
+            document.getElementById(''+userSelect.value+'').style.transform = "perspective("+perspective.value+"px) translate3d("+translatex.value+"px,"+translatey.value+"px,"+translatez.value+"px) skew("+skewx.value+"deg,"+skewy.value+"deg) rotateX("+rotatex.value+"deg) rotateY("+rotatey.value+"deg) rotateZ("+rotatez.value+"deg)";
+            tabOfLetterTabs[userSelect.index]['translateZ'] = translatez.value;
+        });
+    }
+
+    function rotateX() {
+        rotatex.addEventListener("input", function () {
+            var option = document.getElementById('wichL');
+            var userSelect = option.options[option.selectedIndex];
+            //console.log(userSelect.value);
+
+            document.getElementById(''+userSelect.value+'').style.transform = "perspective("+perspective.value+"px) translate3d("+translatex.value+"px,"+translatey.value+"px,"+translatez.value+"px) skew("+skewx.value+"deg,"+skewy.value+"deg) rotateX("+rotatex.value+"deg) rotateY("+rotatey.value+"deg) rotateZ("+rotatez.value+"deg)";
+            tabOfLetterTabs[userSelect.index]['rotateX'] = rotatex.value;
+        });
+    }
+    function rotateY() {
+        rotatey.addEventListener("input", function () {
+            var option = document.getElementById('wichL');
+            var userSelect = option.options[option.selectedIndex];
+            //console.log(userSelect.value);
+
+            document.getElementById(''+userSelect.value+'').style.transform = "perspective("+perspective.value+"px) translate3d("+translatex.value+"px,"+translatey.value+"px,"+translatez.value+"px) skew("+skewx.value+"deg,"+skewy.value+"deg) rotateX("+rotatex.value+"deg) rotateY("+rotatey.value+"deg) rotateZ("+rotatez.value+"deg)";
+            tabOfLetterTabs[userSelect.index]['rotateY'] = rotatey.value;
+        });
+    }
+    function rotateZ() {
+        rotatez.addEventListener("input", function () {
+            var option = document.getElementById('wichL');
+            var userSelect = option.options[option.selectedIndex];
+            //console.log(userSelect.value);
+
+            document.getElementById(''+userSelect.value+'').style.transform = "perspective("+perspective.value+"px) translate3d("+translatex.value+"px,"+translatey.value+"px,"+translatez.value+"px) skew("+skewx.value+"deg,"+skewy.value+"deg) rotateX("+rotatex.value+"deg) rotateY("+rotatey.value+"deg) rotateZ("+rotatez.value+"deg)";
+            tabOfLetterTabs[userSelect.index]['rotateZ'] = rotatez.value;
+        });
+    }
+
+
+</script>
+</body>
+</html>

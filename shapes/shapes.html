@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Efekty 3D z CSS3</title>
+    <link rel="stylesheet" type="text/css" href="../reset.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<section>
+    <header>
+        <nav>
+            <a href="../index.html">< </a>
+        </nav>
+        <section>
+            <h1>Grafika 3D</h1>
+        </section>
+    </header>
+</section>
+<section>
+    <section id="kostka">
+        <div class="container">
+            <div id="aniCube1" class="manipulate">
+                <div>
+                    <input type="checkbox" id="Cube1animacja" onclick="Cube1animateIt()">
+                    <label for="Cube1animacja">Animacja</label>
+                    <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                    Animacja pozwala na zmianę właściwości elementu w sposób płynny.<br>
+                                    Animacja ustawiana jest przy pomocy właściwości <code>animation:</code><br>
+                                    Kod stylu animacji ustawiany jest przy pomocy reguł <code>@keyframes</code>
+                                </span>
+                            </span>
+                    </strong>
+                </div>
+                <div>
+                    <input type="checkbox" id="Cube1backfaceToggle" onclick="Cube1backfaceToggle()">
+                    <label for="Cube1backfaceToggle">backface-visibility</label>
+                    <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                    <code>backface-visibility: </code><br>
+                                    Właściwość <code>backface-visibility</code> określa, czy element powinien być widoczny, gdy nie jest ustawiony na pierwszym planie ekranu.
+                                </span>
+                            </span>
+                    </strong>
+                </div>
+                <div>
+                    <input type="checkbox" id="Cube1Opacity" onclick="Cube1Opacity()">
+                    <label for="Cube1Opacity">Przeźroczystość</label>
+                    <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                    <code>opacity: </code><br>
+                                    Właściwość <code>opacity</code> odpowiada za przeźroczystość danego elementu.
+                                </span>
+                            </span>
+                    </strong>
+                </div>
+                <div>
+                    <input type="checkbox" id="Cube1Bg" onclick="Cube1Bg()">
+                    <label for="Cube1Bg">background-image</label>
+                    <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                    <code>background-image: </code><br>
+                                    Właściwość <code>background-image</code> ustawia obraz na tło danego elementu.
+                                </span>
+                            </span>
+                    </strong>
+                </div>
+                <div>
+                    <br><label for="rangeCube">perspective: </label>
+                    <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                    <code>perspective:</code><br>
+                                    Właściwość <code>perspective</code> odpowiada za uzyskanie efektu głębi. Określa zmianę wielkości elementów na osi <code>z</code> względem wektora [0,0,0] w
+                                    przestrzeni trójwymiarowej.
+                                </span>
+                            </span>
+                    </strong>
+                    <input type="range" id="rangeCube" min="800" max="2000" step="10" value="1200">
+                </div>
+                <div>
+                    <br><label for="rangeCube2">perspective-origin (x-axis): </label>
+                    <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                    <code>perspective-origin:</code><br>
+                                    Punktem odniesienia dla efektu <code>perspective </code> jest środek danego elementu.<br>
+                                    Przy pomocy właściwość <code>perspective-origin</code> możemy zmienić ten punkt.<br>
+                                    <code>x-axis</code> definiuje gdzie punkt widoku jest ustawiony na osi x.<br>
+                                    <code>y-axis</code> definiuje gdzie punkt widoku jest ustawiony na osi y.
+                                </span>
+                            </span>
+                    </strong>
+                    <input type="range" id="rangeCube2" min="-150" max="150" step="10" value="50">
+                </div>
+                <div>
+                    <br><label for="rangeCube3">perspective-origin (y-axis): </label>
+                    <strong class="showHelp">?
+                            <span class="help">
+                                <span>
+                                    <code>perspective-origin:</code><br>
+                                    Punktem odniesienia dla efektu <code>perspective </code> jest środek danego elementu.<br>
+                                    Przy pomocy właściwość <code>perspective-origin</code> możemy zmienić ten punkt.<br>
+                                    <code>x-axis</code> definiuje gdzie punkt widoku jest ustawiony na osi x.<br>
+                                    <code>y-axis</code> definiuje gdzie punkt widoku jest ustawiony na osi y.
+                                </span>
+                            </span>
+                    </strong>
+                    <input type="range" id="rangeCube3" min="-1200" max="1200" step="10" value="500">
+                </div>
+                <div>
+                    <br><button id="cubeReset">domyślne wartości suwaków</button>
+                </div>
+            </div>
+            <div class="container">
+                <div id="cubePerspective" class="stage">
+                    <div id="cube" class="shape1 cube">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="shapeVariations">
+            <section>
+                <div class="container">
+                    <div class="manipulate">
+                        <div>
+                            <input type="checkbox" id="Cube2animacja" onclick="Cube2animateIt()">
+                            <label for="Cube2animacja">Animacja</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Cube2backfaceToggle" onclick="Cube2backfaceToggle()">
+                            <label for="Cube2backfaceToggle">backface-visibility</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Cube2Opacity" onclick="Cube2Opacity()">
+                            <label for="Cube2Opacity">Przeźroczystość</label>
+                        </div>
+                    </div>
+                    <div class="stage">
+                        <div id="cube1" class="shape1 cube ">
+                            <div id="cube11" class="shape1 cube ">
+                                <div id="cube111" class="shape1 cube ">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container">
+                    <div class="manipulate">
+                        <div>
+                            <input type="checkbox" id="Cube3animacja" onclick="Cube3animateIt()">
+                            <label for="Cube3animacja">Animacja</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Cube3backfaceToggle" onclick="Cube3backfaceToggle()">
+                            <label for="Cube3backfaceToggle">backface-visibility</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Cube3Opacity" onclick="Cube3Opacity()">
+                            <label for="Cube3Opacity">Przeźroczystość</label>
+                        </div>
+                    </div>
+                    <div class="stage">
+                        <div id="cube2" class="shape1 cube ">
+                            <div id="cube22" class="shape1 cube ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container">
+                    <div class="manipulate">
+                        <div>
+                            <input type="checkbox" id="Cube4animacja" onclick="Cube4animateIt()">
+                            <label for="Cube4animacja">Animacja</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Cube4backfaceToggle" onclick="Cube4backfaceToggle()">
+                            <label for="Cube4backfaceToggle">backface-visibility</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Cube4Opacity" onclick="Cube4Opacity()">
+                            <label for="Cube4Opacity">Przeźroczystość</label>
+                        </div>
+                    </div>
+                <div class="stage half">
+                    <div id="cube3" class="shape1 cube ">
+                    </div>
+                    <div id="cube33" class="shape1 cube ">
+                    </div>
+                    <div id="cube333" class="shape1 cube ">
+                    </div>
+                    <div id="cube3333" class="shape1 cube ">
+                    </div>
+                </div>
+                </div>
+            </section>
+        </section>
+    </section>
+    <section id="kula">
+        <div class="container">
+            <div class="manipulate">
+                <div>
+                    <input type="checkbox" id="Sphere1animacja" onclick="Sphere1animacja()">
+                    <label for="Sphere1animacja">Animacja</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="Sphere1backfaceToggle" onclick="Sphere1backfaceToggle()">
+                    <label for="Sphere1backfaceToggle">backface-visibility</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="Sphere1Opacity" onclick="Sphere1Opacity()">
+                    <label for="Sphere1Opacity">Przeźroczystość</label>
+                </div>
+                <div>
+                    <br><label for="rangeSphere">perspective: </label>
+                    <input type="range" id="rangeSphere" min="800" max="2000" step="10" value="1200">
+                </div>
+                <div>
+                    <br><label for="rangeSphere2">perspective-origin (x-axis): </label>
+                    <input type="range" id="rangeSphere2" min="-150" max="150" step="10" value="50">
+                </div>
+                <div>
+                    <br><label for="rangeSphere3">perspective-origin (y-axis): </label>
+                    <input type="range" id="rangeSphere3" min="-1200" max="1200" step="10" value="500">
+                </div>
+                <div>
+                    <br><button id="sphereReset">domyślne wartości suwaków</button>
+                </div>
+            </div>
+            <div class="stage">
+                <div id="spherePerspective" class="sphereCon">
+                <div id="sphere" class="shape2 sphereContainer">
+            </div>
+        </div>
+        </div>
+        </div>
+        <section class="shapeVariations">
+            <section>
+                <div class="container">
+                    <div class="manipulate">
+                        <div>
+                            <input type="checkbox" id="Sphere2animacja" onclick="Sphere2animacja()">
+                            <label for="Sphere2animacja">Animacja</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Sphere2backfaceToggle" onclick="Sphere2backfaceToggle()">
+                            <label for="Sphere2backfaceToggle">backface-visibility</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Sphere2Opacity" onclick="Sphere2Opacity()">
+                            <label for="Sphere2Opacity">Przeźroczystość</label>
+                        </div>
+                    </div>
+                    <div class="stage">
+                        <div class="sphereCon">
+                            <div id="sphere2" class="shape2 sphereContainer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container">
+                    <div class="manipulate">
+                        <div>
+                            <input type="checkbox" id="Sphere3animacja" onclick="Sphere3animacja()">
+                            <label for="Sphere3animacja">Animacja</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Sphere3backfaceToggle" onclick="Sphere3backfaceToggle()">
+                            <label for="Sphere3backfaceToggle">backface-visibility</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Sphere3Opacity" onclick="Sphere3Opacity()">
+                            <label for="Sphere3Opacity">Przeźroczystość</label>
+                        </div>
+                    </div>
+                    <div class="stage">
+                        <div id="cubeForSphere" class="shape1 cube">
+                            <div id="pos1" class="sphereCon">
+                                <div id="sphere33" class="shape2 sphereContainer">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container">
+                    <div class="manipulate">
+                        <div>
+                            <input type="checkbox" id="Sphere4animacja" onclick="Sphere4animacja()">
+                            <label for="Sphere4animacja">Animacja</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Sphere4backfaceToggle" onclick="Sphere4backfaceToggle()">
+                            <label for="Sphere4backfaceToggle">backface-visibility</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Sphere4Opacity" onclick="Sphere4Opacity()">
+                            <label for="Sphere4Opacity">Przeźroczystość</label>
+                        </div>
+                    </div>
+                    <div class="stage">
+                        <div class="sphereCon">
+                            <div id="sphere4" class="shape2 rings sphereContainer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    </section>
+</section>
+    <section id="walec">
+        <div class="container">
+            <div class="manipulate">
+                <div>
+                    <input type="checkbox" id="Cylinder1animacja" onclick="Cylinder1animacja()">
+                    <label for="Cylinder1animacja">Animacja</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="Cylinder1backfaceToggle" onclick="Cylinder1backfaceToggle()">
+                    <label for="Cylinder1backfaceToggle">backface-visibility</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="Cylinder1Opacity" onclick="Cylinder1Opacity()">
+                    <label for="Cylinder1Opacity">Przeźroczystość</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="Cylinder1Bg" onclick="Cylinder1Bg()">
+                    <label for="Cylinder1Bg">background-image</label>
+                </div>
+                <div>
+                    <br><label for="rangeCylinder">perspective: </label>
+                    <input type="range" id="rangeCylinder" min="800" max="2000" step="10" value="1200">
+                </div>
+                <div>
+                    <br><label for="rangeCylinder2">perspective-origin (x-axis): </label>
+                    <input type="range" id="rangeCylinder2" min="-150" max="150" step="10" value="50">
+                </div>
+                <div>
+                    <br><label for="rangeCylinder3">perspective-origin (y-axis): </label>
+                    <input type="range" id="rangeCylinder3" min="-1200" max="1200" step="10" value="500">
+                </div>
+                <div>
+                    <br><button id="cylinderReset">domyślne wartości suwaków</button>
+                </div>
+            </div>
+            <div id="cylinderPerspective" class="stage">
+                <div id="cylinder" class="shape3">
+                </div>
+            </div>
+        </div>
+    <section class="shapeVariations">
+        <section>
+            <div class="container">
+                <div class="manipulate">
+                    <div>
+                        <input type="checkbox" id="Cylinder2animacja" onclick="Cylinder2animacja()">
+                        <label for="Cylinder2animacja">Animacja</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Cylinder2backfaceToggle" onclick="Cylinder2backfaceToggle()">
+                        <label for="Cylinder2backfaceToggle">backface-visibility</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Cylinder2Opacity" onclick="Cylinder2Opacity()">
+                        <label for="Cylinder2Opacity">Przeźroczystość</label>
+                    </div>
+                </div>
+                <div class="stage">
+                    <div id="cylinder2" class="shape3">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="manipulate">
+                    <div>
+                        <input type="checkbox" id="Cylinder3animacja" onclick="Cylinder3animacja()">
+                        <label for="Cylinder3animacja">Animacja</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Cylinder3backfaceToggle" onclick="Cylinder3backfaceToggle()">
+                        <label for="Cylinder3backfaceToggle">backface-visibility</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Cylinder3Opacity" onclick="Cylinder3Opacity()">
+                        <label for="Cylinder3Opacity">Przeźroczystość</label>
+                    </div>
+                </div>
+                <div class="stage">
+                    <div id="cubeForCylinder" class="shape1 cube">
+                        <div id="cylinder3" class="shape3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="manipulate">
+                    <div>
+                        <input type="checkbox" id="Cylinder4animacja" onclick="Cylinder4animacja()">
+                        <label for="Cylinder4animacja">Animacja</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Cylinder4backfaceToggle" onclick="Cylinder4backfaceToggle()">
+                        <label for="Cylinder4backfaceToggle">backface-visibility</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Cylinder4Opacity" onclick="Cylinder4Opacity()">
+                        <label for="Cylinder4Opacity">Przeźroczystość</label>
+                    </div>
+                </div>
+                <div class="stage">
+                    <div id="cylinder4" class="shape3">
+                        <div id="cubeForCylinder2" class="shape1 cube">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    </section>
+    <section id="czworoscian">
+        <div class="container">
+            <div class="manipulate">
+                <div>
+                    <input type="checkbox" id="Tet1animacja" onclick="Tet1animacja()">
+                    <label for="Tet1animacja">Animacja</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="Tet1backfaceToggle" onclick="Tet1backfaceToggle()">
+                    <label for="Tet1backfaceToggle">backface-visibility</label>
+                </div>
+                <div>
+                    <br><label for="rangeTet">perspective: </label>
+                    <input type="range" id="rangeTet" min="1300" max="2000" step="10" value="1300">
+                </div>
+                <div>
+                    <br><label for="rangeTet2">perspective-origin (x-axis): </label>
+                    <input type="range" id="rangeTet2" min="-100" max="100" step="10" value="50">
+                </div>
+                <div>
+                    <br><label for="rangeTet3">perspective-origin (y-axis): </label>
+                    <input type="range" id="rangeTet3" min="-800" max="800" step="10" value="500">
+                </div>
+                <div>
+                    <br><button id="tetReset">domyślne wartości suwaków</button>
+                </div>
+            </div>
+            <div id="tetPerspective" class="stage">
+                <section id="tetrahedron" class="shape4">
+                </section>
+            </div>
+        </div>
+        <section class="shapeVariations">
+            <section>
+                <div class="container">
+                    <div class="manipulate">
+                        <div>
+                            <input type="checkbox" id="Tet2animacja" onclick="Tet2animacja()">
+                            <label for="Tet2animacja">Animacja</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Tet2backfaceToggle" onclick="Tet2backfaceToggle()">
+                            <label for="Tet2backfaceToggle">backface-visibility</label>
+                        </div>
+                    </div>
+                    <div class="stage">
+                        <div id="tet2" class="shape4">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container">
+                    <div class="manipulate">
+                        <div>
+                            <input type="checkbox" id="Tet3animacja" onclick="Tet3animacja()">
+                            <label for="Tet3animacja">Animacja</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Tet3backfaceToggle" onclick="Tet3backfaceToggle()">
+                            <label for="Tet3backfaceToggle">backface-visibility</label>
+                        </div>
+                    </div>
+                    <div class="stage">
+                        <div id="tet3" class="shape4">
+                        </div>
+                        <div id="tet33" class="shape4">
+                        </div>
+                        <div id="tet333" class="shape4">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container">
+                    <div class="manipulate">
+                        <div>
+                            <input type="checkbox" id="Tet4animacja" onclick="Tet4animacja()">
+                            <label for="Tet4animacja">Animacja</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Tet4backfaceToggle" onclick="Tet4backfaceToggle()">
+                            <label for="Tet4backfaceToggle">backface-visibility</label>
+                        </div>
+                    </div>
+                    <div class="stage">
+                        <div id="tet4" class="shape4">
+                        </div>
+                        <div id="tet44" class="shape4">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+</section>
+<script type="text/javascript">
+    function hasClassName(inElement, inClassName)
+    {
+        var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)');
+        return regExp.test(inElement.className);
+    }
+
+    function addClassName(inElement, inClassName)
+    {
+        if (!hasClassName(inElement, inClassName))
+            inElement.className = [inElement.className, inClassName].join(' ');
+    }
+
+    function removeClassName(inElement, inClassName)
+    {
+        if (hasClassName(inElement, inClassName)) {
+            var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)', 'g');
+            var curClasses = inElement.className;
+            inElement.className = curClasses.replace(regExp, ' ');
+        }
+    }
+
+    function toggleClassName(inElement, inClassName)
+    {
+        if (hasClassName(inElement, inClassName))
+            removeClassName(inElement, inClassName);
+        else
+            addClassName(inElement, inClassName);
+    }
+
+    function Cube1backfaceToggle() {
+        var tgbackface = document.getElementById('Cube1backfaceToggle').checked;
+        var cube = document.getElementById('cube');
+        if (tgbackface)
+            addClassName(cube, 'backfaces-visibility');
+        else
+            removeClassName(cube, 'backfaces-visibility');
+    }
+
+    function Cube1animateIt() {
+        var animate = document.getElementById('Cube1animacja').checked;
+        var cube = document.getElementById('cube');
+        if (animate)
+            addClassName(cube, 'spin');
+        else
+            removeClassName(cube, 'spin');
+    }
+
+    function Cube1Opacity() {
+        var opacity = document.getElementById('Cube1Opacity').checked;
+        var cube = document.getElementById('cube');
+        if (opacity)
+            addClassName(cube, 'opacity1');
+        else
+            removeClassName(cube, 'opacity1');
+    }
+
+    function Cube1Bg() {
+        var bgImage = document.getElementById('Cube1Bg').checked;
+        var cube = document.getElementById('cube');
+        if (bgImage) {
+            addClassName(cube, 'bgImage');
+            addClassName(cube, 'spinback');
+        }
+        else {
+            removeClassName(cube, 'bgImage');
+            removeClassName(cube, 'spinback');
+        }
+    }
+
+    function Cube2backfaceToggle() {
+        var tgbackface = document.getElementById('Cube2backfaceToggle').checked;
+        var cube1 = document.getElementById('cube1');
+        var cube11 = document.getElementById('cube11');
+        var cube111 = document.getElementById('cube111');
+        if (tgbackface){
+            addClassName(cube1, 'backfaces-visibility');
+            addClassName(cube11, 'backfaces-visibility');
+            addClassName(cube111, 'backfaces-visibility');
+        }
+        else {
+            removeClassName(cube1, 'backfaces-visibility');
+            removeClassName(cube11, 'backfaces-visibility');
+            removeClassName(cube111, 'backfaces-visibility');
+        }
+    }
+
+    function Cube2animateIt() {
+        var animate = document.getElementById('Cube2animacja').checked;
+        var cube1 = document.getElementById('cube1');
+        var cube11 = document.getElementById('cube11');
+        var cube111 = document.getElementById('cube111');
+        if (animate){
+            addClassName(cube1, 'spin');
+            addClassName(cube11, 'spin');
+            addClassName(cube111, 'spin');
+        }
+        else {
+            removeClassName(cube1, 'spin');
+            removeClassName(cube11, 'spin');
+            removeClassName(cube111, 'spin');
+        }
+    }
+
+    function Cube2Opacity() {
+        var opacity = document.getElementById('Cube2Opacity').checked;
+        var cube = document.getElementById('cube');
+        var cube1 = document.getElementById('cube1');
+        var cube11 = document.getElementById('cube11');
+        var cube111 = document.getElementById('cube111');
+        if (opacity){
+            addClassName(cube1, 'opacity1');
+            addClassName(cube11, 'opacity1');
+            addClassName(cube111, 'opacity1');
+        }
+        else {
+            removeClassName(cube1, 'opacity1');
+            removeClassName(cube11, 'opacity1');
+            removeClassName(cube111, 'opacity1');
+        }
+    }
+
+    function Cube3backfaceToggle() {
+        var tgbackface = document.getElementById('Cube3backfaceToggle').checked;
+        var cube2 = document.getElementById('cube2');
+        var cube22 = document.getElementById('cube22');
+        if (tgbackface){
+            addClassName(cube2, 'backfaces-visibility');
+            addClassName(cube22, 'backfaces-visibility');
+        }
+        else {
+            removeClassName(cube2, 'backfaces-visibility');
+            removeClassName(cube22, 'backfaces-visibility');
+        }
+    }
+
+    function Cube3animateIt() {
+        var animate = document.getElementById('Cube3animacja').checked;
+        var cube2 = document.getElementById('cube2');
+        var cube22 = document.getElementById('cube22');
+        if (animate){
+            addClassName(cube2, 'spin');
+            addClassName(cube22, 'spinback');
+        }
+        else {
+            removeClassName(cube2, 'spin');
+            removeClassName(cube22, 'spinback');
+        }
+    }
+
+    function Cube3Opacity() {
+        var opacity = document.getElementById('Cube3Opacity').checked;
+        var cube2 = document.getElementById('cube2');
+        var cube22 = document.getElementById('cube22');
+        if (opacity){
+            addClassName(cube2, 'opacity1');
+            addClassName(cube22, 'opacity1');
+        }
+        else {
+            removeClassName(cube2, 'opacity1');
+            removeClassName(cube22, 'opacity1');
+        }
+    }
+
+    function Cube4backfaceToggle() {
+        var tgbackface = document.getElementById('Cube4backfaceToggle').checked;
+        var cube3 = document.getElementById('cube3');
+        var cube33 = document.getElementById('cube33');
+        var cube333 = document.getElementById('cube333');
+        var cube3333 = document.getElementById('cube3333');
+        if (tgbackface){
+            addClassName(cube3, 'backfaces-visibility');
+            addClassName(cube33, 'backfaces-visibility');
+            addClassName(cube333, 'backfaces-visibility');
+            addClassName(cube3333, 'backfaces-visibility');
+        }
+        else {
+            removeClassName(cube3, 'backfaces-visibility');
+            removeClassName(cube33, 'backfaces-visibility');
+            removeClassName(cube333, 'backfaces-visibility');
+            removeClassName(cube3333, 'backfaces-visibility');
+        }
+    }
+
+    function Cube4animateIt() {
+        var animate = document.getElementById('Cube4animacja').checked;
+        var cube3 = document.getElementById('cube3');
+        var cube33 = document.getElementById('cube33');
+        var cube333 = document.getElementById('cube333');
+        var cube3333 = document.getElementById('cube3333');
+        if (animate){
+            addClassName(cube3, 'spin');
+            addClassName(cube33, 'spin');
+            addClassName(cube333, 'spin');
+            addClassName(cube3333,'spin');
+        }
+        else {
+            removeClassName(cube3, 'spin');
+            removeClassName(cube33, 'spin');
+            removeClassName(cube333, 'spin');
+            removeClassName(cube3333, 'spin');
+        }
+    }
+
+    function Cube4Opacity() {
+        var opacity = document.getElementById('Cube4Opacity').checked;
+        var cube3 = document.getElementById('cube3');
+        var cube33 = document.getElementById('cube33');
+        var cube333 = document.getElementById('cube333');
+        var cube3333 = document.getElementById('cube3333');
+        if (opacity){
+            addClassName(cube3, 'opacity1');
+            addClassName(cube33, 'opacity1');
+            addClassName(cube333, 'opacity1');
+            addClassName(cube3333,'opacity1');
+        }
+        else {
+            removeClassName(cube3, 'opacity1');
+            removeClassName(cube33, 'opacity1');
+            removeClassName(cube333, 'opacity1');
+            removeClassName(cube3333, 'opacity1');
+        }
+    }
+
+    function Sphere1backfaceToggle() {
+        var tgbackface = document.getElementById('Sphere1backfaceToggle').checked;
+        var sphere = document.getElementById('sphere');
+        if (tgbackface)
+            addClassName(sphere, 'backfaces-visibility');
+        else
+            removeClassName(sphere, 'backfaces-visibility');
+    }
+
+    function Sphere1animacja() {
+        var animate = document.getElementById('Sphere1animacja').checked;
+        var sphere = document.getElementById('sphere');
+        if (animate)
+            addClassName(sphere, 'spin');
+        else
+            removeClassName(sphere, 'spin');
+    }
+
+    function Sphere1Opacity() {
+        var opacity = document.getElementById('Sphere1Opacity').checked;
+        var sphere = document.getElementById('sphere');
+        if (opacity)
+            addClassName(sphere, 'opacity1');
+        else
+            removeClassName(sphere, 'opacity1');
+    }
+
+    function Sphere2backfaceToggle() {
+        var tgbackface = document.getElementById('Sphere2backfaceToggle').checked;
+        var sphere = document.getElementById('sphere2');
+        if (tgbackface)
+            addClassName(sphere, 'backfaces-visibility');
+        else
+            removeClassName(sphere, 'backfaces-visibility');
+    }
+
+    function Sphere2animacja() {
+        var animate = document.getElementById('Sphere2animacja').checked;
+        var sphere = document.getElementById('sphere2');
+        if (animate)
+            addClassName(sphere, 'spinScale');
+        else
+            removeClassName(sphere, 'spinScale');
+    }
+
+    function Sphere2Opacity() {
+        var opacity = document.getElementById('Sphere2Opacity').checked;
+        var sphere = document.getElementById('sphere2');
+        if (opacity)
+            addClassName(sphere, 'opacity1');
+        else
+            removeClassName(sphere, 'opacity1');
+    }
+
+    function Sphere3backfaceToggle() {
+        var tgbackface = document.getElementById('Sphere3backfaceToggle').checked;
+        var sphere = document.getElementById('sphere33');
+        var cube = document.getElementById('cubeForSphere');
+        if (tgbackface){
+            addClassName(sphere, 'backfaces-visibility');
+            addClassName(cube, 'backfaces-visibility');
+        }
+        else{
+            removeClassName(sphere, 'backfaces-visibility');
+            removeClassName(cube, 'backfaces-visibility');
+        }
+    }
+
+    function Sphere3animacja() {
+        var animate = document.getElementById('Sphere3animacja').checked;
+        var sphere = document.getElementById('sphere33');
+        var cube = document.getElementById('cubeForSphere');
+        if (animate){
+            addClassName(sphere, 'spinStaticScale');
+            addClassName(cube, 'spin');
+        }
+        else{
+            removeClassName(sphere, 'spinStaticScale');
+            removeClassName(cube, 'spin');
+        }
+    }
+
+    function Sphere3Opacity() {
+        var opacity = document.getElementById('Sphere3Opacity').checked;
+        var sphere = document.getElementById('sphere33');
+        var cube = document.getElementById('cubeForSphere');
+        if (opacity){
+            addClassName(sphere, 'opacity1');
+            addClassName(cube, 'opacity1');
+        }
+        else{
+            removeClassName(sphere, 'opacity1');
+            removeClassName(cube, 'opacity1');
+        }
+    }
+
+    function Sphere4backfaceToggle() {
+        var tgbackface = document.getElementById('Sphere4backfaceToggle').checked;
+        var sphere = document.getElementById('sphere4');
+        if (tgbackface){
+            addClassName(sphere, 'backfaces-visibility');
+        }
+        else{
+            removeClassName(sphere, 'backfaces-visibility');
+        }
+    }
+
+    function Sphere4animacja() {
+        var animate = document.getElementById('Sphere4animacja').checked;
+        var sphere = document.getElementById('sphere4');
+        if (animate){
+            addClassName(sphere, 'spinStaticScale');
+        }
+        else{
+            removeClassName(sphere, 'spinStaticScale');
+        }
+    }
+
+    function Sphere4Opacity() {
+        var opacity = document.getElementById('Sphere4Opacity').checked;
+        var sphere = document.getElementById('sphere4');
+        if (opacity){
+            addClassName(sphere, 'opacity1');
+        }
+        else{
+            removeClassName(sphere, 'opacity1');
+        }
+    }
+
+    function Cylinder1backfaceToggle() {
+        var tgbackface = document.getElementById('Cylinder1backfaceToggle').checked;
+        var cylinder = document.getElementById('cylinder');
+        if (tgbackface)
+            addClassName(cylinder, 'backfaces-visibility');
+        else
+            removeClassName(cylinder, 'backfaces-visibility');
+    }
+
+    function Cylinder1animacja() {
+        var animate = document.getElementById('Cylinder1animacja').checked;
+        var cylinder = document.getElementById('cylinder');
+        if (animate)
+            addClassName(cylinder, 'spin');
+        else
+            removeClassName(cylinder, 'spin');
+    }
+
+    function Cylinder1Opacity() {
+        var opacity = document.getElementById('Cylinder1Opacity').checked;
+        var cylinder = document.getElementById('cylinder');
+        if (opacity)
+            addClassName(cylinder, 'opacity1');
+        else
+            removeClassName(cylinder, 'opacity1');
+    }
+
+    function Cylinder1Bg() {
+        var bgImage = document.getElementById('Cylinder1Bg').checked;
+        var cylinder = document.getElementById('cylinder');
+        if (bgImage){
+            addClassName(cylinder, 'bgImage');
+            addClassName(cylinder, 'spinVertical');
+        }
+        else {
+            removeClassName(cylinder, 'bgImage');
+            removeClassName(cylinder, 'spinVertical');
+        }
+    }
+
+    function Cylinder2backfaceToggle() {
+        var tgbackface = document.getElementById('Cylinder2backfaceToggle').checked;
+        var cylinder = document.getElementById('cylinder2');
+        if (tgbackface)
+            addClassName(cylinder, 'backfaces-visibility');
+        else
+            removeClassName(cylinder, 'backfaces-visibility');
+    }
+
+    function Cylinder2animacja() {
+        var animate = document.getElementById('Cylinder2animacja').checked;
+        var cylinder = document.getElementById('cylinder2');
+        if (animate)
+            addClassName(cylinder, 'spinCylinder');
+        else
+            removeClassName(cylinder, 'spinCylinder');
+    }
+
+    function Cylinder2Opacity() {
+        var opacity = document.getElementById('Cylinder2Opacity').checked;
+        var cylinder = document.getElementById('cylinder2');
+        if (opacity)
+            addClassName(cylinder, 'opacity1');
+        else
+            removeClassName(cylinder, 'opacity1');
+    }
+
+    function Cylinder3backfaceToggle() {
+        var tgbackface = document.getElementById('Cylinder3backfaceToggle').checked;
+        var cylinder = document.getElementById('cylinder3');
+        var cube = document.getElementById('cubeForCylinder');
+        if (tgbackface){
+            addClassName(cube, 'backfaces-visibility');
+            addClassName(cylinder, 'backfaces-visibility');
+        }
+        else {
+            removeClassName(cube, 'backfaces-visibility');
+            removeClassName(cylinder, 'backfaces-visibility');
+        }
+    }
+
+    function Cylinder3animacja() {
+        var animate = document.getElementById('Cylinder3animacja').checked;
+        var cylinder = document.getElementById('cylinder3');
+        var cube = document.getElementById('cubeForCylinder');
+        if (animate){
+            addClassName(cylinder, 'spinStaticRotateScale');
+            addClassName(cube, 'spinVertical');
+        }
+        else {
+            removeClassName(cylinder, 'spinStaticRotateScale');
+            removeClassName(cube, 'spinVertical');
+        }
+    }
+
+    function Cylinder3Opacity() {
+        var opacity = document.getElementById('Cylinder3Opacity').checked;
+        var cylinder = document.getElementById('cylinder3');
+        var cube = document.getElementById('cubeForCylinder');
+        if (opacity){
+            addClassName(cylinder, 'opacity1');
+            addClassName(cube, 'opacity1');
+        }
+        else {
+            removeClassName(cube, 'opacity1');
+            removeClassName(cylinder, 'opacity1');
+        }
+    }
+
+    function Cylinder4backfaceToggle() {
+        var tgbackface = document.getElementById('Cylinder4backfaceToggle').checked;
+        var cylinder = document.getElementById('cylinder4');
+        var cube = document.getElementById('cubeForCylinder2');
+        if (tgbackface) {
+            addClassName(cylinder, 'backfaces-visibility');
+            addClassName(cube, 'backfaces-visibility');
+        }
+        else {
+            removeClassName(cylinder, 'backfaces-visibility');
+            removeClassName(cube, 'backfaces-visibility');
+        }
+    }
+
+    function Cylinder4animacja() {
+        var animate = document.getElementById('Cylinder4animacja').checked;
+        var cylinder = document.getElementById('cylinder4');
+        var cube = document.getElementById('cubeForCylinder2');
+        if (animate) {
+            addClassName(cylinder, 'spinZ');
+            addClassName(cube, 'spinStaticScale');
+        }
+        else {
+            removeClassName(cylinder, 'spinZ');
+            removeClassName(cube, 'spinStaticScale');
+        }
+    }
+
+    function Cylinder4Opacity() {
+        var opacity = document.getElementById('Cylinder4Opacity').checked;
+        var cylinder = document.getElementById('cylinder4');
+        var cube = document.getElementById('cubeForCylinder2');
+        if (opacity) {
+            addClassName(cylinder, 'opacity1');
+            addClassName(cube, 'opacity1');
+        }
+        else {
+            removeClassName(cylinder, 'opacity1');
+            removeClassName(cube, 'opacity1');
+        }
+    }
+
+    function Tet1backfaceToggle() {
+        var tgbackface = document.getElementById('Tet1backfaceToggle').checked;
+        var tet = document.getElementById('tetrahedron');
+        if (tgbackface) {
+            addClassName(tet, 'backfaces-visibility');
+        }
+        else {
+            removeClassName(tet, 'backfaces-visibility');
+        }
+    }
+
+    function Tet1animacja() {
+        var animate = document.getElementById('Tet1animacja').checked;
+        var tet = document.getElementById('tetrahedron');
+        if (animate) {
+            addClassName(tet, 'spin');
+        }
+        else {
+            removeClassName(tet, 'spin');
+        }
+    }
+
+    function Tet2backfaceToggle() {
+        var tgbackface = document.getElementById('Tet2backfaceToggle').checked;
+        var tet = document.getElementById('tet2');
+        if (tgbackface) {
+            addClassName(tet, 'backfaces-visibility');
+        }
+        else {
+            removeClassName(tet, 'backfaces-visibility');
+        }
+    }
+
+    function Tet2animacja() {
+        var animate = document.getElementById('Tet2animacja').checked;
+        var tet = document.getElementById('tet2');
+        if (animate) {
+            addClassName(tet, 'spinTet');
+        }
+        else {
+            removeClassName(tet, 'spinTet');
+        }
+    }
+
+    function Tet3animacja() {
+        var animate = document.getElementById('Tet3animacja').checked;
+        var tet3 = document.getElementById('tet3');
+        var tet33 = document.getElementById('tet33');
+        var tet333 = document.getElementById('tet333');
+        if (animate) {
+            addClassName(tet3, 'spin');
+            addClassName(tet33, 'spinback');
+            addClassName(tet333, 'spinback2');
+        }
+        else {
+            removeClassName(tet3, 'spin');
+            removeClassName(tet33, 'spinback');
+            removeClassName(tet333, 'spinback2');
+        }
+    }
+
+    function Tet3backfaceToggle() {
+        var tgbackface = document.getElementById('Tet3backfaceToggle').checked;
+        var tet3 = document.getElementById('tet3');
+        var tet33 = document.getElementById('tet33');
+        var tet333 = document.getElementById('tet333');
+        if (tgbackface) {
+            addClassName(tet3, 'backfaces-visibility');
+            addClassName(tet33, 'backfaces-visibility');
+            addClassName(tet333, 'backfaces-visibility');
+        }
+        else {
+            removeClassName(tet3, 'backfaces-visibility');
+            removeClassName(tet33, 'backfaces-visibility');
+            removeClassName(tet333, 'backfaces-visibility');
+        }
+    }
+
+    function Tet4animacja() {
+        var animate = document.getElementById('Tet4animacja').checked;
+        var tet4 = document.getElementById('tet4');
+        var tet44 = document.getElementById('tet44');
+        if (animate) {
+            addClassName(tet4, 'spinVerticalTet');
+            addClassName(tet44, 'spinVerticalScale');
+        }
+        else {
+            removeClassName(tet4, 'spinVerticalTet');
+            removeClassName(tet44, 'spinVerticalScale');
+        }
+    }
+
+    function Tet4backfaceToggle() {
+        var tgbackface = document.getElementById('Tet4backfaceToggle').checked;
+        var tet4 = document.getElementById('tet4');
+        if (tgbackface) {
+            addClassName(tet4, 'backfaces-visibility');
+        }
+        else {
+            removeClassName(tet4, 'backfaces-visibility');
+        }
+    }
+
+</script>
+<script type="text/javascript">
+    function cube(id, top, scale) {
+        var cubeId = document.getElementById(id);
+        cubeId.setAttribute("style", "top:"+top+"px; -o-transform: scale3d("+scale+","+scale+","+scale+"); -moz-transform: scale3d("+scale+","+scale+","+scale+"); -webkit-transform: scale3d("+scale+","+scale+","+scale+"); transform: scale3d("+scale+","+scale+","+scale+")");
+        var walls = ['one', 'two', 'three', 'four', 'five', 'six'];
+
+        for(var i=0; i<walls.length; i++){
+            var div = document.createElement("div");
+            div.setAttribute("class", "element "+walls[i]);
+            cubeId.appendChild(div);
+        }
+    }
+    function sphere(id, scale, pos, top) {
+        if(pos){
+            var position = document.getElementById(pos);
+            position.setAttribute("style", "top:"+top+"px");
+        }
+        var sphereId = document.getElementById(id);
+        sphereId.setAttribute("style", "-o-transform: scale3d("+scale+","+scale+","+scale+"); -moz-transform: scale3d("+scale+","+scale+","+scale+"); -webkit-transform: scale3d("+scale+","+scale+","+scale+"); transform: scale3d("+scale+","+scale+","+scale+")");
+        var row = 6;
+        var rowElements = 20;
+        var rowRotation = 360/rowElements;
+        var rowElementRotation = 180/row;
+        var xRotation, yRotation;
+        var width = 70;
+        var zTranslate = (width/2) / Math.tan(rowRotation * Math.PI/180);
+
+        for(var i=0; i< row; i++){
+            var div1 = document.createElement("div");
+            xRotation = rowElementRotation * i;
+            div1.setAttribute("style", "-o-transform: rotateX("+xRotation+"deg); -moz-transform: rotateX("+xRotation+"deg); -webkit-transform: rotateX("+xRotation+"deg); transform: rotateX("+xRotation+"deg)");
+            for(var j=0; j< rowElements; j++){
+                var div2 = document.createElement("div");
+                yRotation = rowRotation * j;
+                div2.setAttribute("style", "-o-transform: rotateY("+yRotation+"deg) translateZ("+zTranslate+"px); -moz-transform: rotateY("+yRotation+"deg) translateZ("+zTranslate+"px); -webkit-transform: rotateY("+yRotation+"deg) translateZ("+zTranslate+"px); transform: rotateY("+yRotation+"deg) translateZ("+zTranslate+"px)");
+                div1.appendChild(div2);
+            }
+            sphereId.appendChild(div1);
+        }
+
+    }
+    function sphere3rings(id, scale, pos, top) {
+        if(pos){
+            var position = document.getElementById(pos);
+            position.setAttribute("style", "top:"+top+"px");
+        }
+        var sphereId = document.getElementById(id);
+        sphereId.setAttribute("style", "-o-transform: scale3d("+scale+","+scale+","+scale+"); -moz-transform: scale3d("+scale+","+scale+","+scale+"); -webkit-transform: scale3d("+scale+","+scale+","+scale+"); transform: scale3d("+scale+","+scale+","+scale+")");
+        var row = 3;
+        var rowElements = 20;
+        var rowRotation = 360/rowElements;
+        var rowElementRotation = 180/row;
+        var xRotation, yRotation;
+        var width = 70;
+        var zTranslate = (width/2) / Math.tan(rowRotation * Math.PI/180);
+
+        for(var i=0; i< row; i++){
+            var div1 = document.createElement("div");
+            xRotation = rowElementRotation * i;
+            div1.setAttribute("style", "-o-transform: rotateX("+xRotation+"deg); -moz-transform: rotateX("+xRotation+"deg); -webkit-transform: rotateX("+xRotation+"deg); transform: rotateX("+xRotation+"deg)");
+            for(var j=0; j< rowElements; j++){
+                var div2 = document.createElement("div");
+                yRotation = rowRotation * j;
+                div2.setAttribute("style", "-o-transform: rotateY("+yRotation+"deg) translateZ("+zTranslate+"px); -moz-transform: rotateY("+yRotation+"deg) translateZ("+zTranslate+"px); -webkit-transform: rotateY("+yRotation+"deg) translateZ("+zTranslate+"px); transform: rotateY("+yRotation+"deg) translateZ("+zTranslate+"px)");
+                div1.appendChild(div2);
+            }
+            sphereId.appendChild(div1);
+        }
+
+    }
+    function cylinder(id, scale) {
+        var cylinderId = document.getElementById(id);
+        cylinderId.setAttribute("style", " -o-transform: scale3d("+scale+","+scale+","+scale+"); -moz-transform: scale3d("+scale+","+scale+","+scale+"); -webkit-transform: scale3d("+scale+","+scale+","+scale+"); transform: scale3d("+scale+","+scale+","+scale+")");
+        var row = 60;
+        var topDiv = document.createElement("div");
+        topDiv.setAttribute("style", "position: absolute; width: 200px; height: 200px; border-radius: 50%; -o-transform: rotateX(90deg) translateX(-95px) translateZ(100px); -moz-transform: rotateX(90deg) translateX(-95px) translateZ(100px); -webkit-transform: rotateX(90deg) translateX(-95px) translateZ(100px); transform: rotateX(90deg) translateX(-95px) translateZ(100px)");
+        cylinderId.appendChild(topDiv);
+
+        var bottomDiv = document.createElement("div");
+        bottomDiv.setAttribute("style", "position: absolute; width: 200px; height: 200px; border-radius: 50%; -o-transform: rotateX(-90deg) translateX(-95px) translateZ(50px); -moz-transform: rotateX(-90deg) translateX(-95px) translateZ(50px); -webkit-transform: rotateX(-90deg) translateX(-95px) translateZ(50px); transform: rotateX(-90deg) translateX(-95px) translateZ(50px)");
+        cylinderId.appendChild(bottomDiv);
+        for(var i=0; i< row; i++){
+            var div = document.createElement("div");
+            var yRotation = 6 * i;
+            var bgPosition = (590-(i * 10));
+            div.setAttribute("style", "width: 11px; height: 150px; -o-transform: rotateY("+yRotation+"deg) translateZ(100px); -moz-transform: rotateY("+yRotation+"deg) translateZ(100px); -webkit-transform: rotateY("+yRotation+"deg) translateZ(100px); transform: rotateY("+yRotation+"deg) translateZ(100px); background-size: 590px 150px ; background-position: "+bgPosition+"px 0px");
+            cylinderId.appendChild(div);
+        }
+
+    }
+    function tetrahedron(id, top, scale) {
+        var pyramidId = document.getElementById(id);
+        pyramidId.setAttribute("style", "top:"+top+"px; -o-transform: scale3d("+scale+","+scale+","+scale+"); -moz-transform: scale3d("+scale+","+scale+","+scale+"); -webkit-transform: scale3d("+scale+","+scale+","+scale+"); transform: scale3d("+scale+","+scale+","+scale+")");
+        var walls = ['pone', 'ptwo', 'pthree', 'pfour'];
+
+        for(var i=0; i<walls.length; i++){
+            var div = document.createElement("div");
+            div.setAttribute("class", walls[i]);
+            pyramidId.appendChild(div);
+        }
+    }
+
+    cube('cube');
+    cube('cube1');
+    cube('cube11');
+    cube('cube111');
+    cube('cube2');
+    cube('cube22');
+    cube('cube3');
+    cube('cube33');
+    cube('cube333');
+    cube('cube3333');
+    sphere('sphere', 1);
+    sphere('sphere2', 0.6);
+    cube('cubeForSphere', 30);
+    sphere('sphere33', 0.6, 'pos1', 125);
+    sphere3rings('sphere4', 0.6);
+
+    cylinder('cylinder');
+    cylinder('cylinder2');
+    cylinder('cylinder3', 0.6);
+    cylinder('cylinder4');
+    cube('cubeForCylinder', 0);
+    cube('cubeForCylinder2', 0, 0.6);
+
+    tetrahedron('tetrahedron');
+    tetrahedron('tet2');
+    tetrahedron('tet3', 100, 1);
+    tetrahedron('tet33', 100, 1);
+    tetrahedron('tet333', 100, 1);
+    tetrahedron('tet4', 100, 1);
+    tetrahedron('tet44', 100, 0.9);
+
+</script>
+<script type="text/javascript">
+    var cubePerspective = document.getElementById("cubePerspective");
+    var rangeCube = document.getElementById("rangeCube");
+    var rangeCube2 = document.getElementById("rangeCube2");
+    var rangeCube3 = document.getElementById("rangeCube3");
+    var cubeReset = document.getElementById('cubeReset');
+    rangeCube.oninput = function () {
+        cubePerspective.style.webkitPerspective = rangeCube.value+"px";
+        cubePerspective.style.mozPerspective = rangeCube.value+"px";
+        cubePerspective.style.perspective = rangeCube.value+"px";
+    };
+    rangeCube2.oninput = function () {
+        cubePerspective.style.webkitPerspective = rangeCube.value+"px";
+        cubePerspective.style.mozPerspective = rangeCube.value+"px";
+        cubePerspective.style.perspective = rangeCube.value+"px";
+        cubePerspective.style.webkitPerspectiveOrigin = rangeCube2.value+"% "+rangeCube3.value+"px";
+        cubePerspective.style.mozPerspectiveOrigin = rangeCube2.value+"% "+rangeCube3.value+"px";
+        cubePerspective.style.perspectiveOrigin = rangeCube2.value+"% "+rangeCube3.value+"px";
+    };
+    rangeCube3.oninput = function () {
+        cubePerspective.style.webkitPerspective = rangeCube.value+"px";
+        cubePerspective.style.mozPerspective = rangeCube.value+"px";
+        cubePerspective.style.perspective = rangeCube.value+"px";
+        cubePerspective.style.webkitPerspectiveOrigin = rangeCube2.value+"% "+rangeCube3.value+"px";
+        cubePerspective.style.mozPerspectiveOrigin = rangeCube2.value+"% "+rangeCube3.value+"px";
+        cubePerspective.style.perspectiveOrigin = rangeCube2.value+"% "+rangeCube3.value+"px";
+    };
+    cubeReset.onclick = function () {
+        cubePerspective.style.webkitPerspective = null;
+        cubePerspective.style.mozPerspective = null;
+        cubePerspective.style.perspective = null;
+        cubePerspective.style.webkitPerspectiveOrigin = null;
+        cubePerspective.style.mozPerspectiveOrigin = null;
+        cubePerspective.style.perspectiveOrigin = null;
+        rangeCube.value = 1200;
+        rangeCube2.value = 50;
+        rangeCube3.value = 500;
+    };
+
+    var spherePerspective = document.getElementById("spherePerspective");
+    var rangeSphere = document.getElementById("rangeSphere");
+    var rangeSphere2 = document.getElementById("rangeSphere2");
+    var rangeSphere3 = document.getElementById("rangeSphere3");
+    var sphereReset = document.getElementById('sphereReset');
+    rangeSphere.oninput = function () {
+        spherePerspective.style.webkitPerspective = rangeSphere.value+"px";
+        spherePerspective.style.mozPerspective = rangeSphere.value+"px";
+        spherePerspective.style.perspective = rangeSphere.value+"px";
+    };
+    rangeSphere2.oninput = function () {
+        spherePerspective.style.webkitPerspective = rangeSphere.value+"px";
+        spherePerspective.style.mozPerspective = rangeSphere.value+"px";
+        spherePerspective.style.perspective = rangeSphere.value+"px";
+        spherePerspective.style.webkitPerspectiveOrigin = rangeSphere2.value+"% "+rangeSphere3.value+"px";
+        spherePerspective.style.mozPerspectiveOrigin = rangeSphere2.value+"% "+rangeSphere3.value+"px";
+        spherePerspective.style.perspectiveOrigin = rangeSphere2.value+"% "+rangeSphere3.value+"px";
+    };
+    rangeSphere3.oninput = function () {
+        spherePerspective.style.webkitPerspective = rangeSphere.value+"px";
+        spherePerspective.style.mozPerspective = rangeSphere.value+"px";
+        spherePerspective.style.perspective = rangeSphere.value+"px";
+        spherePerspective.style.webkitPerspectiveOrigin = rangeSphere2.value+"% "+rangeSphere3.value+"px";
+        spherePerspective.style.mozPerspectiveOrigin = rangeSphere2.value+"% "+rangeSphere3.value+"px";
+        spherePerspective.style.perspectiveOrigin = rangeSphere2.value+"% "+rangeSphere3.value+"px";
+    };
+    sphereReset.onclick = function () {
+        spherePerspective.style.webkitPerspective = null;
+        spherePerspective.style.mozPerspective = null;
+        spherePerspective.style.perspective = null;
+        spherePerspective.style.webkitPerspectiveOrigin = null;
+        spherePerspective.style.mozPerspectiveOrigin = null;
+        spherePerspective.style.perspectiveOrigin = null;
+        rangeSphere.value = 1200;
+        rangeSphere2.value = 50;
+        rangeSphere3.value = 500;
+    };
+
+    var cylinderPerspective = document.getElementById("cylinderPerspective");
+    var rangeCylinder = document.getElementById("rangeCylinder");
+    var rangeCylinder2 = document.getElementById("rangeCylinder2");
+    var rangeCylinder3 = document.getElementById("rangeCylinder3");
+    var cylinderReset = document.getElementById('cylinderReset');
+    rangeCylinder.oninput = function () {
+        cylinderPerspective.style.webkitPerspective = rangeCylinder.value+"px";
+        cylinderPerspective.style.mozPerspective = rangeCylinder.value+"px";
+        cylinderPerspective.style.perspective = rangeCylinder.value+"px";
+    };
+    rangeCylinder2.oninput = function () {
+        cylinderPerspective.style.webkitPerspective = rangeCylinder.value+"px";
+        cylinderPerspective.style.mozPerspective = rangeCylinder.value+"px";
+        cylinderPerspective.style.perspective = rangeCylinder.value+"px";
+        cylinderPerspective.style.webkitPerspectiveOrigin = rangeCylinder2.value+"% "+rangeCylinder3.value+"px";
+        cylinderPerspective.style.mozPerspectiveOrigin = rangeCylinder2.value+"% "+rangeCylinder3.value+"px";
+        cylinderPerspective.style.perspectiveOrigin = rangeCylinder2.value+"% "+rangeCylinder3.value+"px";
+    };
+    rangeCylinder3.oninput = function () {
+        cylinderPerspective.style.webkitPerspective = rangeCylinder.value+"px";
+        cylinderPerspective.style.mozPerspective = rangeCylinder.value+"px";
+        cylinderPerspective.style.perspective = rangeCylinder.value+"px";
+        cylinderPerspective.style.webkitPerspectiveOrigin = rangeCylinder2.value+"% "+rangeCylinder3.value+"px";
+        cylinderPerspective.style.mozPerspectiveOrigin = rangeCylinder2.value+"% "+rangeCylinder3.value+"px";
+        cylinderPerspective.style.perspectiveOrigin = rangeCylinder2.value+"% "+rangeCylinder3.value+"px";
+    };
+    cylinderReset.onclick = function () {
+        cylinderPerspective.style.webkitPerspective = null;
+        cylinderPerspective.style.mozPerspective = null;
+        cylinderPerspective.style.perspective = null;
+        cylinderPerspective.style.webkitPerspectiveOrigin = null;
+        cylinderPerspective.style.mozPerspectiveOrigin = null;
+        cylinderPerspective.style.perspectiveOrigin = null;
+        rangeCylinder.value = 1200;
+        rangeCylinder2.value = 50;
+        rangeCylinder3.value = 500;
+    };
+
+    var tetPerspective = document.getElementById("tetPerspective");
+    var rangeTet = document.getElementById("rangeTet");
+    var rangeTet2 = document.getElementById("rangeTet2");
+    var rangeTet3 = document.getElementById("rangeTet3");
+    var tetReset = document.getElementById('tetReset');
+    rangeTet.oninput = function () {
+        tetPerspective.style.webkitPerspective = rangeTet.value+"px";
+        tetPerspective.style.mozPerspective = rangeTet.value+"px";
+        tetPerspective.style.perspective = rangeTet.value+"px";
+    };
+    rangeTet2.oninput = function () {
+        tetPerspective.style.webkitPerspective = rangeTet.value+"px";
+        tetPerspective.style.mozPerspective = rangeTet.value+"px";
+        tetPerspective.style.perspective = rangeTet.value+"px";
+        tetPerspective.style.webkitPerspectiveOrigin = rangeTet2.value+"% "+rangeTet3.value+"px";
+        tetPerspective.style.mozPerspectiveOrigin = rangeTet2.value+"% "+rangeTet3.value+"px";
+        tetPerspective.style.perspectiveOrigin = rangeTet2.value+"% "+rangeTet3.value+"px";
+    };
+    rangeTet3.oninput = function () {
+        tetPerspective.style.webkitPerspective = rangeTet.value+"px";
+        tetPerspective.style.mozPerspective = rangeTet.value+"px";
+        tetPerspective.style.perspective = rangeTet.value+"px";
+        tetPerspective.style.webkitPerspectiveOrigin = rangeTet2.value+"% "+rangeTet3.value+"px";
+        tetPerspective.style.mozPerspectiveOrigin = rangeTet2.value+"% "+rangeTet3.value+"px";
+        tetPerspective.style.perspectiveOrigin = rangeTet2.value+"% "+rangeTet3.value+"px";
+    };
+    tetReset.onclick = function () {
+        tetPerspective.style.webkitPerspective = null;
+        tetPerspective.style.mozPerspective = null;
+        tetPerspective.style.perspective = null;
+        tetPerspective.style.webkitPerspectiveOrigin = null;
+        tetPerspective.style.mozPerspectiveOrigin = null;
+        tetPerspective.style.perspectiveOrigin = null;
+        rangeTet.value = 1300;
+        rangeTet2.value = 50;
+        rangeTet3.value = 500;
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+html {
+    font-family: sans-serif; /* 1 */
+    -ms-text-size-adjust: 100%; /* 2 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+body, h1, h2, h3, h4{
+    margin: 0;
+    padding: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block;
+}
+
+a:active,
+a:hover {
+    outline-width: 0;
+}
+
+h5 {
+    font-size: 2em;
+    text-align: center;
+}
+h1 {
+    font-size: 2em;
+    text-shadow: 1px 1px 4px #2a2a2a;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-family: Georgia, serif;
+    font-size: 1.5em;
+    padding: 0.67em 0.3em;
+}
+/**
+ * Add the correct background and color in IE 9-.
+ */
+
+mark {
+    background-color: #ff0;
+    color: #000;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+    font-size: 80%;
+}
+
+img {
+    border-style: none;
+}
+
+code, label
+kbd,
+pre,
+samp {
+    font-family: "Courier New", Courier, monospace; /* 1 */
+    font-size: 0.8em; /* 2 */
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    display: block;
+}
+input {
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+}
+select {
+    -moz-appearance: treeitem;
+}
+
+input[type="text"], input[type="color"], select, input[type="range"], label, input[type="number"] {
+    width: 100%;
+    margin: 5px 0;
+}
+
+input[type="text"] {
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+    background-color: white;
+}
+
+input[type="number"]{
+    -moz-appearance: none;
+}
+button {
+    background-color: lightgrey;
+}
+
+textarea {
+    -moz-appearance: textfield;
+    background-color: #f0f0f0;
+}
+
+::-moz-selection {
+    background: skyblue; /* Gecko Browsers */
+}
+
+::selection {
+    background: skyblue; /* Gecko Browsers */
+}

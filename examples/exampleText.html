@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Przykłady tekstu</title>
+    <link rel="stylesheet" type="text/css" href="../reset.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Slabo+27px|Oswald|Source+Sans+Pro|Raleway|Roboto+Slab:400,700|Open+Sans+Condensed:300,700|Titillium+Web|Playfair+Display|Dosis|Poiret+One|Lobster|Bree+Serif|Anton|Merriweather+Sans|Cuprum:400,700|Francois+One|Play|Poppins|Exo|Amatic+SC|Righteous|BenchNine|Comfortaa|Russo+One|Kaushan+Script|Source+Code+Pro|Armata|Courgette|Archivo+Black|Jura|Great+Vibes|Marck+Script|Shadows+Into+Light+Two|Audiowide|Coda|Kalam|Sacramento|Rajdhani|Jockey+One|Khand|Unica+One|Allura|Caveat+Brush|Limelight|Freckle+Face|Black+Ops+One|Advent+Pro|Press+Start+2P|Berkshire+Swash|Mouse+Memoirs|Gruppo|Racing+Sans+One|Just+Me+Again+Down+Here|Patrick+Hand+SC|Shojumaru|Life+Savers|Titan+One|Coda+Caption:800|Nosifer|Sancreek|Krona+One|Butcherman|Ruslan+Display|Sonsie+One|Akronim|Arbutus|Eater|Emblema+One|Bigelow+Rules|Hanalei|Modak&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <style>
+        body > section:nth-child(1) {
+            position: fixed;
+            z-index: 1000;
+            width: 100%;
+            height: 50px;
+        }
+        body > section:nth-child(2) {
+            position: absolute;
+            width: 100%;
+            top: 49px;
+            height: calc(100% - 49px);
+            display: block;
+            float: left;
+
+        }
+        header > nav {
+            width: 5%;
+            font-size: 1.5em;
+        }
+
+        header > section {
+            width: 95%;
+        }
+
+        header > nav, header > section {
+            text-align: center;
+            float: left;
+            background: #2c3e50;
+            color: #ecf0f1;
+            line-height: 50px;
+        }
+
+        a {
+            color: #FFFFFF;
+        }
+        iframe {
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <header>
+        <nav>
+            <a href="../index.html">< </a>
+        </nav>
+        <section>
+            <h1>Przykłady tekstu</h1>
+        </section>
+    </header>
+</section>
+<section>
+    <iframe id="text1" src="text1.html" style="overflow: hidden;width: 100%; height: 300px;"></iframe>
+    <iframe id="text2" src="text2.html" style="overflow: hidden;width: 100%; height: 300px;"></iframe>
+    <iframe id="text3" src="text3.html" style="overflow: hidden;width: 100%; height: 300px;"></iframe>
+    <iframe id="text4" src="text4.html" style="overflow: hidden;width: 100%; height: 500px;"></iframe>
+</section>
+</body>
+</html>

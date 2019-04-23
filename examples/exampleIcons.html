@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Przykłady ikon</title>
+    <link rel="stylesheet" type="text/css" href="../reset.css">
+    <style>
+        body > section:nth-child(1) {
+            position: fixed;
+            z-index: 1000;
+            width: 100%;
+            height: 50px;
+        }
+        body > section:nth-child(2) {
+            position: absolute;
+            width: 100%;
+            top: 49px;
+            height: calc(100% - 49px);
+            display: block;
+            float: left;
+
+        }
+        header > nav {
+            width: 5%;
+            font-size: 1.5em;
+        }
+
+        header > section {
+            width: 95%;
+        }
+
+        header > nav, header > section {
+            text-align: center;
+            float: left;
+            background: #2c3e50;
+            color: #ecf0f1;
+            line-height: 50px;
+        }
+
+        a {
+            color: #FFFFFF;
+        }
+        iframe {
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <header>
+        <nav>
+            <a href="../index.html">< </a>
+        </nav>
+        <section>
+            <h1>Przykłady ikon</h1>
+        </section>
+    </header>
+</section>
+<section>
+    <iframe id="icons1" src="icons1.html" style="overflow: hidden;width: 100%; height: 600px;"></iframe>
+    <iframe id="icons2" src="icons2.html" style="overflow: hidden;width: 100%; height: 500px;"></iframe>
+    <iframe id="icons3" src="icons3.html" style="overflow: hidden;width: 100%; height: 500px;"></iframe>
+    <iframe id="icons4" src="icons4.html" style="overflow: hidden;width: 100%; height: 600px;"></iframe>
+</section>
+</body>
+</html>

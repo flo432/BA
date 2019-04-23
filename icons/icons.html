@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Generator ikon</title>
+    <link rel="stylesheet" type="text/css" href="../reset.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style id="previewSheet" type="text/css">
+
+    </style>
+    <style id="previewAniSheet" type="text/css">
+
+    </style>
+    <style id="exportStyle" type="text/css">
+
+    </style>
+</head>
+<body>
+    <section>
+        <header>
+            <nav>
+                <a href="../index.html">< </a>
+            </nav>
+            <section>
+                <h1>Generator ikon</h1>
+            </section>
+        </header>
+    </section>
+    <section>
+        <section>
+            <section>
+                <div id="dostosuj" class="showList">
+                    <div class="triangle"></div><h3>Dostosowanie</h3>
+                </div>
+                <ul id="list1" class="">
+                    <li>
+                        <code>background-color:</code>
+                        <strong class="showHelp">?
+                            <span class="help"><span>
+                                <code>background-color:</code><br>Właściwość <code>background-color:</code> ustawia kolor tła elementu.
+                                <br>W tym przypadku jest to kolor tła ramki podlądu.
+                                <br>Jeśli już masz stronę internetową i to właśnie dla niej generujesz ikony, warto zacząć od ustawienia tła na takie samo jakie jest na Twojej stronie.
+                                <br>Wtedy stworzysz ikony idealnie pasujące do niej.
+                            </span>
+                            </span>
+                        </strong>
+                        <input type="color" id="bgColor" title="bgColor" value="#FFFFFF">
+                    </li>
+                    <li>
+                        <code>background-image:</code>
+                        <strong class="showHelp">?
+                            <span class="help"><span>
+                                <code>background-image:</code><br>Właściwość <code>background-image:</code> ustawia obraz tła dla elementu.
+                                <br>W tym przypadku jest to obraz dla tła ramki podlądu.
+                                <br>Jeśli już masz stronę internetową i to właśnie dla niej generujesz ikony, warto zacząć od ustawienia tła na takie samo jakie jest na Twojej stronie.
+                                <br>Wtedy stworzysz ikony idealnie pasujące do niej.
+                                <p>W polu tekstowym należy wprowadzić dokładny adres do zdjęcia. Adres powinien być skopiowany z pola adresu przeglądarki internetowej aby uniknąć problemów.
+                                <br>Przykład:<br>http://bestwallpaperhd.com/wp-content/uploads/2014/02/Snowy-Mountain-Wallpaper.jpg
+                                </p>
+                            </span>
+                            </span>
+                        </strong>
+                        <input type="text" id="bgImage" title="bgImage" value="" placeholder="Wprowadź ścieżkę dla tła">
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <div id="wybor" class="showList">
+                    <div class="triangle"></div><h3>Wybór ikony</h3>
+                </div>
+                <ul id="list2" class="">
+                    <li>
+                        <label>facebook </label><input type="checkbox" id="f90bLogo" title="f90bLogo" value="">
+                    </li>
+                    <li>
+                        <label>twitter </label><input type="checkbox" id="t99wLogo" title="t99wLogo" value="">
+                    </li>
+                    <li>
+                        <label>e-mail </label><input type="checkbox" id="e99mLogo" title="e99mLogo" value="">
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <div id="manipulacjaDiv" class="showList" style="display: none;">
+                    <div class="triangle"></div><h3>Manipulacja</h3>
+                </div>
+                <ul id="manipulacja" style="display: none;">
+                    <li>
+                        <label>Rozmiar ikony:</label>
+                        <input id="logoSize" type="range" title="logoSize" value="1" min="0.1" max="1.0" step="0.01">
+                    </li>
+                    <li>
+                        <label>Styl ikony:</label>
+                        <select id="logoStyle" onchange="logoStyling()" title="logoStyle">
+                            <option value="square">Kwadrat</option>
+                            <option value="circle">Zaokrąglone rogi (wszystkie razem)</option>
+                            <option value="squareWithRadius">Zaokrąglone rogi (każdy osobno)</option>
+                        </select>
+                        <ul id="borderRadiusAll" style="display: none">
+                            <li><code >border-radius: </code>
+                                <strong class="showHelp">?
+                                    <span class="help"><span>
+                                        <code >border-radius: </code><br>Właściwość <code >border-radius: </code> pozwala na dodanie do elementów zaokrąglonych granic.<br>
+                                        <br>W tym przypadku jest to zaokrąglenie wszystkich granic ikony jednocześnie.
+                                        <p>Jeśli chcesz bardziej dostosować zaokrąglenia, wybierz opcję "Zaokrąglone rogi (każdy osobno)".</p>
+                                    </span>
+                                    </span>
+                                </strong>
+                                <input id="borRadiusAll" type="range" value="50" min="0" max="50" step="1" title="borderRadiusAll">
+                            </li>
+                        </ul>
+                        <ul id="borderRadius" style="display: none">
+                            <li><code>border-top-left-radius: </code>
+                                <strong class="showHelp">?
+                                    <span class="help"><span>
+                                        <code>border-top-left-radius: </code><br>Określa kształ granicy <strong style="color: red;">lewego górnego</strong> rogu.<br>
+                                        <code>border-top-right-radius: </code><br>Określa kształ granicy <strong style="color: red;">prawego górnego</strong> rogu.<br>
+                                        <code>border-bottom-right-radius: </code><br>Określa kształ granicy <strong style="color: red;">prawego dolnego</strong> rogu.<br>
+                                        <code>border-bottom-left-radius: </code><br>Określa kształ granicy <strong style="color: red;">lewego dolnego</strong> rogu.<br>
+                                        <p>Jeśli chcesz ustawić wszystkie granice identycznie, wybierz opcję "Zaokrąglone rogi (wszystkie razem)".</p>
+                                    </span>
+                                    </span>
+                                </strong>
+                                <input id="borTopLeftRadius" type="range" value="5" min="0" max="50" step="1" title="borderRadius">
+                                <code >border-top-right-radius: </code>
+                                <strong class="showHelp">?
+                                    <span class="help"><span>
+                                        <code>border-top-left-radius: </code><br>Określa kształ granicy <strong style="color: red;">lewego górnego</strong> rogu.<br>
+                                        <code>border-top-right-radius: </code><br>Określa kształ granicy <strong style="color: red;">prawego górnego</strong> rogu.<br>
+                                        <code>border-bottom-right-radius: </code><br>Określa kształ granicy <strong style="color: red;">prawego dolnego</strong> rogu.<br>
+                                        <code>border-bottom-left-radius: </code><br>Określa kształ granicy <strong style="color: red;">lewego dolnego</strong> rogu.<br>
+                                        <p>Jeśli chcesz ustawić wszystkie granice identycznie, wybierz opcję "Zaokrąglone rogi (wszystkie razem)".</p>
+                                    </span>
+                                    </span>
+                                </strong>
+                                <input id="borTopRightRadius" type="range" value="5" min="0" max="50" step="1" title="borderRadius">
+                                <code >border-bottom-right-radius: </code>
+                                <strong class="showHelp">?
+                                    <span class="help"><span>
+                                        <code>border-top-left-radius: </code><br>Określa kształ granicy <strong style="color: red;">lewego górnego</strong> rogu.<br>
+                                        <code>border-top-right-radius: </code><br>Określa kształ granicy <strong style="color: red;">prawego górnego</strong> rogu.<br>
+                                        <code>border-bottom-right-radius: </code><br>Określa kształ granicy <strong style="color: red;">prawego dolnego</strong> rogu.<br>
+                                        <code>border-bottom-left-radius: </code><br>Określa kształ granicy <strong style="color: red;">lewego dolnego</strong> rogu.<br>
+                                        <p>Jeśli chcesz ustawić wszystkie granice identycznie, wybierz opcję "Zaokrąglone rogi (wszystkie razem)".</p>
+                                    </span>
+                                    </span>
+                                </strong>
+                                <input id="borBottomRightRadius" type="range" value="5" min="0" max="50" step="1" title="borderRadius">
+                                <code >border-bottom-left-radius: </code>
+                                <strong class="showHelp">?
+                                    <span class="help"><span>
+                                        <code>border-top-left-radius: </code><br>Określa kształ granicy <strong style="color: red;">lewego górnego</strong> rogu.<br>
+                                        <code>border-top-right-radius: </code><br>Określa kształ granicy <strong style="color: red;">prawego górnego</strong> rogu.<br>
+                                        <code>border-bottom-right-radius: </code><br>Określa kształ granicy <strong style="color: red;">prawego dolnego</strong> rogu.<br>
+                                        <code>border-bottom-left-radius: </code><br>Określa kształ granicy <strong style="color: red;">lewego dolnego</strong> rogu.<br>
+                                        <p>Jeśli chcesz ustawić wszystkie granice identycznie, wybierz opcję "Zaokrąglone rogi (wszystkie razem)".</p>
+                                    </span>
+                                    </span>
+                                </strong>
+                                <input id="borBottomLeftRadius" type="range" value="5" min="0" max="50" step="1" title="borderRadius">
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label>Kolor tła ikony:</label>
+                        <input type="color" id="divColor" title="bgColor" value="">
+                    </li>
+                    <li>
+                        <label>Kolor ikony:</label>
+                        <input type="color" id="iconColor" title="bgColor" value="">
+                    </li>
+                    <li>
+                        <label>Cień ramki: </label>
+                        <strong class="showHelp">?
+                                    <span class="help"><span>
+                                        Cień ramki ustawiany jest przy pomocy właściwości <code>box-shadow</code>.<br>
+                                        <code>box-shadow</code><br>Właściwość <code>box-shadow</code> pozwala na przywiązanie do ramki cienia.<br>
+                                    </span>
+                                    </span>
+                        </strong>
+                        <input type="checkbox" id="divShadow" title="divShadow" value="">
+                        <ul id="shadows" style="display:none">
+                            <li>
+                                <code>h-shadow: </code>
+                                <strong class="showHelp">?
+                                    <span class="help">
+                                        <span>
+                                            <code >h-shadow: </code><br>Właściwość <code >h-shadow: </code> odpowiada za ustalenie cienia w poziomie.<br>
+                                        </span>
+                                    </span>
+                                </strong>
+                                <input id="hShadow" type="range" value="0" min="-100" max="100" step="1" title="hShadow">
+                            </li>
+                            <li>
+                                <code>v-shadow: </code>
+                                <strong class="showHelp">?
+                                    <span class="help">
+                                        <span>
+                                            <code >v-shadow: </code><br>Właściwość <code >v-shadow: </code> odpowiada za ustalenie cienia w pionie.<br>
+                                        </span>
+                                    </span>
+                                </strong>
+                                <input id="vShadow" type="range" value="0" min="-100" max="100" step="1" title="vShadow">
+                            </li>
+                            <li>
+                                <code>blur: </code>
+                                <strong class="showHelp">?
+                                    <span class="help">
+                                        <span>
+                                            <code >blur: </code><br>Właściwość <code >blur: </code> odpowiada za odległość rozmycia cienia.<br>
+                                        </span>
+                                    </span>
+                                </strong>
+                                <input id="blurShadow" type="range" value="5" min="0" max="100" step="1" title="blurShadow">
+                            </li>
+                            <li>
+                                <code>spread: </code>
+                                <strong class="showHelp">?
+                                    <span class="help">
+                                        <span>
+                                            <code >spread: </code><br>Właściwość <code >spread: </code> odpowiada za rozmiar cienia.<br>
+                                        </span>
+                                    </span>
+                                </strong>
+                                <input id="spreadShadow" type="range" value="5" min="0" max="100" step="1" title="spreadShadow">
+                            </li>
+                            <li>
+                                <code>color: </code>
+                                <strong class="showHelp">?
+                                    <span class="help">
+                                        <span>
+                                            <code >color: </code><br>Właściwość <code >color: </code> odpowiada za kolor cienia.<br>
+                                        </span>
+                                    </span>
+                                </strong>
+                                <input type="color" id="shadowColor" title="shadowColor" value="#000000">
+                            </li>
+                            <li>
+                                <label>Kiedy: </label>
+                                <strong class="showHelp">?
+                                    <span class="help">
+                                        <span>
+                                            Wybranie opcji <strong style="color: red;">stały</strong> spowoduje, że cień będzie zawsze widoczny.<br>
+                                            Wybranie opcji <strong style="color: red;">:hover</strong> spowoduje, że cień będzie widoczny dopiero po najechaniu kursorem myszy na ikonę.
+                                        </span>
+                                    </span>
+                                </strong>
+                                <select id="whenShadow" title="whenShadow" onchange="whenShadow()">
+                                    <option value="zawsze" selected>stały</option>
+                                    <option value=":hover">:hover</option>
+                                </select>
+                            </li>
+                            <li>
+                                <code id="transitionShadowLabel" style="display:none">transition: </code>
+                                <strong id="traHelp"  style="display:none" class="showHelp">?
+                                    <span class="help">
+                                        <span>
+                                            <code>transition: </code><br>
+                                            Właściwość <code>transition: </code>pozwala na zmienę wartości określonych właściwości w sposób gładki (od jednej wartości do drugiej), w określonym czasie.<br>
+                                            W tym wypadku <code>transition: </code>ustawiane jest dla właściwości <code>box-shadow </code>.
+                                            <p>Należy pamiętać że efekt widoczny będzie dopiero po najechaniu na ikonę kursorem myszy.</p>
+                                        </span>
+                                    </span>
+                                </strong>
+                                <input id="transitionShadow" title="transitionShadow" type="checkbox" style="display:none">
+                                <ul id="transitionShadowOptions" style="display:none">
+                                    <li>
+                                        <code>transition-duration: </code>
+                                        <strong class="showHelp">?
+                                            <span class="help">
+                                                <span>
+                                                    <code>transition-duration: </code><br>
+                                                    Właściwość <code>transition-duration: </code>określa ile sekund będzie trwać efekt przejścia od początku do ukończenia.<br>
+                                                    <p>Możliwe wartości to wpisania - 0.1 do 1.0</p>
+                                                </span>
+                                            </span>
+                                        </strong>
+                                        <input id="transitionShadowDuration" type="number" title="transitionShadowDuration" value="0.5" min="0.1" max="1" step="0.05">
+                                    </li>
+                                    <li>
+                                        <code>transition-timing-function:</code>
+                                        <strong class="showHelp">?
+                                            <span class="help">
+                                                <span>
+                                                    <code>transition-timing-function: </code><br>
+                                                    Właściwość <code>transition-timing-function: </code>określa prędkość krzywej efektu przejścia.<br>
+                                                    Poniżej na przykładzie ramek pokazane są możliwe opcje wyboru krzywej oraz wiążące się z nią efekty przejścia.<br>
+                                                    <div id="div1">linear</div>
+                                                    <div id="div2">ease</div>
+                                                    <div id="div3">ease-in</div>
+                                                    <div id="div4">ease-out</div>
+                                                    <div id="div5">ease-in-out</div>
+                                                </span>
+                                            </span>
+                                        </strong>
+                                        <select id="transitionShadowFunction" title="transitionShadowFunction" onchange="transitionShadowFunction()">
+                                            <option value="ease" selected>ease</option>
+                                            <option value="linear">linear</option>
+                                            <option value="ease-in">ease-in</option>
+                                            <option value="ease-out">ease-out</option>
+                                            <option value="ease-in-out">ease-in-out</option>
+                                        </select>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label>Obramowanie ramki: </label>
+                        <strong class="showHelp">?
+                                    <span class="help"><span>
+                                        Obramowanie ramki ustawiane jest przy pomocy właściwości <code>border:</code><br>
+                                        <code>border:</code><br>Właściwość <code>border:</code> pozwala na ustawienie obramowania ramki.<br>
+                                    </span>
+                                    </span>
+                        </strong>
+                        <input type="checkbox" id="divBorder" title="divBorder">
+                        <ul id="borders" style="display:none">
+                            <li>
+                                <code>border-style: </code>
+                                <strong class="showHelp">?
+                                    <span class="help"><span>
+                                        <code>border-style: </code><br>Właściwość <code>border-style: </code>określa styl obramowania ramki.<br>
+                                        Poniżej pokazane są efekty wybrania poszczególnej opcji stylu obramowania.<br>
+                                        <p class="dotted">A dotted border.</p>
+                                        <p class="dashed">A dashed border.</p>
+                                        <p class="solid">A solid border.</p>
+                                        <p class="double">A double border.</p>
+                                        <p class="groove">A groove border.</p>
+                                        <p class="ridge">A ridge border.</p>
+                                        <p class="inset">An inset border.</p>
+                                        <p class="outset">An outset border.</p>
+                                    </span>
+                                    </span>
+                                </strong>
+                                <select id="borderStyle" title="borderStyle" onchange="borderStyling()">
+                                    <option value="none" selected>none</option>
+                                    <option value="solid">solid</option>
+                                    <option value="dashed">dashed</option>
+                                    <option value="dotted">dotted</option>
+                                    <option value="groove">groove</option>
+                                    <option value="double">double</option>
+                                    <option value="ridge">ridge</option>
+                                    <option value="inset">inset</option>
+                                    <option value="outset">outset</option>
+                                </select>
+                            </li>
+                            <li>
+                                <code>border-width: </code>
+                                <strong class="showHelp">?
+                                    <span class="help"><span>
+                                        <code>border-width:</code><br>Właściwość <code>border-width: </code>określa szerokość obramowania ramki.<br>
+                                    </span>
+                                    </span>
+                                </strong>
+                                <input id="borderWidth" type="range" value="0" min="0" max="100" step="1" title="borderWidth">
+                            </li>
+                            <li>
+                                <code>border-color:</code>
+                                <strong class="showHelp">?
+                                    <span class="help"><span>
+                                        <code>border-color:</code><br>Właściwość <code>border-color: </code>określa kolor obramowania ramki.<br>
+                                    </span>
+                                    </span>
+                                </strong>
+                                <input type="color" id="borderColor" title="borderColor" value="#000000">
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label>Animacja: </label>
+                        <strong class="showHelp">?
+                                    <span class="help"><span>
+                                        Animacja pozwala na zmianę właściwości elementu w sposób płynny.<br>
+                                        Animacja ustawiana jest przy pomocy właściwości <code>animation:</code><br>
+                                        Kod stylu animacji ustawiany jest przy pomocy reguł <code>@keyframes</code><br>
+                                        <p>Animacja będzie widoczna po najechaniu kursorem myszy na ikonę.</p>
+                                    </span>
+                                    </span>
+                        </strong>
+                        <input type="checkbox" id="animated" title="animated">
+                        <ul id="animatedOptions" style="display: none;">
+                            <li>
+                                <label>Styl animacji: </label>
+                                <strong class="showHelp">?
+                                    <span class="help"><span>
+                                        <p>Animacja będzie widoczna po najechaniu kursorem myszy na ikonę.</p>
+                                    </span>
+                                    </span>
+                                </strong>
+                                <select id="aniStyle" title="aniStyle" onchange="aniStyle()">
+                                    <option value="bounce" selected>bounce</option>
+                                    <option value="pulse">pulse</option>
+                                    <option value="rubberBand">rubber band</option>
+                                    <option value="swing">swing</option>
+                                    <option value="TaDa">TaDa</option>
+                                    <option value="jello">jello</option>
+                                    <option value="flip">flip</option>
+                                    <option value="wobble">wobble</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label>Odsyłacz do konta: </label>
+                        <strong class="showHelp">?
+                            <span class="help"><span>
+                                Odsyłacz ikony spowoduję, że po kliknięciu w ikonę zostanie otwarta strona zdefiniowana w odsyłaczu.
+                                <p>Tekst musi być wprowadzony poprawnie. W przypadku odnośnika do serwisu społecznościowego, najlepszą metodą jest skopiowanie tekstu z paska adresu przeglądarki. W przypadku ikony e-mail, należy wprowadzić poprawny adres e-mail.</p>
+                                <p>Przykład dla ikony serwisu Facebook: <br>https://www.facebook.com/asdfloONE</p>
+                                <p><br>UWAGA!<br>Wprowadzenie adresu jest wymagane w celu poprawnego działania wygenerowanej ikony!</p>
+                            </span>
+                            </span>
+                        </strong>
+                        <input type="text" id="ahref" title="ahref" placeholder="Wprowadź adres dla odsyłacza">
+                    </li>
+                </ul>
+
+                <button id="generateCode" style="display:none">GENERUJ KOD</button>
+            </section>
+        </section>
+        <section id="workingLayout">
+            <section id="livePreview">
+            </section>
+            <div></div>
+        </section>
+    </section>
+    <section id="Code" style="display: none;">
+        <div id="CodeInfo">
+            <p><strong>Chcesz coś poprawić?</strong> <button id="backToCode">Powrót do generatora</button></p>
+            <h5>Twoja ikona jest już gotowa!</h5>
+            <h5>Aby dodać ją na swoją stronę, wykonaj poniższe instrukcje.</h5>
+            <p><strong>Krok 1.</strong></p>
+            <p>Poniższy kod skopiuj na swoją stronę i umieść go w sekcji <strong>head</strong> na samym końcu.</p>
+            <p>W celu ułatwienia kopiowania, kliknij kursorem myszy w poniższą tabelę i naciśnij na klawiaturze <strong>Ctrl+a</strong>. Spowoduje to zaznaczenie całego kodu, który następnie możesz skopiować klikając <strong>Ctrl+c</strong>.<br>Skopiowany tekst możesz łatwo wkleić naciskając na klawiaturze <strong>Ctrl+v</strong>.<br>
+            <p><strong>Przykład wklejania kodu.</strong><br>
+                <code style="color: darkred;">
+                    &lt;html&gt;<br>
+                    &lt;head&gt;<br>
+                    Twój kod<br>.<br>.<br>.<br>
+                    <strong>
+                    &lt;- KOD WKLEJ TUTAJ<br>
+                    </strong>
+                    &lt;/head&gt;
+                </code>
+            </p>
+            <label for="styleCode"></label>
+            <textarea id="styleCode" class="styleCode">
+
+            </textarea>
+            <p><strong>Krok 2.</strong></p>
+            <p>Poniższy kod skopiuj na swoją stronę i umieść go w sekcji <strong>body</strong>, w miejscu w którym chcesz aby Twoja ikona była wyświetlana.</p>
+            <textarea id="exportHTML" class="styleCode">
+
+            </textarea>
+            <p><strong>Krok 3.</strong></p>
+            <p>Ciesz się swoją własną ikoną!</p>
+            <p style="float: right;"><strong>Wszystko gotowe?</strong> <a href="icons.html" style="color: red;">Zamknij</a></p>
+        </div>
+    </section>
+    <script type="text/javascript">
+        var generateCode = document.getElementById('generateCode');
+        var backToCode = document.getElementById('backToCode');
+        var ahref                   = document.getElementById('ahref');
+
+
+            generateCode.onclick = function () {
+                if(ahref.value != ''){
+                document.getElementById('Code').style.display = 'block';
+                zastosuj();
+                }else {
+                    alert("Odsyłacz do konta jest pusty!\nUzupełnij go w celu wygenerowania kodu.");
+                }
+            };
+
+        backToCode.onclick = function () {
+            document.getElementById('Code').style.display = 'none';
+        };
+
+
+        function hasClass(elem, className) {
+            return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+        }
+
+        function addClass(elem, className) {
+            if (!hasClass(elem, className)) {
+                elem.className += ' ' + className;
+            }
+        }
+
+        function removeClass(elem, className) {
+            var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
+            if (hasClass(elem, className)) {
+                while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
+                    newClass = newClass.replace(' ' + className + ' ', ' ');
+                }
+                elem.className = newClass.replace(/^\s+|\s+$/g, '');
+            }
+        }
+
+        function toggleClass(elem, className) {
+            var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ' ) + ' ';
+            if (hasClass(elem, className)) {
+                while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
+                    newClass = newClass.replace( ' ' + className + ' ' , ' ' );
+                }
+                elem.className = newClass.replace(/^\s+|\s+$/g, '');
+            } else {
+                elem.className += ' ' + className;
+            }
+        }
+
+        var exportSheet = document.getElementById('styleCode');
+        var previewSheet = document.getElementById('previewSheet');
+        var previewAniSheet = document.getElementById('previewAniSheet');
+
+        /* Dostosowywanie */
+        var bgColor = document.getElementById('bgColor');
+        bgColor.addEventListener("input", function () {
+            document.getElementById('workingLayout').style.backgroundColor = bgColor.value;
+        });
+
+        var bgImage = document.getElementById('bgImage');
+        bgImage.addEventListener("input", function () {
+            document.getElementById('workingLayout').style.background = "url('"+bgImage.value+"')"+bgColor.value+" repeat center center";
+        });
+
+        /* End Dostosowywanie */
+
+        /* LOGO */
+
+        var iconColor               = document.getElementById('iconColor');
+        var logoSize                = document.getElementById('logoSize');
+        var f99bLogo                = document.getElementById('f90bLogo');
+        var t99wLogo                = document.getElementById('t99wLogo');
+        var f99bhref                = document.getElementById('f99bhref');
+        var t99whref                = document.getElementById('t99whref');
+        var e99mLogo                = document.getElementById('e99mLogo');
+        var e99mailhref                = document.getElementById('e99mailhref');
+
+
+        var preview                 = document.getElementById('livePreview');
+        var borRadiusAll            = document.getElementById('borRadiusAll');
+        var borTopLeftRadius        = document.getElementById('borTopLeftRadius');
+        var borTopRightRadius       = document.getElementById('borTopRightRadius');
+        var borBottomRightRadius    = document.getElementById('borBottomRightRadius');
+        var borBottomLeftRadius     = document.getElementById('borBottomLeftRadius');
+        var divColor                = document.getElementById('divColor');
+        var divShadow               = document.getElementById('divShadow');
+        var divBorder               = document.getElementById('divBorder');
+        var borderColor             = document.getElementById('borderColor');
+        var borderWidth             = document.getElementById('borderWidth');
+        var hShadow                 = document.getElementById('hShadow');
+        var vShadow                 = document.getElementById('vShadow');
+        var blurShadow              = document.getElementById('blurShadow');
+        var spreadShadow            = document.getElementById('spreadShadow');
+        var shadowColor             = document.getElementById('shadowColor');
+
+        var transitionShadowDuration = document.getElementById('transitionShadowDuration');
+        var transitionShadow = document.getElementById('transitionShadow');
+
+        var animated = document.getElementById('animated');
+        var aniAnimated = '.aniAnimated {-webkit-animation-fill-mode: both; -moz-animation-fill-mode: both; -o-animation-fill-mode: both; animation-fill-mode: both; -webkit-animation-duration: 1s; -moz-animation-duration: 1s; -o-animation-duration: 1s; animation-duration: 1s; -webkit-animation-iteration-count: 1; -moz-animation-iteration-count: 1; -o-animation-iteration-count: 1; animation-iteration-count: 1;}';
+        var aniAnimatedClass = 'aniAnimated';
+
+        var aniBounceKeyframes = '@keyframes bounce { from, 22%, 51%, 79%, to { -webkit-animation-timing-function: cubic-bezier(0.22, 0.60, 0.36, 1.00); -moz-animation-timing-function: cubic-bezier(0.22, 0.60, 0.36, 1.00); -o-animation-timing-function: cubic-bezier(0.22, 0.60, 0.36, 1.00); animation-timing-function: cubic-bezier(0.22, 0.60, 0.36, 1.00); -webkit-transform: translate3d(0,0,0); -moz-transform: translate3d(0,0,0); -ms-transform: translate3d(0,0,0); -o-transform: translate3d(0,0,0); transform: translate3d(0,0,0); } 41%, 44% { -webkit-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -moz-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -o-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -webkit-transform: translate3d(0, -31px, 0); -moz-transform: translate3d(0, -31px, 0); -ms-transform: translate3d(0, -31px, 0); -o-transform: translate3d(0, -31px, 0); transform: translate3d(0, -31px, 0); } 69% { -webkit-animation-timing-function: cubic-bezier(0.75, 0.05, 0.85, 0.06); -moz-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -o-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -webkit-transform: translate3d(0, -16px, 0); -moz-transform: translate3d(0, -16px, 0); -ms-transform: translate3d(0, -16px, 0); -o-transform: translate3d(0, -16px, 0); transform: translate3d(0, -16px, 0); } 89% { -webkit-transform: translate3d(0,-5px,0); -moz-transform: translate3d(0,-5px,0); -ms-transform: translate3d(0,-5px,0); -o-transform: translate3d(0,-5px,0); transform: translate3d(0,-5px,0); }}@-webkit-keyframes bounce { from, 22%, 51%, 79%, to { -webkit-animation-timing-function: cubic-bezier(0.22, 0.60, 0.36, 1.00); -moz-animation-timing-function: cubic-bezier(0.22, 0.60, 0.36, 1.00); -o-animation-timing-function: cubic-bezier(0.22, 0.60, 0.36, 1.00); animation-timing-function: cubic-bezier(0.22, 0.60, 0.36, 1.00); -webkit-transform: translate3d(0,0,0); -moz-transform: translate3d(0,0,0); -ms-transform: translate3d(0,0,0); -o-transform: translate3d(0,0,0); transform: translate3d(0,0,0); } 41%, 44% { -webkit-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -moz-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -o-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -webkit-transform: translate3d(0, -31px, 0); -moz-transform: translate3d(0, -31px, 0); -ms-transform: translate3d(0, -31px, 0); -o-transform: translate3d(0, -31px, 0); transform: translate3d(0, -31px, 0); } 69% { -webkit-animation-timing-function: cubic-bezier(0.75, 0.05, 0.85, 0.06); -moz-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -o-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -webkit-transform: translate3d(0, -16px, 0); -moz-transform: translate3d(0, -16px, 0); -ms-transform: translate3d(0, -16px, 0); -o-transform: translate3d(0, -16px, 0); transform: translate3d(0, -16px, 0); } 89% { -webkit-transform: translate3d(0,-5px,0); -moz-transform: translate3d(0,-5px,0); -ms-transform: translate3d(0,-5px,0); -o-transform: translate3d(0,-5px,0); transform: translate3d(0,-5px,0); }}@-moz-keyframes bounce { from, 22%, 51%, 79%, to { -webkit-animation-timing-function: cubic-bezier(0.22, 0.60, 0.36, 1.00); -moz-animation-timing-function: cubic-bezier(0.22, 0.60, 0.36, 1.00); -o-animation-timing-function: cubic-bezier(0.22, 0.60, 0.36, 1.00); animation-timing-function: cubic-bezier(0.22, 0.60, 0.36, 1.00); -webkit-transform: translate3d(0,0,0); -moz-transform: translate3d(0,0,0); -ms-transform: translate3d(0,0,0); -o-transform: translate3d(0,0,0); transform: translate3d(0,0,0); } 41%, 44% { -webkit-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -moz-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -o-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -webkit-transform: translate3d(0, -31px, 0); -moz-transform: translate3d(0, -31px, 0); -ms-transform: translate3d(0, -31px, 0); -o-transform: translate3d(0, -31px, 0); transform: translate3d(0, -31px, 0); } 69% { -webkit-animation-timing-function: cubic-bezier(0.75, 0.05, 0.85, 0.06); -moz-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -o-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -webkit-transform: translate3d(0, -16px, 0); -moz-transform: translate3d(0, -16px, 0); -ms-transform: translate3d(0, -16px, 0); -o-transform: translate3d(0, -16px, 0); transform: translate3d(0, -16px, 0); } 89% { -webkit-transform: translate3d(0,-5px,0); -moz-transform: translate3d(0,-5px,0); -ms-transform: translate3d(0,-5px,0); -o-transform: translate3d(0,-5px,0); transform: translate3d(0,-5px,0); }}@-o-keyframes bounce { from, 22%, 51%, 79%, to { -webkit-animation-timing-function: cubic-bezier(0.22, 0.60, 0.36, 1.00); -moz-animation-timing-function: cubic-bezier(0.22, 0.60, 0.36, 1.00); -o-animation-timing-function: cubic-bezier(0.22, 0.60, 0.36, 1.00); animation-timing-function: cubic-bezier(0.22, 0.60, 0.36, 1.00); -webkit-transform: translate3d(0,0,0); -moz-transform: translate3d(0,0,0); -ms-transform: translate3d(0,0,0); -o-transform: translate3d(0,0,0); transform: translate3d(0,0,0); } 41%, 44% { -webkit-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -moz-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -o-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -webkit-transform: translate3d(0, -31px, 0); -moz-transform: translate3d(0, -31px, 0); -ms-transform: translate3d(0, -31px, 0); -o-transform: translate3d(0, -31px, 0); transform: translate3d(0, -31px, 0); } 69% { -webkit-animation-timing-function: cubic-bezier(0.75, 0.05, 0.85, 0.06); -moz-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -o-animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); animation-timing-function: cubic-bezier(0.74, 0.051, 0.84, 0.05); -webkit-transform: translate3d(0, -16px, 0); -moz-transform: translate3d(0, -16px, 0); -ms-transform: translate3d(0, -16px, 0); -o-transform: translate3d(0, -16px, 0); transform: translate3d(0, -16px, 0); } 89% { -webkit-transform: translate3d(0,-5px,0); -moz-transform: translate3d(0,-5px,0); -ms-transform: translate3d(0,-5px,0); -o-transform: translate3d(0,-5px,0); transform: translate3d(0,-5px,0); }}';
+        var aniBounceHover = '.aniBounce:hover {-webkit-animation-name: bounce; -moz-animation-name: bounce; -o-animation-name: bounce; animation-name: bounce; -webkit-transform-origin:center bottom; -moz-transform-origin:center bottom; -ms-transform-origin:center bottom; -o-transform-origin:center bottom; transform-origin:center bottom;}';
+
+        var aniPulseKeyframes = '@keyframes pulse { from { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } 50% { -webkit-transform: scale3d(1.07, 1.07, 1.07); -moz-transform: scale3d(1.07, 1.07, 1.07); -ms-transform: scale3d(1.07, 1.07, 1.07); -o-transform: scale3d(1.07, 1.07, 1.07); transform: scale3d(1.07, 1.07, 1.07); } to { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }}@-webkit-keyframes pulse { from { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } 50% { -webkit-transform: scale3d(1.07, 1.07, 1.07); -moz-transform: scale3d(1.07, 1.07, 1.07); -ms-transform: scale3d(1.07, 1.07, 1.07); -o-transform: scale3d(1.07, 1.07, 1.07); transform: scale3d(1.07, 1.07, 1.07); } to { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }}@-moz-keyframes pulse { from { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } 50% { -webkit-transform: scale3d(1.07, 1.07, 1.07); -moz-transform: scale3d(1.07, 1.07, 1.07); -ms-transform: scale3d(1.07, 1.07, 1.07); -o-transform: scale3d(1.07, 1.07, 1.07); transform: scale3d(1.07, 1.07, 1.07); } to { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }}@-o-keyframes pulse { from { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } 50% { -webkit-transform: scale3d(1.07, 1.07, 1.07); -moz-transform: scale3d(1.07, 1.07, 1.07); -ms-transform: scale3d(1.07, 1.07, 1.07); -o-transform: scale3d(1.07, 1.07, 1.07); transform: scale3d(1.07, 1.07, 1.07); } to { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }}';
+        var aniPulseHover = '.aniPulse:hover {-webkit-animation-name: pulse; -moz-animation-name: pulse; -o-animation-name: pulse; animation-name: pulse;}';
+
+        var aniRubberBandKeyframes = '@keyframes rubberBand { from { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } 28% { -webkit-transform: scale3d(1.20, 0.80, 1); -moz-transform: scale3d(1.20, 0.80, 1); -ms-transform: scale3d(1.20, 0.80, 1); -o-transform: scale3d(1.20, 0.80, 1); transform: scale3d(1.20, 0.80, 1); } 42% { -webkit-transform: scale3d(0.80, 1.20, 1); -moz-transform: scale3d(0.80, 1.20, 1); -ms-transform: scale3d(0.80, 1.20, 1); -o-transform: scale3d(0.80, 1.20, 1); transform: scale3d(0.80, 1.20, 1); } 48% { -webkit-transform: scale3d(1.10, 0.90, 1); -moz-transform: scale3d(1.10, 0.90, 1); -ms-transform: scale3d(1.10, 0.90, 1); -o-transform: scale3d(1.10, 0.90, 1); transform: scale3d(1.10, 0.90, 1); } 67% { -webkit-transform: scale3d(.90, 1.10, 1); -moz-transform: scale3d(.90, 1.10, 1); -ms-transform: scale3d(.90, 1.10, 1); -o-transform: scale3d(.90, 1.10, 1); transform: scale3d(.90, 1.10, 1); } 73% { -webkit-transform: scale3d(1.10, 0.90, 1); -moz-transform: scale3d(1.10, 0.90, 1); -ms-transform: scale3d(1.10, 0.90, 1); -o-transform: scale3d(1.10, 0.90, 1); transform: scale3d(1.10, 0.90, 1); } to { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }}@-webkit-keyframes rubberBand { from { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } 28% { -webkit-transform: scale3d(1.20, 0.80, 1); -moz-transform: scale3d(1.20, 0.80, 1); -ms-transform: scale3d(1.20, 0.80, 1); -o-transform: scale3d(1.20, 0.80, 1); transform: scale3d(1.20, 0.80, 1); } 42% { -webkit-transform: scale3d(0.80, 1.20, 1); -moz-transform: scale3d(0.80, 1.20, 1); -ms-transform: scale3d(0.80, 1.20, 1); -o-transform: scale3d(0.80, 1.20, 1); transform: scale3d(0.80, 1.20, 1); } 48% { -webkit-transform: scale3d(1.10, 0.90, 1); -moz-transform: scale3d(1.10, 0.90, 1); -ms-transform: scale3d(1.10, 0.90, 1); -o-transform: scale3d(1.10, 0.90, 1); transform: scale3d(1.10, 0.90, 1); } 67% { -webkit-transform: scale3d(.90, 1.10, 1); -moz-transform: scale3d(.90, 1.10, 1); -ms-transform: scale3d(.90, 1.10, 1); -o-transform: scale3d(.90, 1.10, 1); transform: scale3d(.90, 1.10, 1); } 73% { -webkit-transform: scale3d(1.10, 0.90, 1); -moz-transform: scale3d(1.10, 0.90, 1); -ms-transform: scale3d(1.10, 0.90, 1); -o-transform: scale3d(1.10, 0.90, 1); transform: scale3d(1.10, 0.90, 1); } to { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }}@-moz-keyframes rubberBand { from { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } 28% { -webkit-transform: scale3d(1.20, 0.80, 1); -moz-transform: scale3d(1.20, 0.80, 1); -ms-transform: scale3d(1.20, 0.80, 1); -o-transform: scale3d(1.20, 0.80, 1); transform: scale3d(1.20, 0.80, 1); } 42% { -webkit-transform: scale3d(0.80, 1.20, 1); -moz-transform: scale3d(0.80, 1.20, 1); -ms-transform: scale3d(0.80, 1.20, 1); -o-transform: scale3d(0.80, 1.20, 1); transform: scale3d(0.80, 1.20, 1); } 48% { -webkit-transform: scale3d(1.10, 0.90, 1); -moz-transform: scale3d(1.10, 0.90, 1); -ms-transform: scale3d(1.10, 0.90, 1); -o-transform: scale3d(1.10, 0.90, 1); transform: scale3d(1.10, 0.90, 1); } 67% { -webkit-transform: scale3d(.90, 1.10, 1); -moz-transform: scale3d(.90, 1.10, 1); -ms-transform: scale3d(.90, 1.10, 1); -o-transform: scale3d(.90, 1.10, 1); transform: scale3d(.90, 1.10, 1); } 73% { -webkit-transform: scale3d(1.10, 0.90, 1); -moz-transform: scale3d(1.10, 0.90, 1); -ms-transform: scale3d(1.10, 0.90, 1); -o-transform: scale3d(1.10, 0.90, 1); transform: scale3d(1.10, 0.90, 1); } to { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }}@-o-keyframes rubberBand { from { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } 28% { -webkit-transform: scale3d(1.20, 0.80, 1); -moz-transform: scale3d(1.20, 0.80, 1); -ms-transform: scale3d(1.20, 0.80, 1); -o-transform: scale3d(1.20, 0.80, 1); transform: scale3d(1.20, 0.80, 1); } 42% { -webkit-transform: scale3d(0.80, 1.20, 1); -moz-transform: scale3d(0.80, 1.20, 1); -ms-transform: scale3d(0.80, 1.20, 1); -o-transform: scale3d(0.80, 1.20, 1); transform: scale3d(0.80, 1.20, 1); } 48% { -webkit-transform: scale3d(1.10, 0.90, 1); -moz-transform: scale3d(1.10, 0.90, 1); -ms-transform: scale3d(1.10, 0.90, 1); -o-transform: scale3d(1.10, 0.90, 1); transform: scale3d(1.10, 0.90, 1); } 67% { -webkit-transform: scale3d(.90, 1.10, 1); -moz-transform: scale3d(.90, 1.10, 1); -ms-transform: scale3d(.90, 1.10, 1); -o-transform: scale3d(.90, 1.10, 1); transform: scale3d(.90, 1.10, 1); } 73% { -webkit-transform: scale3d(1.10, 0.90, 1); -moz-transform: scale3d(1.10, 0.90, 1); -ms-transform: scale3d(1.10, 0.90, 1); -o-transform: scale3d(1.10, 0.90, 1); transform: scale3d(1.10, 0.90, 1); } to { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }}';
+        var aniRubberBandHover = '.aniRubberBand:hover {-webkit-animation-name: rubberBand; -moz-animation-name: rubberBand; -o-animation-name: rubberBand; animation-name: rubberBand;}';
+
+        var aniSwingKeyframes = '@keyframes swing { 22% { -webkit-transform: rotate3d(0, 0, 1, 16deg); -moz-transform: rotate3d(0, 0, 1, 16deg); -ms-transform: rotate3d(0, 0, 1, 16deg); -o-transform: rotate3d(0, 0, 1, 16deg); transform: rotate3d(0, 0, 1, 16deg); } 42% { -webkit-transform: rotate3d(0, 0, 1, -11deg); -moz-transform: rotate3d(0, 0, 1, -11deg); -ms-transform: rotate3d(0, 0, 1, -11deg); -o-transform: rotate3d(0, 0, 1, -11deg); transform: rotate3d(0, 0, 1, -11deg); } 62% { -webkit-transform: rotate3d(0, 0, 1, 6deg); -moz-transform: rotate3d(0, 0, 1, 6deg); -ms-transform: rotate3d(0, 0, 1, 6deg); -o-transform: rotate3d(0, 0, 1, 6deg); transform: rotate3d(0, 0, 1, 6deg); } 72% { -webkit-transform: rotate3d(0, 0, 1, -6deg); -moz-transform: rotate3d(0, 0, 1, -6deg); -ms-transform: rotate3d(0, 0, 1, -6deg); -o-transform: rotate3d(0, 0, 1, -6deg); transform: rotate3d(0, 0, 1, -6deg); } to { -webkit-transform: rotate3d(0, 0, 1, 0deg); -moz-transform: rotate3d(0, 0, 1, 0deg); -ms-transform: rotate3d(0, 0, 1, 0deg); -o-transform: rotate3d(0, 0, 1, 0deg); transform: rotate3d(0, 0, 1, 0deg); }}@-webkit-keyframes swing { 22% { -webkit-transform: rotate3d(0, 0, 1, 16deg); -moz-transform: rotate3d(0, 0, 1, 16deg); -ms-transform: rotate3d(0, 0, 1, 16deg); -o-transform: rotate3d(0, 0, 1, 16deg); transform: rotate3d(0, 0, 1, 16deg); } 42% { -webkit-transform: rotate3d(0, 0, 1, -11deg); -moz-transform: rotate3d(0, 0, 1, -11deg); -ms-transform: rotate3d(0, 0, 1, -11deg); -o-transform: rotate3d(0, 0, 1, -11deg); transform: rotate3d(0, 0, 1, -11deg); } 62% { -webkit-transform: rotate3d(0, 0, 1, 6deg); -moz-transform: rotate3d(0, 0, 1, 6deg); -ms-transform: rotate3d(0, 0, 1, 6deg); -o-transform: rotate3d(0, 0, 1, 6deg); transform: rotate3d(0, 0, 1, 6deg); } 72% { -webkit-transform: rotate3d(0, 0, 1, -6deg); -moz-transform: rotate3d(0, 0, 1, -6deg); -ms-transform: rotate3d(0, 0, 1, -6deg); -o-transform: rotate3d(0, 0, 1, -6deg); transform: rotate3d(0, 0, 1, -6deg); } to { -webkit-transform: rotate3d(0, 0, 1, 0deg); -moz-transform: rotate3d(0, 0, 1, 0deg); -ms-transform: rotate3d(0, 0, 1, 0deg); -o-transform: rotate3d(0, 0, 1, 0deg); transform: rotate3d(0, 0, 1, 0deg); }}@-moz-keyframes swing { 22% { -webkit-transform: rotate3d(0, 0, 1, 16deg); -moz-transform: rotate3d(0, 0, 1, 16deg); -ms-transform: rotate3d(0, 0, 1, 16deg); -o-transform: rotate3d(0, 0, 1, 16deg); transform: rotate3d(0, 0, 1, 16deg); } 42% { -webkit-transform: rotate3d(0, 0, 1, -11deg); -moz-transform: rotate3d(0, 0, 1, -11deg); -ms-transform: rotate3d(0, 0, 1, -11deg); -o-transform: rotate3d(0, 0, 1, -11deg); transform: rotate3d(0, 0, 1, -11deg); } 62% { -webkit-transform: rotate3d(0, 0, 1, 6deg); -moz-transform: rotate3d(0, 0, 1, 6deg); -ms-transform: rotate3d(0, 0, 1, 6deg); -o-transform: rotate3d(0, 0, 1, 6deg); transform: rotate3d(0, 0, 1, 6deg); } 72% { -webkit-transform: rotate3d(0, 0, 1, -6deg); -moz-transform: rotate3d(0, 0, 1, -6deg); -ms-transform: rotate3d(0, 0, 1, -6deg); -o-transform: rotate3d(0, 0, 1, -6deg); transform: rotate3d(0, 0, 1, -6deg); } to { -webkit-transform: rotate3d(0, 0, 1, 0deg); -moz-transform: rotate3d(0, 0, 1, 0deg); -ms-transform: rotate3d(0, 0, 1, 0deg); -o-transform: rotate3d(0, 0, 1, 0deg); transform: rotate3d(0, 0, 1, 0deg); }}@-o-keyframes swing { 22% { -webkit-transform: rotate3d(0, 0, 1, 16deg); -moz-transform: rotate3d(0, 0, 1, 16deg); -ms-transform: rotate3d(0, 0, 1, 16deg); -o-transform: rotate3d(0, 0, 1, 16deg); transform: rotate3d(0, 0, 1, 16deg); } 42% { -webkit-transform: rotate3d(0, 0, 1, -11deg); -moz-transform: rotate3d(0, 0, 1, -11deg); -ms-transform: rotate3d(0, 0, 1, -11deg); -o-transform: rotate3d(0, 0, 1, -11deg); transform: rotate3d(0, 0, 1, -11deg); } 62% { -webkit-transform: rotate3d(0, 0, 1, 6deg); -moz-transform: rotate3d(0, 0, 1, 6deg); -ms-transform: rotate3d(0, 0, 1, 6deg); -o-transform: rotate3d(0, 0, 1, 6deg); transform: rotate3d(0, 0, 1, 6deg); } 72% { -webkit-transform: rotate3d(0, 0, 1, -6deg); -moz-transform: rotate3d(0, 0, 1, -6deg); -ms-transform: rotate3d(0, 0, 1, -6deg); -o-transform: rotate3d(0, 0, 1, -6deg); transform: rotate3d(0, 0, 1, -6deg); } to { -webkit-transform: rotate3d(0, 0, 1, 0deg); -moz-transform: rotate3d(0, 0, 1, 0deg); -ms-transform: rotate3d(0, 0, 1, 0deg); -o-transform: rotate3d(0, 0, 1, 0deg); transform: rotate3d(0, 0, 1, 0deg); }}';
+        var aniSwingHover = '.aniSwing:hover {-webkit-animation-name: swing; -moz-animation-name: swing; -o-animation-name: swing; animation-name: swing; -webkit-transform-origin:top center; -moz-transform-origin:top center; -ms-transform-origin:top center; -o-transform-origin:top center; transform-origin:top center;}';
+
+        var aniTaDaKeyframes = '@keyframes tada { from { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } 12%, 22% { -webkit-transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); -moz-transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); -ms-transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); -o-transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); } 32%, 52%, 72%, 92% { -webkit-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); -moz-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); -ms-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); -o-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); } 42%, 62%, 82% { -webkit-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); -moz-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); -ms-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); -o-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); } to { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }}@-webkit-keyframes tada { from { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } 12%, 22% { -webkit-transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); -moz-transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); -ms-transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); -o-transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); } 32%, 52%, 72%, 92% { -webkit-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); -moz-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); -ms-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); -o-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); } 42%, 62%, 82% { -webkit-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); -moz-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); -ms-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); -o-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); } to { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }}@-moz-keyframes tada { from { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } 12%, 22% { -webkit-transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); -moz-transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); -ms-transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); -o-transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); } 32%, 52%, 72%, 92% { -webkit-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); -moz-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); -ms-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); -o-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); } 42%, 62%, 82% { -webkit-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); -moz-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); -ms-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); -o-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); } to { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }}@-o-keyframes tada { from { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } 12%, 22% { -webkit-transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); -moz-transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); -ms-transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); -o-transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); transform: scale3d(.91, .91, .91) rotate3d(0, 0, 1, -4deg); } 32%, 52%, 72%, 92% { -webkit-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); -moz-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); -ms-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); -o-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, 4deg); } 42%, 62%, 82% { -webkit-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); -moz-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); -ms-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); -o-transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); transform: scale3d(1.11, 1.11, 1.11) rotate3d(0, 0, 1, -4deg); } to { -webkit-transform: scale3d(1, 1, 1); -moz-transform: scale3d(1, 1, 1); -ms-transform: scale3d(1, 1, 1); -o-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }}';
+        var aniTaDaHover = '.aniTaDa:hover {-webkit-animation-name: tada; -moz-animation-name: tada; -o-animation-name: tada; animation-name: tada;}';
+
+        var aniJelloKeyframes = '@keyframes jello { from, 10.2%, to { -webkit-transform: none; -moz-transform: none; -ms-transform: none; -o-transform: none; transform: none; } 21.3% { -webkit-transform: skewX(-13deg) skewY(-13deg); -moz-transform: skewX(-13deg) skewY(-13deg); -ms-transform: skewX(-13deg) skewY(-13deg); -o-transform: skewX(-13deg) skewY(-13deg); transform: skewX(-13deg) skewY(-13deg); } 32.4% { -webkit-transform: skewX(7.2deg) skewY(7.2deg); -moz-transform: skewX(7.2deg) skewY(7.2deg); -ms-transform: skewX(7.2deg) skewY(7.2deg); -o-transform: skewX(7.2deg) skewY(7.2deg); transform: skewX(7.2deg) skewY(7.2deg); } 43.5% { -webkit-transform: skewX(-4.12deg) skewY(-4.12deg); -moz-transform: skewX(-4.12deg) skewY(-4.12deg); -ms-transform: skewX(-4.12deg) skewY(-4.12deg); -o-transform: skewX(-4.12deg) skewY(-4.12deg); transform: skewX(-4.12deg) skewY(-4.12deg); } 54.6% { -webkit-transform: skewX(1.6deg) skewY(1.6deg); -moz-transform: skewX(1.6deg) skewY(1.6deg); -ms-transform: skewX(1.6deg) skewY(1.6deg); -o-transform: skewX(1.6deg) skewY(1.6deg); transform: skewX(1.6deg) skewY(1.6deg); } 65.7% { -webkit-transform: skewX(-0.77deg) skewY(-0.77deg); -moz-transform: skewX(-0.77deg) skewY(-0.77deg); -ms-transform: skewX(-0.77deg) skewY(-0.77deg); -o-transform: skewX(-0.77deg) skewY(-0.77deg); transform: skewX(-0.77deg) skewY(-0.77deg); } 76.8% { -webkit-transform: skewX(0.4deg) skewY(0.4deg); -moz-transform: skewX(0.4deg) skewY(0.4deg); -ms-transform: skewX(0.4deg) skewY(0.4deg); -o-transform: skewX(0.4deg) skewY(0.4deg); transform: skewX(0.4deg) skewY(0.4deg); } 87.9% { -webkit-transform: skewX(-0.2deg) skewY(-0.2deg); -moz-transform: skewX(-0.2deg) skewY(-0.2deg); -ms-transform: skewX(-0.2deg) skewY(-0.2deg); -o-transform: skewX(-0.2deg) skewY(-0.2deg); transform: skewX(-0.2deg) skewY(-0.2deg); }}@-webkit-keyframes jello { from, 10.2%, to { -webkit-transform: none; -moz-transform: none; -ms-transform: none; -o-transform: none; transform: none; } 21.3% { -webkit-transform: skewX(-13deg) skewY(-13deg); -moz-transform: skewX(-13deg) skewY(-13deg); -ms-transform: skewX(-13deg) skewY(-13deg); -o-transform: skewX(-13deg) skewY(-13deg); transform: skewX(-13deg) skewY(-13deg); } 32.4% { -webkit-transform: skewX(7.2deg) skewY(7.2deg); -moz-transform: skewX(7.2deg) skewY(7.2deg); -ms-transform: skewX(7.2deg) skewY(7.2deg); -o-transform: skewX(7.2deg) skewY(7.2deg); transform: skewX(7.2deg) skewY(7.2deg); } 43.5% { -webkit-transform: skewX(-4.12deg) skewY(-4.12deg); -moz-transform: skewX(-4.12deg) skewY(-4.12deg); -ms-transform: skewX(-4.12deg) skewY(-4.12deg); -o-transform: skewX(-4.12deg) skewY(-4.12deg); transform: skewX(-4.12deg) skewY(-4.12deg); } 54.6% { -webkit-transform: skewX(1.6deg) skewY(1.6deg); -moz-transform: skewX(1.6deg) skewY(1.6deg); -ms-transform: skewX(1.6deg) skewY(1.6deg); -o-transform: skewX(1.6deg) skewY(1.6deg); transform: skewX(1.6deg) skewY(1.6deg); } 65.7% { -webkit-transform: skewX(-0.77deg) skewY(-0.77deg); -moz-transform: skewX(-0.77deg) skewY(-0.77deg); -ms-transform: skewX(-0.77deg) skewY(-0.77deg); -o-transform: skewX(-0.77deg) skewY(-0.77deg); transform: skewX(-0.77deg) skewY(-0.77deg); } 76.8% { -webkit-transform: skewX(0.4deg) skewY(0.4deg); -moz-transform: skewX(0.4deg) skewY(0.4deg); -ms-transform: skewX(0.4deg) skewY(0.4deg); -o-transform: skewX(0.4deg) skewY(0.4deg); transform: skewX(0.4deg) skewY(0.4deg); } 87.9% { -webkit-transform: skewX(-0.2deg) skewY(-0.2deg); -moz-transform: skewX(-0.2deg) skewY(-0.2deg); -ms-transform: skewX(-0.2deg) skewY(-0.2deg); -o-transform: skewX(-0.2deg) skewY(-0.2deg); transform: skewX(-0.2deg) skewY(-0.2deg); }}@-moz-keyframes jello { from, 10.2%, to { -webkit-transform: none; -moz-transform: none; -ms-transform: none; -o-transform: none; transform: none; } 21.3% { -webkit-transform: skewX(-13deg) skewY(-13deg); -moz-transform: skewX(-13deg) skewY(-13deg); -ms-transform: skewX(-13deg) skewY(-13deg); -o-transform: skewX(-13deg) skewY(-13deg); transform: skewX(-13deg) skewY(-13deg); } 32.4% { -webkit-transform: skewX(7.2deg) skewY(7.2deg); -moz-transform: skewX(7.2deg) skewY(7.2deg); -ms-transform: skewX(7.2deg) skewY(7.2deg); -o-transform: skewX(7.2deg) skewY(7.2deg); transform: skewX(7.2deg) skewY(7.2deg); } 43.5% { -webkit-transform: skewX(-4.12deg) skewY(-4.12deg); -moz-transform: skewX(-4.12deg) skewY(-4.12deg); -ms-transform: skewX(-4.12deg) skewY(-4.12deg); -o-transform: skewX(-4.12deg) skewY(-4.12deg); transform: skewX(-4.12deg) skewY(-4.12deg); } 54.6% { -webkit-transform: skewX(1.6deg) skewY(1.6deg); -moz-transform: skewX(1.6deg) skewY(1.6deg); -ms-transform: skewX(1.6deg) skewY(1.6deg); -o-transform: skewX(1.6deg) skewY(1.6deg); transform: skewX(1.6deg) skewY(1.6deg); } 65.7% { -webkit-transform: skewX(-0.77deg) skewY(-0.77deg); -moz-transform: skewX(-0.77deg) skewY(-0.77deg); -ms-transform: skewX(-0.77deg) skewY(-0.77deg); -o-transform: skewX(-0.77deg) skewY(-0.77deg); transform: skewX(-0.77deg) skewY(-0.77deg); } 76.8% { -webkit-transform: skewX(0.4deg) skewY(0.4deg); -moz-transform: skewX(0.4deg) skewY(0.4deg); -ms-transform: skewX(0.4deg) skewY(0.4deg); -o-transform: skewX(0.4deg) skewY(0.4deg); transform: skewX(0.4deg) skewY(0.4deg); } 87.9% { -webkit-transform: skewX(-0.2deg) skewY(-0.2deg); -moz-transform: skewX(-0.2deg) skewY(-0.2deg); -ms-transform: skewX(-0.2deg) skewY(-0.2deg); -o-transform: skewX(-0.2deg) skewY(-0.2deg); transform: skewX(-0.2deg) skewY(-0.2deg); }}@-o-keyframes jello { from, 10.2%, to { -webkit-transform: none; -moz-transform: none; -ms-transform: none; -o-transform: none; transform: none; } 21.3% { -webkit-transform: skewX(-13deg) skewY(-13deg); -moz-transform: skewX(-13deg) skewY(-13deg); -ms-transform: skewX(-13deg) skewY(-13deg); -o-transform: skewX(-13deg) skewY(-13deg); transform: skewX(-13deg) skewY(-13deg); } 32.4% { -webkit-transform: skewX(7.2deg) skewY(7.2deg); -moz-transform: skewX(7.2deg) skewY(7.2deg); -ms-transform: skewX(7.2deg) skewY(7.2deg); -o-transform: skewX(7.2deg) skewY(7.2deg); transform: skewX(7.2deg) skewY(7.2deg); } 43.5% { -webkit-transform: skewX(-4.12deg) skewY(-4.12deg); -moz-transform: skewX(-4.12deg) skewY(-4.12deg); -ms-transform: skewX(-4.12deg) skewY(-4.12deg); -o-transform: skewX(-4.12deg) skewY(-4.12deg); transform: skewX(-4.12deg) skewY(-4.12deg); } 54.6% { -webkit-transform: skewX(1.6deg) skewY(1.6deg); -moz-transform: skewX(1.6deg) skewY(1.6deg); -ms-transform: skewX(1.6deg) skewY(1.6deg); -o-transform: skewX(1.6deg) skewY(1.6deg); transform: skewX(1.6deg) skewY(1.6deg); } 65.7% { -webkit-transform: skewX(-0.77deg) skewY(-0.77deg); -moz-transform: skewX(-0.77deg) skewY(-0.77deg); -ms-transform: skewX(-0.77deg) skewY(-0.77deg); -o-transform: skewX(-0.77deg) skewY(-0.77deg); transform: skewX(-0.77deg) skewY(-0.77deg); } 76.8% { -webkit-transform: skewX(0.4deg) skewY(0.4deg); -moz-transform: skewX(0.4deg) skewY(0.4deg); -ms-transform: skewX(0.4deg) skewY(0.4deg); -o-transform: skewX(0.4deg) skewY(0.4deg); transform: skewX(0.4deg) skewY(0.4deg); } 87.9% { -webkit-transform: skewX(-0.2deg) skewY(-0.2deg); -moz-transform: skewX(-0.2deg) skewY(-0.2deg); -ms-transform: skewX(-0.2deg) skewY(-0.2deg); -o-transform: skewX(-0.2deg) skewY(-0.2deg); transform: skewX(-0.2deg) skewY(-0.2deg); }}';
+        var aniJelloHover = '.aniJello:hover {-webkit-animation-name: jello; -moz-animation-name: jello; -o-animation-name: jello; animation-name: jello; -webkit-transform-origin:center; -moz-transform-origin:center; -ms-transform-origin:center; -o-transform-origin:center; transform-origin:center;}';
+
+        var aniFlipKeyframes = '@keyframes flip { from { -webkit-transform: perspective(350px) rotate3d(0, 1, 0, -360deg); -moz-transform: perspective(350px) rotate3d(0, 1, 0, -360deg); -ms-transform: perspective(350px) rotate3d(0, 1, 0, -360deg); -o-transform: perspective(350px) rotate3d(0, 1, 0, -360deg); transform: perspective(350px) rotate3d(0, 1, 0, -360deg); -webkit-animation-timing-function: ease-out; -moz-animation-timing-function: ease-out; -o-animation-timing-function: ease-out; animation-timing-function: ease-out; } 35% { -webkit-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); -moz-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); -ms-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); -o-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); -webkit-animation-timing-function: ease-out; -moz-animation-timing-function: ease-out; -o-animation-timing-function: ease-out; animation-timing-function: ease-out; } 55% { -webkit-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); -moz-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); -ms-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); -o-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); -webkit-animation-timing-function: ease-in; -moz-animation-timing-function: ease-in; -o-animation-timing-function: ease-in; animation-timing-function: ease-in; } 82% { -webkit-transform: perspective(350px) scale3d(0.95, 0.95, 0.95); -moz-transform: perspective(350px) scale3d(0.95, 0.95, 0.95); -ms-transform: perspective(350px) scale3d(0.95, 0.95, 0.95); -o-transform: perspective(350px) scale3d(0.95, 0.95, 0.95); transform: perspective(350px) scale3d(0.95, 0.95, 0.95); -webkit-animation-timing-function: ease-in; -moz-animation-timing-function: ease-in; -o-animation-timing-function: ease-in; animation-timing-function: ease-in; } to { -webkit-transform: perspective(350px); -moz-transform: perspective(350px); -ms-transform: perspective(350px); -o-transform: perspective(350px); transform: perspective(350px); -webkit-animation-timing-function: ease-in; -moz-animation-timing-function: ease-in; -o-animation-timing-function: ease-in; animation-timing-function: ease-in; }}@-webkit-keyframes flip { from { -webkit-transform: perspective(350px) rotate3d(0, 1, 0, -360deg); -moz-transform: perspective(350px) rotate3d(0, 1, 0, -360deg); -ms-transform: perspective(350px) rotate3d(0, 1, 0, -360deg); -o-transform: perspective(350px) rotate3d(0, 1, 0, -360deg); transform: perspective(350px) rotate3d(0, 1, 0, -360deg); -webkit-animation-timing-function: ease-out; -moz-animation-timing-function: ease-out; -o-animation-timing-function: ease-out; animation-timing-function: ease-out; } 35% { -webkit-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); -moz-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); -ms-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); -o-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); -webkit-animation-timing-function: ease-out; -moz-animation-timing-function: ease-out; -o-animation-timing-function: ease-out; animation-timing-function: ease-out; } 55% { -webkit-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); -moz-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); -ms-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); -o-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); -webkit-animation-timing-function: ease-in; -moz-animation-timing-function: ease-in; -o-animation-timing-function: ease-in; animation-timing-function: ease-in; } 82% { -webkit-transform: perspective(350px) scale3d(0.95, 0.95, 0.95); -moz-transform: perspective(350px) scale3d(0.95, 0.95, 0.95); -ms-transform: perspective(350px) scale3d(0.95, 0.95, 0.95); -o-transform: perspective(350px) scale3d(0.95, 0.95, 0.95); transform: perspective(350px) scale3d(0.95, 0.95, 0.95); -webkit-animation-timing-function: ease-in; -moz-animation-timing-function: ease-in; -o-animation-timing-function: ease-in; animation-timing-function: ease-in; } to { -webkit-transform: perspective(350px); -moz-transform: perspective(350px); -ms-transform: perspective(350px); -o-transform: perspective(350px); transform: perspective(350px); -webkit-animation-timing-function: ease-in; -moz-animation-timing-function: ease-in; -o-animation-timing-function: ease-in; animation-timing-function: ease-in; }}@-moz-keyframes flip { from { -webkit-transform: perspective(350px) rotate3d(0, 1, 0, -360deg); -moz-transform: perspective(350px) rotate3d(0, 1, 0, -360deg); -ms-transform: perspective(350px) rotate3d(0, 1, 0, -360deg); -o-transform: perspective(350px) rotate3d(0, 1, 0, -360deg); transform: perspective(350px) rotate3d(0, 1, 0, -360deg); -webkit-animation-timing-function: ease-out; -moz-animation-timing-function: ease-out; -o-animation-timing-function: ease-out; animation-timing-function: ease-out; } 35% { -webkit-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); -moz-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); -ms-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); -o-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); -webkit-animation-timing-function: ease-out; -moz-animation-timing-function: ease-out; -o-animation-timing-function: ease-out; animation-timing-function: ease-out; } 55% { -webkit-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); -moz-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); -ms-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); -o-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); -webkit-animation-timing-function: ease-in; -moz-animation-timing-function: ease-in; -o-animation-timing-function: ease-in; animation-timing-function: ease-in; } 82% { -webkit-transform: perspective(350px) scale3d(0.95, 0.95, 0.95); -moz-transform: perspective(350px) scale3d(0.95, 0.95, 0.95); -ms-transform: perspective(350px) scale3d(0.95, 0.95, 0.95); -o-transform: perspective(350px) scale3d(0.95, 0.95, 0.95); transform: perspective(350px) scale3d(0.95, 0.95, 0.95); -webkit-animation-timing-function: ease-in; -moz-animation-timing-function: ease-in; -o-animation-timing-function: ease-in; animation-timing-function: ease-in; } to { -webkit-transform: perspective(350px); -moz-transform: perspective(350px); -ms-transform: perspective(350px); -o-transform: perspective(350px); transform: perspective(350px); -webkit-animation-timing-function: ease-in; -moz-animation-timing-function: ease-in; -o-animation-timing-function: ease-in; animation-timing-function: ease-in; }}@-o-keyframes flip { from { -webkit-transform: perspective(350px) rotate3d(0, 1, 0, -360deg); -moz-transform: perspective(350px) rotate3d(0, 1, 0, -360deg); -ms-transform: perspective(350px) rotate3d(0, 1, 0, -360deg); -o-transform: perspective(350px) rotate3d(0, 1, 0, -360deg); transform: perspective(350px) rotate3d(0, 1, 0, -360deg); -webkit-animation-timing-function: ease-out; -moz-animation-timing-function: ease-out; -o-animation-timing-function: ease-out; animation-timing-function: ease-out; } 35% { -webkit-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); -moz-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); -ms-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); -o-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -185deg); -webkit-animation-timing-function: ease-out; -moz-animation-timing-function: ease-out; -o-animation-timing-function: ease-out; animation-timing-function: ease-out; } 55% { -webkit-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); -moz-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); -ms-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); -o-transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); transform: perspective(350px) translate3d(0, 0, 155px) rotate3d(0, 1, 0, -175deg); -webkit-animation-timing-function: ease-in; -moz-animation-timing-function: ease-in; -o-animation-timing-function: ease-in; animation-timing-function: ease-in; } 82% { -webkit-transform: perspective(350px) scale3d(0.95, 0.95, 0.95); -moz-transform: perspective(350px) scale3d(0.95, 0.95, 0.95); -ms-transform: perspective(350px) scale3d(0.95, 0.95, 0.95); -o-transform: perspective(350px) scale3d(0.95, 0.95, 0.95); transform: perspective(350px) scale3d(0.95, 0.95, 0.95); -webkit-animation-timing-function: ease-in; -moz-animation-timing-function: ease-in; -o-animation-timing-function: ease-in; animation-timing-function: ease-in; } to { -webkit-transform: perspective(350px); -moz-transform: perspective(350px); -ms-transform: perspective(350px); -o-transform: perspective(350px); transform: perspective(350px); -webkit-animation-timing-function: ease-in; -moz-animation-timing-function: ease-in; -o-animation-timing-function: ease-in; animation-timing-function: ease-in; }}';
+        var aniFlipHover = '.aniFlip:hover {-webkit-backface-visibility: visible; -moz-backface-visibility: visible; -ms-backface-visibility: visible; backface-visibility: visible; -webkit-animation-name: flip; -moz-animation-name: flip; -o-animation-name: flip; animation-name: flip;}';
+
+        var aniWobbleKeyframes = '@keyframes wobble { from { -webkit-transform: none; -moz-transform: none; -ms-transform: none; -o-transform: none; transform: none; } 16% { -webkit-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); -moz-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); -ms-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); -o-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); } 29% { -webkit-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); -moz-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); -ms-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); -o-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); } 46% { -webkit-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); -moz-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); -ms-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); -o-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); } 59% { -webkit-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); -moz-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); -ms-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); -o-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); } 76% { -webkit-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); -moz-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); -ms-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); -o-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); } to { -webkit-transform: none; -moz-transform: none; -ms-transform: none; -o-transform: none; transform: none; }}@-webkit-keyframes wobble { from { -webkit-transform: none; -moz-transform: none; -ms-transform: none; -o-transform: none; transform: none; } 16% { -webkit-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); -moz-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); -ms-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); -o-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); } 29% { -webkit-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); -moz-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); -ms-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); -o-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); } 46% { -webkit-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); -moz-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); -ms-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); -o-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); } 59% { -webkit-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); -moz-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); -ms-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); -o-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); } 76% { -webkit-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); -moz-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); -ms-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); -o-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); } to { -webkit-transform: none; -moz-transform: none; -ms-transform: none; -o-transform: none; transform: none; }}@-moz-keyframes wobble { from { -webkit-transform: none; -moz-transform: none; -ms-transform: none; -o-transform: none; transform: none; } 16% { -webkit-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); -moz-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); -ms-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); -o-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); } 29% { -webkit-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); -moz-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); -ms-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); -o-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); } 46% { -webkit-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); -moz-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); -ms-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); -o-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); } 59% { -webkit-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); -moz-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); -ms-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); -o-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); } 76% { -webkit-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); -moz-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); -ms-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); -o-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); } to { -webkit-transform: none; -moz-transform: none; -ms-transform: none; -o-transform: none; transform: none; }}@-o-keyframes wobble { from { -webkit-transform: none; -moz-transform: none; -ms-transform: none; -o-transform: none; transform: none; } 16% { -webkit-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); -moz-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); -ms-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); -o-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -6deg); } 29% { -webkit-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); -moz-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); -ms-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); -o-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 4deg); } 46% { -webkit-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); -moz-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); -ms-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); -o-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg); } 59% { -webkit-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); -moz-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); -ms-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); -o-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg); } 76% { -webkit-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); -moz-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); -ms-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); -o-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg); } to { -webkit-transform: none; -moz-transform: none; -ms-transform: none; -o-transform: none; transform: none; }}';
+        var aniWobbleHover = '.aniWobble:hover {-webkit-animation-name: wobble; -moz-animation-name: wobble; -o-animation-name: wobble; animation-name: wobble;}';
+
+
+
+
+        animated.onclick = function () {
+            if(animated.checked){
+                document.getElementById('animatedOptions').style.display = 'block';
+                if(f99bLogo.checked){
+                    aniStyle();
+                    addClass(document.getElementById('f99b'), 'aniAnimated');
+                    addClass(document.getElementById('f99b'), animationStyle);
+                }
+                if(t99wLogo.checked){
+                    aniStyle();
+                    addClass(document.getElementById('t99w'), 'aniAnimated');
+                    addClass(document.getElementById('t99w'), animationStyle);
+                }
+                if(e99mLogo.checked){
+                    aniStyle();
+                    addClass(document.getElementById('m99ail'), 'aniAnimated');
+                    addClass(document.getElementById('m99ail'), animationStyle);
+                }
+            }
+            else if(!animated.checked){
+                document.getElementById('animatedOptions').style.display = 'none';
+                aniStyle();
+                if(f99bLogo.checked){
+                    removeClass(document.getElementById('f99b'), 'aniAnimated');
+                    removeClass(document.getElementById('f99b'), animationStyle);
+                }
+                if(t99wLogo.checked){
+                    removeClass(document.getElementById('t99w'), 'aniAnimated');
+                    removeClass(document.getElementById('t99w'), animationStyle);
+                }
+                if(e99mLogo.checked){
+                    removeClass(document.getElementById('m99ail'), 'aniAnimated');
+                    removeClass(document.getElementById('m99ail'), animationStyle);
+                }
+            }
+        };
+
+        var animationStyle = '';
+        function aniStyle() {
+            var aniStyle  = document.getElementById('aniStyle');
+            var userSelect = aniStyle.options[aniStyle.selectedIndex];
+            //console.log(userSelect);
+            if(f99bLogo.checked){
+                if(userSelect.value == 'bounce'){
+                    removeClass(document.getElementById('f99b'), animationStyle);
+                    animationStyle = 'aniBounce';
+                    addClass(document.getElementById('f99b'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniBounceKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniBounceHover+"\n";
+                }
+                if(userSelect.value == 'pulse'){
+                    removeClass(document.getElementById('f99b'), animationStyle);
+                    animationStyle = 'aniPulse';
+                    addClass(document.getElementById('f99b'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniPulseKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniPulseHover+"\n";
+                }
+                if(userSelect.value == 'rubberBand'){
+                    removeClass(document.getElementById('f99b'), animationStyle);
+                    animationStyle = 'aniRubberBand';
+                    addClass(document.getElementById('f99b'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniRubberBandKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniRubberBandHover+"\n";
+                }
+                if(userSelect.value == 'swing'){
+                    removeClass(document.getElementById('f99b'), animationStyle);
+                    animationStyle = 'aniSwing';
+                    addClass(document.getElementById('f99b'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniSwingKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniSwingHover+"\n";
+                }
+                if(userSelect.value == 'TaDa'){
+                    removeClass(document.getElementById('f99b'), animationStyle);
+                    animationStyle = 'aniTaDa';
+                    addClass(document.getElementById('f99b'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniTaDaKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniTaDaHover+"\n";
+                }
+                if(userSelect.value == 'jello'){
+                    removeClass(document.getElementById('f99b'), animationStyle);
+                    animationStyle = 'aniJello';
+                    addClass(document.getElementById('f99b'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniJelloKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniJelloHover+"\n";
+                }
+                if(userSelect.value == 'flip'){
+                    removeClass(document.getElementById('f99b'), animationStyle);
+                    animationStyle = 'aniFlip';
+                    addClass(document.getElementById('f99b'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniFlipKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniFlipHover+"\n";
+                }
+                if(userSelect.value == 'wobble'){
+                    removeClass(document.getElementById('f99b'), animationStyle);
+                    animationStyle = 'aniWobble';
+                    addClass(document.getElementById('f99b'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniWobbleKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniWobbleHover+"\n";
+                }
+            }
+            if(t99wLogo.checked){
+                if(userSelect.value == 'bounce'){
+                    removeClass(document.getElementById('t99w'), animationStyle);
+                    animationStyle = 'aniBounce';
+                    addClass(document.getElementById('t99w'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniBounceKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniBounceHover+"\n";
+                }
+                if(userSelect.value == 'pulse'){
+                    removeClass(document.getElementById('t99w'), animationStyle);
+                    animationStyle = 'aniPulse';
+                    addClass(document.getElementById('t99w'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniPulseKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniPulseHover+"\n";
+                }
+                if(userSelect.value == 'rubberBand'){
+                    removeClass(document.getElementById('t99w'), animationStyle);
+                    animationStyle = 'aniRubberBand';
+                    addClass(document.getElementById('t99w'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniRubberBandKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniRubberBandHover+"\n";
+                }
+                if(userSelect.value == 'swing'){
+                    removeClass(document.getElementById('t99w'), animationStyle);
+                    animationStyle = 'aniSwing';
+                    addClass(document.getElementById('t99w'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniSwingKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniSwingHover+"\n";
+                }
+                if(userSelect.value == 'TaDa'){
+                    removeClass(document.getElementById('t99w'), animationStyle);
+                    animationStyle = 'aniTaDa';
+                    addClass(document.getElementById('t99w'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniTaDaKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniTaDaHover+"\n";
+                }
+                if(userSelect.value == 'jello'){
+                    removeClass(document.getElementById('t99w'), animationStyle);
+                    animationStyle = 'aniJello';
+                    addClass(document.getElementById('t99w'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniJelloKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniJelloHover+"\n";
+                }
+                if(userSelect.value == 'flip'){
+                    removeClass(document.getElementById('t99w'), animationStyle);
+                    animationStyle = 'aniFlip';
+                    addClass(document.getElementById('t99w'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniFlipKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniFlipHover+"\n";
+                }
+                if(userSelect.value == 'wobble'){
+                    removeClass(document.getElementById('t99w'), animationStyle);
+                    animationStyle = 'aniWobble';
+                    addClass(document.getElementById('t99w'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniWobbleKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniWobbleHover+"\n";
+                }
+            }
+            if(e99mLogo.checked){
+                if(userSelect.value == 'bounce'){
+                    removeClass(document.getElementById('m99ail'), animationStyle);
+                    animationStyle = 'aniBounce';
+                    addClass(document.getElementById('m99ail'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniBounceKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniBounceHover+"\n";
+                }
+                if(userSelect.value == 'pulse'){
+                    removeClass(document.getElementById('m99ail'), animationStyle);
+                    animationStyle = 'aniPulse';
+                    addClass(document.getElementById('m99ail'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniPulseKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniPulseHover+"\n";
+                }
+                if(userSelect.value == 'rubberBand'){
+                    removeClass(document.getElementById('m99ail'), animationStyle);
+                    animationStyle = 'aniRubberBand';
+                    addClass(document.getElementById('m99ail'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniRubberBandKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniRubberBandHover+"\n";
+                }
+                if(userSelect.value == 'swing'){
+                    removeClass(document.getElementById('m99ail'), animationStyle);
+                    animationStyle = 'aniSwing';
+                    addClass(document.getElementById('m99ail'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniSwingKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniSwingHover+"\n";
+                }
+                if(userSelect.value == 'TaDa'){
+                    removeClass(document.getElementById('m99ail'), animationStyle);
+                    animationStyle = 'aniTaDa';
+                    addClass(document.getElementById('m99ail'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniTaDaKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniTaDaHover+"\n";
+                }
+                if(userSelect.value == 'jello'){
+                    removeClass(document.getElementById('m99ail'), animationStyle);
+                    animationStyle = 'aniJello';
+                    addClass(document.getElementById('m99ail'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniJelloKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniJelloHover+"\n";
+                }
+                if(userSelect.value == 'flip'){
+                    removeClass(document.getElementById('m99ail'), animationStyle);
+                    animationStyle = 'aniFlip';
+                    addClass(document.getElementById('m99ail'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniFlipKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniFlipHover+"\n";
+                }
+                if(userSelect.value == 'wobble'){
+                    removeClass(document.getElementById('m99ail'), animationStyle);
+                    animationStyle = 'aniWobble';
+                    addClass(document.getElementById('m99ail'), animationStyle);
+                    previewAniSheet.innerHTML = '';
+                    previewAniSheet.innerHTML += "\n"+aniWobbleKeyframes+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniAnimated+"\n";
+                    previewAniSheet.innerHTML += "\n"+aniWobbleHover+"\n";
+                }
+            }
+            return animationStyle;
+        }
+
+
+
+        var twLogo = '<div id="t99wIcon" class="t99wColor2" style=" padding: 40px; background: #33ccff; position: relative; width: 256px; height: 256px; overflow: hidden;"><div id="t99w" class="t99Color2" style=" overflow: hidden; position: relative; width: 256px; height: 256px; "><div class="t99w1 t99wColor1" style="background: white; position: absolute; width: 210px; height: 210px; -webkit-border-radius:220px; -moz-border-radius:220px; border-radius:220px; left: 10px; top: 20px; "></div> <div class="t99w2 t99wColor2" style="background: #33ccff; position: absolute; width: 230px; height: 230px; border-radius: 230px/230px; -webkit-border-radius:230px/230px; -moz-border-radius:230px/230px; left: -75px; top: -40px; "></div> <div class="t99w3 t99wColor1" style="background: white; position: absolute; width: 100px; height: 100px; border-radius: 100px; -webkit-border-radius:100px; -moz-border-radius:100px; left: 50px; top: 80px;"></div> <div class="t99w4 t99wColor2" style="background: #33ccff; position: absolute; width: 100px; height: 100px; border-radius: 100px; -webkit-border-radius:100px; -moz-border-radius:100px; left: 20px; top: 50px;"></div> <div class="t99w5 t99wColor1" style="background: white; position: absolute; width: 100px; height: 100px; border-radius: 100px; -webkit-border-radius:100px; -moz-border-radius:100px; left: 40px; top: 50px;"></div> <div class="t99w6 t99wColor2" style="background: #33ccff; position: absolute; width: 100px; height: 100px; border-radius: 100px; -webkit-border-radius:100px; -moz-border-radius:100px; left: 20px; top: 20px;"></div> <div class="t99w7 t99wColor1" style="background: white; position: absolute; width: 100px; height: 100px; border-radius: 100px; -webkit-border-radius:100px; -moz-border-radius:100px; left: 45px; top: 30px;"></div> <div class="t99w8 t99wColor2" style="background: #33ccff; position: absolute; width: 150px; height: 150px; border-radius: 150px; -webkit-border-radius:150px; -moz-border-radius:150px; left: 50px; top: -30px;"></div> <div class="t99w9 t99wColor1" style="background: white; position: absolute; width: 100px; height: 100px; border-radius: 100px; -webkit-border-radius:100px; -moz-border-radius:100px; left: 117px; top: 55px; z-index: 1000;"></div> <div class="t99w10 t99wColor1" style="background: white; position: absolute; width: 80px; height: 80px; border-radius: 80px; -webkit-border-radius:80px; -moz-border-radius:80px; left: 155px; top: 30px;"></div> <div class="t99w11 t99wColor2" style="background: #33ccff; position: absolute; width: 130px; height: 130px; border-radius: 130px; -webkit-border-radius:130px; -moz-border-radius:130px; left: 140px; top: -40px;"></div> <div class="t99w12 t99wColor1" style="background: white; position: absolute; width: 80px; height: 80px; border-radius: 80px; -webkit-border-radius:80px; -moz-border-radius:80px; left: 155px; top: 15px;"></div> <div class="t99w13 t99wColor2" style="background: #33ccff; position: absolute; width: 130px; height: 130px; border-radius: 130px; -webkit-border-radius:130px; -moz-border-radius:130px; left: 130px; top: -48px;"></div>  </div></a></div>';
+
+        var fbLogo = '<div id="f99bIcon" class="f99bColor2" style=" padding: 40px; overflow:hidden; position: relative; width: 256px; height: 256px; background: #3B5998;"><div id="f99b" class="f99bColor2"><div id="f90b" style="overflow: hidden; position: relative; width: 256px; height: 256px;"><div id="f99b1" class="f99bColor1" style="position: absolute; bottom: 10px; width: 40px; height: 140px; background: white; margin: 0 0 0 108px;"></div> <div id="f99b2" class="f99bColor1" style="position: absolute; bottom: 80px; width: 100px; height: 41px; background: white; margin: 0 0 0 80px;"></div> <div id="f99b3" class="f99bColor1" style="position: absolute; bottom: 110px; width: 80px; height:80px; margin: 0 0 0 108px; -webkit-border-radius:50%; -moz-border-radius:50%; border-radius:50%; background: white;"></div> <div id="f99b4" class="f99bColor2" style="position: absolute; bottom: 120px; width: 45px; height:30px; margin: 0 0 0 148px; background: #3B5998; -webkit-border-top-left-radius: 15%; -moz-border-top-left-radius: 15%; border-top-left-radius: 15%;"></div> <div id="f99b5" class="f99bColor1" style="position: absolute; bottom: 150px; width: 40px; height:40px; margin: 0 0 0 148px; background: white;"></div> <div id="f99b6" class="f99bColor1" style="position: absolute; bottom: 150px; width: 20px; height:40px; margin: 0 0 0 175px; background: white; -webkit-transform: skewX(-15deg); -moz-transform: skewX(-15deg); -ms-transform: skewX(-15deg); -o-transform: skewX(-15deg); transform: skewX(-15deg);"></div> <div id="f99b7" class="f99bColor1" style="position: absolute; bottom: 80px; width: 20px; height:40px; margin: 0 0 0 165px; background: white; -webkit-transform: skewX(-15deg); -moz-transform: skewX(-15deg); -ms-transform: skewX(-15deg); -o-transform: skewX(-15deg); transform: skewX(-15deg);"></div> </div></div></a></div>';
+
+        var emLogo = '<div id="m99ailIcon" class="m99Color1" style="overflow: hidden; background: darkviolet; position: relative; width: 256px; height: 256px; padding: 40px;"><div id="m99ail" style="position: relative; width: 256px; height: 256px;"> <div id="m99ail1" class="m99Color2" style="background: white; position: relative; top: 63px; width: 160px; height: 130px; margin: 0 auto; overflow: hidden;"> <div id="m99ail0" class="m99Color1" style="background: darkviolet; width: 150px; height: 120px; position: relative; top: 5px; left: 5px; overflow: hidden;"> <div id="m99ail2" class="m99Color2" style="background: white; position: relative; top: 30px; right: 30px; width: 124px; height: 5px; -webkit-transform: rotateZ(45deg); -moz-transform: rotateZ(45deg); -ms-transform: rotateZ(45deg); -o-transform: rotateZ(45deg); transform: rotateZ(45deg);"></div> <div id="m99ail3" class="m99Color2" style="background: white; position: relative; top: 25px; left: 55px; width: 124px; height: 5px; -webkit-transform: rotateZ(-45deg); -moz-transform: rotateZ(-45deg); -ms-transform: rotateZ(-45deg); -o-transform: rotateZ(-45deg); transform: rotateZ(-45deg);"></div> </div> </div> </div> </a> </div>';
+
+        var manipulacja = document.getElementById('manipulacja');
+        var manipulacjaDiv = document.getElementById('manipulacjaDiv');
+
+        f99bLogo.onclick = function () {
+          if(f99bLogo.checked){
+              t99wLogo.checked = false;
+              e99mLogo.checked = false;
+              divShadow.checked = false;
+              divBorder.checked = false;
+              animated.checked = false;
+              transitionShadow.checked = false;
+              manipulacja.style.display = 'block';
+              manipulacjaDiv.style.display = 'block';
+              generateCode.style.display = 'block';
+              document.getElementById('shadows').style.display = 'none';
+              document.getElementById('transitionShadowOptions').style.display = 'none';
+              document.getElementById('borders').style.display = 'none';
+              document.getElementById('animatedOptions').style.display = 'none';
+              ahref.value = '';
+              preview.innerHTML = '';
+              iconColor.setAttribute("value", "#FFFFFF");
+              divColor.setAttribute("value", "#3B5998");
+              previewSheet.innerHTML = '';
+            preview.innerHTML += fbLogo;
+          }
+          else {
+              preview.innerHTML = '';
+              manipulacja.style.display = 'none';
+              manipulacjaDiv.style.display = 'none';
+              generateCode.style.display = 'none';
+          }
+        };
+        t99wLogo.onclick = function () {
+            if(t99wLogo.checked){
+                f99bLogo.checked = false;
+                e99mLogo.checked = false;
+                divShadow.checked = false;
+                divBorder.checked = false;
+                animated.checked = false;
+                transitionShadow.checked = false;
+                manipulacja.style.display = 'block';
+                manipulacjaDiv.style.display = 'block';
+                generateCode.style.display = 'block';
+                document.getElementById('shadows').style.display = 'none';
+                document.getElementById('transitionShadowOptions').style.display = 'none';
+                document.getElementById('borders').style.display = 'none';
+                document.getElementById('animatedOptions').style.display = 'none';
+                ahref.value = '';
+                preview.innerHTML = '';
+                iconColor.setAttribute("value", "#FFFFFF");
+                divColor.setAttribute("value", "#33ccff");
+                previewSheet.innerHTML = '';
+                preview.innerHTML += twLogo;
+            }
+            else {
+                preview.innerHTML = '';
+                manipulacja.style.display = 'none';
+                manipulacjaDiv.style.display = 'none';
+                generateCode.style.display = 'none';
+            }
+        };
+        e99mLogo.onclick = function () {
+            if(e99mLogo.checked){
+                f99bLogo.checked = false;
+                t99wLogo.checked = false;
+                divShadow.checked = false;
+                divBorder.checked = false;
+                animated.checked = false;
+                transitionShadow.checked = false;
+                manipulacja.style.display = 'block';
+                manipulacjaDiv.style.display = 'block';
+                generateCode.style.display = 'block';
+                document.getElementById('shadows').style.display = 'none';
+                document.getElementById('transitionShadowOptions').style.display = 'none';
+                document.getElementById('borders').style.display = 'none';
+                document.getElementById('animatedOptions').style.display = 'none';
+                ahref.value = '';
+                preview.innerHTML = '';
+                iconColor.setAttribute("value", "#FFFFFF");
+                divColor.setAttribute("value", "#9400D3");
+                previewSheet.innerHTML = '';
+                preview.innerHTML += emLogo;
+            }
+            else {
+                preview.innerHTML = '';
+                manipulacja.style.display = 'none';
+                manipulacjaDiv.style.display = 'none';
+                generateCode.style.display = 'none';
+            }
+        };
+
+
+        logoSize.addEventListener("input", function () {
+            if(f99bLogo.checked){
+                document.getElementById('f99bIcon').style.transform = "scale("+logoSize.value+","+logoSize.value+")";
+            }
+            if(t99wLogo.checked){
+                document.getElementById('t99wIcon').style.transform = "scale("+logoSize.value+","+logoSize.value+")";
+            }
+            if(e99mLogo.checked){
+                document.getElementById('m99ailIcon').style.transform = "scale("+logoSize.value+","+logoSize.value+")";
+            }
+        });
+
+
+
+        var borRadius ='';
+        function logoStyling() {
+            var logoStyle  = document.getElementById('logoStyle');
+            var userSelect = logoStyle.options[logoStyle.selectedIndex];
+
+            if(f99bLogo.checked){
+                if(userSelect.value == 'square'){
+                    document.getElementById('f99bIcon').style.borderRadius = "0 0 0 0";
+                    borRadius = '0 0 0 0';
+                    //console.log(borRadius);
+                }
+                if(userSelect.value == 'circle'){
+                    //console.log('circle');
+                    document.getElementById('f99bIcon').style.borderRadius = "50% 50% 50% 50%";
+                    document.getElementById('borderRadiusAll').style.display = "block";
+                    borRadius = '50% 50% 50% 50%';
+                    //console.log(borRadius);
+                }else {
+                    document.getElementById('borderRadiusAll').style.display = "none";
+                }
+                if(userSelect.value == 'squareWithRadius'){
+                    document.getElementById('f99bIcon').style.borderRadius = "5% 5% 5% 5%";
+                    document.getElementById('borderRadius').style.display = "block";
+                    borRadius = '5% 5% 5% 5%';
+                    //console.log(borRadius);
+                }else {
+                    document.getElementById('borderRadius').style.display = "none";
+                }
+            }
+            if(t99wLogo.checked){
+                if(userSelect.value == 'square'){
+                    document.getElementById('t99wIcon').style.borderRadius = "0 0 0 0";
+                    borRadius = '0 0 0 0';
+                    //console.log(borRadius);
+                }
+                if(userSelect.value == 'circle'){
+                    //console.log('circle');
+                    document.getElementById('t99wIcon').style.borderRadius = "50% 50% 50% 50%";
+                    document.getElementById('borderRadiusAll').style.display = "block";
+                    borRadius = '50% 50% 50% 50%';
+                    //console.log(borRadius);
+                }else {
+                    document.getElementById('borderRadiusAll').style.display = "none";
+                }
+                if(userSelect.value == 'squareWithRadius'){
+                    document.getElementById('t99wIcon').style.borderRadius = "5% 5% 5% 5%";
+                    document.getElementById('borderRadius').style.display = "block";
+                    borRadius = '5% 5% 5% 5%';
+                    //console.log(borRadius);
+                }else {
+                    document.getElementById('borderRadius').style.display = "none";
+                }
+            }
+            if(e99mLogo.checked){
+                if(userSelect.value == 'square'){
+                    document.getElementById('m99ailIcon').style.borderRadius = "0 0 0 0";
+                    borRadius = '0 0 0 0';
+                    //console.log(borRadius);
+                }
+                if(userSelect.value == 'circle'){
+                    //console.log('circle');
+                    document.getElementById('m99ailIcon').style.borderRadius = "50% 50% 50% 50%";
+                    document.getElementById('borderRadiusAll').style.display = "block";
+                    borRadius = '50% 50% 50% 50%';
+                    //console.log(borRadius);
+                }else {
+                    document.getElementById('borderRadiusAll').style.display = "none";
+                }
+                if(userSelect.value == 'squareWithRadius'){
+                    document.getElementById('m99ailIcon').style.borderRadius = "5% 5% 5% 5%";
+                    document.getElementById('borderRadius').style.display = "block";
+                    borRadius = '5% 5% 5% 5%';
+                    //console.log(borRadius);
+                }else {
+                    document.getElementById('borderRadius').style.display = "none";
+                }
+            }
+
+            return borRadius;
+        }
+
+
+        borRadiusAll.addEventListener("input", function () {
+            if(f99bLogo.checked){
+                document.getElementById('f99bIcon').style.borderRadius = ""+borRadiusAll.value+"% "+borRadiusAll.value+"% "+borRadiusAll.value+"% "+borRadiusAll.value+"% ";
+                borRadius = ""+borRadiusAll.value+"% "+borRadiusAll.value+"% "+borRadiusAll.value+"% "+borRadiusAll.value+"% ";
+            }
+            if(t99wLogo.checked){
+                document.getElementById('t99wIcon').style.borderRadius = ""+borRadiusAll.value+"% "+borRadiusAll.value+"% "+borRadiusAll.value+"% "+borRadiusAll.value+"% ";
+                borRadius = ""+borRadiusAll.value+"% "+borRadiusAll.value+"% "+borRadiusAll.value+"% "+borRadiusAll.value+"% ";
+            }
+            if(e99mLogo.checked){
+                document.getElementById('m99ailIcon').style.borderRadius = ""+borRadiusAll.value+"% "+borRadiusAll.value+"% "+borRadiusAll.value+"% "+borRadiusAll.value+"% ";
+                borRadius = ""+borRadiusAll.value+"% "+borRadiusAll.value+"% "+borRadiusAll.value+"% "+borRadiusAll.value+"% ";
+            }
+        });
+
+        borTopLeftRadius.addEventListener("input", function () {
+            if(f99bLogo.checked){
+                document.getElementById('f99bIcon').style.borderRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+                borRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+            }
+            if(t99wLogo.checked){
+                document.getElementById('t99wIcon').style.borderRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+                borRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+            }
+            if(e99mLogo.checked){
+                document.getElementById('m99ailIcon').style.borderRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+                borRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+            }
+        });
+        borTopRightRadius.addEventListener("input", function () {
+            if(f99bLogo.checked){
+                document.getElementById('f99bIcon').style.borderRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+                borRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+            }
+            if(t99wLogo.checked){
+                document.getElementById('t99wIcon').style.borderRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+                borRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+            }
+            if(e99mLogo.checked){
+                document.getElementById('m99ailIcon').style.borderRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+                borRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+            }
+        });
+        borBottomRightRadius.addEventListener("input", function () {
+            if(f99bLogo.checked){
+                document.getElementById('f99bIcon').style.borderRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+                borRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+            }
+            if(t99wLogo.checked){
+                document.getElementById('t99wIcon').style.borderRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+                borRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+            }
+            if(e99mLogo.checked){
+                document.getElementById('m99ailIcon').style.borderRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+                borRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+            }
+        });
+        borBottomLeftRadius.addEventListener("input", function () {
+            if(f99bLogo.checked){
+                document.getElementById('f99bIcon').style.borderRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+                borRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+            }
+            if(t99wLogo.checked){
+                document.getElementById('t99wIcon').style.borderRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+                borRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+            }
+            if(e99mLogo.checked){
+                document.getElementById('m99ailIcon').style.borderRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+                borRadius = ""+borTopLeftRadius.value+"% "+borTopRightRadius.value+"% "+borBottomRightRadius.value+"% "+borBottomLeftRadius.value+"% ";
+            }
+        });
+
+        divColor.addEventListener("input", function () {
+            if(f99bLogo.checked){
+                var fColor2 = document.getElementsByClassName('f99bColor2');
+                for(var i=0; i<fColor2.length; i++){
+                    fColor2[i].style.backgroundColor = divColor.value;
+                }
+            }
+            if(t99wLogo.checked){
+                var tColor2 = document.getElementsByClassName('t99wColor2');
+                for(var j=0; j<tColor2.length; j++){
+                    tColor2[j].style.backgroundColor = divColor.value;
+                }
+            }
+            if(e99mLogo.checked){
+                var eColor2 = document.getElementsByClassName('m99Color1');
+                for(var k=0; k<eColor2.length; k++){
+                    eColor2[k].style.backgroundColor = divColor.value;
+                }
+            }
+        });
+
+
+        iconColor.addEventListener("input", function () {
+            if(f99bLogo.checked){
+                var fColor1 = document.getElementsByClassName('f99bColor1');
+                for(var i=0; i<fColor1.length; i++){
+                    fColor1[i].style.backgroundColor = iconColor.value;
+                }
+            }
+            if(t99wLogo.checked){
+                var tColor1 = document.getElementsByClassName('t99wColor1');
+                for(var j=0; j<tColor1.length; j++){
+                    tColor1[j].style.backgroundColor = iconColor.value;
+                }
+            }
+            if(e99mLogo.checked){
+                var eColor1 = document.getElementsByClassName('m99Color2');
+                for(var k=0; k<eColor1.length; k++){
+                    eColor1[k].style.backgroundColor = iconColor.value;
+                }
+            }
+        });
+
+        divShadow.onclick = function () {
+            if(divShadow.checked){
+                document.getElementById('shadows').style.display = 'block';
+                if(f99bLogo.checked){
+                    document.getElementById('f99bIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                }
+                if(t99wLogo.checked){
+                    document.getElementById('t99wIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                }
+                if(e99mLogo.checked){
+                    document.getElementById('m99ailIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                }
+                hShadow.addEventListener("input", function () {
+                    if(f99bLogo.checked){
+                        document.getElementById('f99bIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                    }
+                    if(t99wLogo.checked){
+                        document.getElementById('t99wIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                    }
+                    if(e99mLogo.checked){
+                        document.getElementById('m99ailIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                    }
+                    //console.log(hShadow.value +" "+vShadow.value+" "+blurShadow.value+" "+spreadShadow.value+" "+shadowColor.value+" ");
+                });
+
+
+                vShadow.addEventListener("input", function () {
+                    if(f99bLogo.checked){
+                        document.getElementById('f99bIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                    }
+                    if(t99wLogo.checked){
+                        document.getElementById('t99wIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                    }
+                    if(e99mLogo.checked){
+                        document.getElementById('m99ailIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                    }
+                });
+
+                blurShadow.addEventListener("input", function () {
+                    if(f99bLogo.checked){
+                        document.getElementById('f99bIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                    }
+                    if(t99wLogo.checked){
+                        document.getElementById('t99wIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                    }
+                    if(e99mLogo.checked){
+                        document.getElementById('m99ailIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                    }
+                });
+
+                spreadShadow.addEventListener("input", function () {
+                    if(f99bLogo.checked){
+                        document.getElementById('f99bIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                    }
+                    if(t99wLogo.checked){
+                        document.getElementById('t99wIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                    }
+                    if(e99mLogo.checked){
+                        document.getElementById('m99ailIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                    }
+                });
+
+                shadowColor.addEventListener("input", function () {
+                    if(f99bLogo.checked){
+                        document.getElementById('f99bIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                    }
+                    if(t99wLogo.checked){
+                        document.getElementById('t99wIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                    }
+                    if(e99mLogo.checked){
+                        document.getElementById('m99ailIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                    }
+                });
+
+
+            }else if(!divShadow.checked){
+                document.getElementById('shadows').style.display = 'none';
+                if(f99bLogo.checked){
+                    document.getElementById('f99bIcon').style.boxShadow = 'none';
+                }
+                if(t99wLogo.checked){
+                    document.getElementById('t99wIcon').style.boxShadow = 'none';
+                }
+                if(e99mLogo.checked){
+                    document.getElementById('m99ailIcon').style.boxShadow = 'none';
+                }
+            }
+        };
+
+
+        var whShadow = '';
+        function whenShadow(){
+            var whenShadow = document.getElementById('whenShadow');
+            var userSelect = whenShadow.options[whenShadow.selectedIndex];
+
+            if(userSelect.value == 'zawsze'){
+                whShadow = '0';
+                transitionShadow.checked = false;
+                document.getElementById('transitionShadowOptions').style.display = "none";
+                document.getElementById('transitionShadow').style.display = "none";
+                document.getElementById('transitionShadowLabel').style.display = "none";
+                document.getElementById('traHelp').style.display = "none";
+                if(f99bLogo.checked){
+                    document.getElementById('f99bIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                    previewSheet.innerHTML = '';
+                }
+                if(t99wLogo.checked){
+                    document.getElementById('t99wIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                    previewSheet.innerHTML = '';
+                }
+                if(e99mLogo.checked){
+                    document.getElementById('m99ailIcon').style.boxShadow = ""+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+"";
+                    previewSheet.innerHTML = '';
+                }
+            }
+            if(userSelect.value == ':hover'){
+                whShadow = '1';
+                document.getElementById('transitionShadow').style.display = "inline";
+                document.getElementById('transitionShadowLabel').style.display = "inline";
+                document.getElementById('traHelp').style.display = "inline";
+                if(f99bLogo.checked){
+                    document.getElementById('f99bIcon').style.boxShadow = null;
+                    previewSheet.innerHTML += "#f99bIcon:hover{ box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                }
+                if(t99wLogo.checked){
+                    document.getElementById('t99wIcon').style.boxShadow = null;
+                    previewSheet.innerHTML += "#t99wIcon:hover{ box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                }
+                if(e99mLogo.checked){
+                    document.getElementById('m99ailIcon').style.boxShadow = null;
+                    previewSheet.innerHTML += "#m99ailIcon:hover{ box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                }
+
+            }
+            return whShadow;
+        }
+
+        transitionShadow.onclick = function () {
+          if(transitionShadow.checked){
+              document.getElementById('transitionShadowOptions').style.display = "block";
+              if(f99bLogo.checked){
+                  previewSheet.innerHTML += "#f99bIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #f99bIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+              }
+              if(t99wLogo.checked){
+                  previewSheet.innerHTML += "#t99wIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #t99wIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+              }
+              if(e99mLogo.checked){
+                  previewSheet.innerHTML += "#m99ailIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #m99ailIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+              }
+
+          }else if(!transitionShadow.checked){
+              document.getElementById('transitionShadowOptions').style.display = "none";
+              previewSheet.innerHTML = "";
+              if(f99bLogo.checked){
+                  previewSheet.innerHTML += "#f99bIcon:hover{ box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+              }
+              if(t99wLogo.checked){
+                  previewSheet.innerHTML += "#t99wIcon:hover{ box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+              }
+              if(e99mLogo.checked){
+                  previewSheet.innerHTML += "#m99ailIcon:hover{ box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+              }
+          }
+        };
+
+        transitionShadowDuration.addEventListener("input", function () {
+            previewSheet.innerHTML = '';
+            if(f99bLogo.checked){
+                previewSheet.innerHTML += "\n#f99bIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #f99bIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+            }
+            if(t99wLogo.checked){
+                previewSheet.innerHTML += "\n#t99wIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #t99wIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+            }
+            if(e99mLogo.checked){
+                previewSheet.innerHTML += "\n#m99ailIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #m99ailIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+            }
+        });
+
+        var tranFunction = '';
+        function transitionShadowFunction() {
+            var transitionShadowFunction  = document.getElementById('transitionShadowFunction');
+            var userSelect = transitionShadowFunction.options[transitionShadowFunction.selectedIndex];
+            //console.log(userSelect);
+            if(userSelect.value == 'ease'){
+                tranFunction = 'ease';
+                if(f99bLogo.checked){
+                    previewSheet.innerHTML = '';
+                    previewSheet.innerHTML += "\n#f99bIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #f99bIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                }
+                if(t99wLogo.checked){
+                    previewSheet.innerHTML = '';
+                    previewSheet.innerHTML += "\n#t99wIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #t99wIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                }
+                if(e99mLogo.checked){
+                    previewSheet.innerHTML = '';
+                    previewSheet.innerHTML += "\n#m99ailIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #m99ailIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                }
+            }
+            if(userSelect.value == 'linear'){
+                tranFunction = 'linear';
+                if(f99bLogo.checked){
+                    previewSheet.innerHTML = '';
+                    previewSheet.innerHTML += "\n#f99bIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #f99bIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                }
+                if(t99wLogo.checked){
+                    previewSheet.innerHTML = '';
+                    previewSheet.innerHTML += "\n#t99wIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #t99wIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                }
+                if(e99mLogo.checked){
+                    previewSheet.innerHTML = '';
+                    previewSheet.innerHTML += "\n#m99ailIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #m99ailIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                }
+            }
+            if(userSelect.value == 'ease-in'){
+                tranFunction = 'ease-in';
+                if(f99bLogo.checked){
+                    previewSheet.innerHTML = '';
+                    previewSheet.innerHTML += "\n#f99bIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #f99bIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                }
+                if(t99wLogo.checked){
+                    previewSheet.innerHTML = '';
+                    previewSheet.innerHTML += "#t99wIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #t99wIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                }
+                if(e99mLogo.checked){
+                    previewSheet.innerHTML = '';
+                    previewSheet.innerHTML += "\n#m99ailIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #m99ailIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                }
+            }
+            if(userSelect.value == 'ease-out'){
+                tranFunction = 'ease-out';
+                if(f99bLogo.checked){
+                    previewSheet.innerHTML = '';
+                    previewSheet.innerHTML += "\n#f99bIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #f99bIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                }
+                if(t99wLogo.checked){
+                    previewSheet.innerHTML = '';
+                    previewSheet.innerHTML += "\n#t99wIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #t99wIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                }
+                if(e99mLogo.checked){
+                    previewSheet.innerHTML = '';
+                    previewSheet.innerHTML += "\n#m99ailIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #m99ailIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                }
+            }
+            if(userSelect.value == 'ease-in-out'){
+                tranFunction = 'ease-in-out';
+                if(f99bLogo.checked){
+                    previewSheet.innerHTML = '';
+                    previewSheet.innerHTML += "\n#f99bIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #f99bIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                }
+                if(t99wLogo.checked){
+                    previewSheet.innerHTML = '';
+                    previewSheet.innerHTML += "\n#t99wIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #t99wIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                }
+                if(e99mLogo.checked){
+                    previewSheet.innerHTML = '';
+                    previewSheet.innerHTML += "\n#m99ailIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #m99ailIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                }
+            }
+
+            return tranFunction;
+        }
+
+        divBorder.onclick = function () {
+            if(divBorder.checked){
+                document.getElementById('borders').style.display = 'block';
+                if(f99bLogo.checked){
+                    document.getElementById('f99bIcon').style.borderWidth = borderWidth.value+"px";
+                    document.getElementById('f99bIcon').style.borderStyle = "none ";
+                    document.getElementById('f99bIcon').style.borderStyle = borderColor.value;
+                }
+                if(t99wLogo.checked){
+                    document.getElementById('t99wIcon').style.borderWidth = borderWidth.value+"px";
+                    document.getElementById('t99wIcon').style.borderStyle = "solid ";
+                    document.getElementById('t99wIcon').style.borderStyle = borderColor.value;
+                }
+                if(e99mLogo.checked){
+                    document.getElementById('m99ailIcon').style.borderWidth = borderWidth.value+"px";
+                    document.getElementById('m99ailIcon').style.borderStyle = "solid ";
+                    document.getElementById('m99ailIcon').style.borderStyle = borderColor.value;
+                }
+            }else if(!divBorder.checked){
+                document.getElementById('borders').style.display = 'none';
+                if(f99bLogo.checked){
+                    document.getElementById('f99bIcon').style.borderStyle = "none";
+                }
+                if(t99wLogo.checked){
+                    document.getElementById('t99wIcon').style.borderStyle = "none";
+                }
+                if(e99mLogo.checked){
+                    document.getElementById('m99ailIcon').style.borderStyle = "none";
+                }
+            }
+        };
+
+
+        var borStyle = '';
+        function borderStyling() {
+            var borderStyle  = document.getElementById('borderStyle');
+            var userSelect = borderStyle.options[borderStyle.selectedIndex];
+            //console.log(userSelect);
+            if(divBorder.checked){
+                if(userSelect.value == 'none'){
+                    if(f99bLogo.checked){
+                        document.getElementById('f99bIcon').style.borderStyle = "none";
+                    }
+                    if(t99wLogo.checked){
+                        document.getElementById('t99wIcon').style.borderStyle = "none";
+                    }
+                    if(e99mLogo.checked){
+                        document.getElementById('m99ailIcon').style.borderStyle = "none";
+                    }
+                    borStyle = 'none';
+                }
+                if(userSelect.value == 'solid'){
+                    if(f99bLogo.checked){
+                        document.getElementById('f99bIcon').style.borderStyle = "solid";
+                    }
+                    if(t99wLogo.checked){
+                        document.getElementById('t99wIcon').style.borderStyle = "solid";
+                    }
+                    if(e99mLogo.checked){
+                        document.getElementById('m99ailIcon').style.borderStyle = "solid";
+                    }
+                    borStyle = 'solid';
+                }
+                if(userSelect.value == 'dashed'){
+                    if(f99bLogo.checked){
+                        document.getElementById('f99bIcon').style.borderStyle = "dashed";
+                    }
+                    if(t99wLogo.checked){
+                        document.getElementById('t99wIcon').style.borderStyle = "dashed";
+                    }
+                    if(e99mLogo.checked){
+                        document.getElementById('m99ailIcon').style.borderStyle = "dashed";
+                    }
+                    borStyle = 'dashed';
+                }
+                if(userSelect.value == 'dotted'){
+                    if(f99bLogo.checked){
+                        document.getElementById('f99bIcon').style.borderStyle = "dotted";
+                    }
+                    if(t99wLogo.checked){
+                        document.getElementById('t99wIcon').style.borderStyle = "dotted";
+                    }
+                    if(e99mLogo.checked){
+                        document.getElementById('m99ailIcon').style.borderStyle = "dotted";
+                    }
+                    borStyle = 'dotted';
+                }
+                if(userSelect.value == 'groove'){
+                    if(f99bLogo.checked){
+                        document.getElementById('f99bIcon').style.borderStyle = "groove";
+                    }
+                    if(t99wLogo.checked){
+                        document.getElementById('t99wIcon').style.borderStyle = "groove";
+                    }
+                    if(e99mLogo.checked){
+                        document.getElementById('m99ailIcon').style.borderStyle = "groove";
+                    }
+                    borStyle = 'groove';
+                }
+                if(userSelect.value == 'double'){
+                    if(f99bLogo.checked){
+                        document.getElementById('f99bIcon').style.borderStyle = "double";
+                    }
+                    if(t99wLogo.checked){
+                        document.getElementById('t99wIcon').style.borderStyle = "double";
+                    }
+                    if(e99mLogo.checked){
+                        document.getElementById('m99ailIcon').style.borderStyle = "double";
+                    }
+                    borStyle = 'double';
+                }
+                if(userSelect.value == 'ridge'){
+                    if(f99bLogo.checked){
+                        document.getElementById('f99bIcon').style.borderStyle = "ridge";
+                    }
+                    if(t99wLogo.checked){
+                        document.getElementById('t99wIcon').style.borderStyle = "ridge";
+                    }
+                    if(e99mLogo.checked){
+                        document.getElementById('m99ailIcon').style.borderStyle = "ridge";
+                    }
+                    borStyle = 'ridge';
+                }
+                if(userSelect.value == 'inset'){
+                    if(f99bLogo.checked){
+                        document.getElementById('f99bIcon').style.borderStyle = "inset";
+                    }
+                    if(t99wLogo.checked){
+                        document.getElementById('t99wIcon').style.borderStyle = "inset";
+                    }
+                    if(e99mLogo.checked){
+                        document.getElementById('m99ailIcon').style.borderStyle = "inset";
+                    }
+                    borStyle = 'inset';
+                }
+                if(userSelect.value == 'outset'){
+                    if(f99bLogo.checked){
+                        document.getElementById('f99bIcon').style.borderStyle = "outset";
+                    }
+                    if(t99wLogo.checked){
+                        document.getElementById('t99wIcon').style.borderStyle = "outset";
+                    }
+                    if(e99mLogo.checked){
+                        document.getElementById('m99ailIcon').style.borderStyle = "outset";
+                    }
+                    borStyle = 'outset';
+                }
+            }
+            return borStyle;
+        }
+
+        borderColor.addEventListener("input", function () {
+            if(f99bLogo.checked){
+                document.getElementById('f99bIcon').style.borderColor = borderColor.value;
+            }
+            if(t99wLogo.checked){
+                document.getElementById('t99wIcon').style.borderColor = borderColor.value;
+            }
+            if(e99mLogo.checked){
+                document.getElementById('m99ailIcon').style.borderColor = borderColor.value;
+            }
+        });
+
+        borderWidth.addEventListener("input", function () {
+            if(f99bLogo.checked){
+                document.getElementById('f99bIcon').style.borderWidth = borderWidth.value+"px";
+            }
+            if(t99wLogo.checked){
+                document.getElementById('t99wIcon').style.borderWidth = borderWidth.value+"px";
+            }
+            if(e99mLogo.checked){
+                document.getElementById('m99ailIcon').style.borderWidth = borderWidth.value+"px";
+            }
+        });
+
+        ahref.addEventListener("input", function () {
+            return ahref;
+        });
+
+
+
+
+        /* END LOGO */
+
+
+        /* ZASTOSUJ */
+
+        var exportHTML = document.getElementById('exportHTML');
+
+        function zastosuj(){
+            exportSheet.innerHTML = '&lt;style&gt;';
+            exportHTML.innerHTML = '';
+            if(f99bLogo.checked){
+                exportSheet.innerHTML += "\n#f99bIcon { z-index: 5; overflow: hidden; position: relative; width: 256px; height: 256px; -webkit-transform: scale("+logoSize.value+","+logoSize.value+"); -moz-transform: scale("+logoSize.value+","+logoSize.value+"); -ms-transform: scale("+logoSize.value+","+logoSize.value+"); -o-transform: scale("+logoSize.value+","+logoSize.value+");transform: scale("+logoSize.value+","+logoSize.value+"); -webkit-border-radius: "+borRadius+"; -moz-border-radius: "+borRadius+"; border-radius: "+borRadius+";}\n#f90b { position: relative; width: 256px; height: 256px;}\n#f99b1 { position: absolute; bottom: 10px; width: 40px; height: 150px; margin: 0 0 0 108px;}\n#f99b2 { position: absolute; bottom: 80px; width: 100px; height: 41px; margin: 0 0 0 80px;}\n#f99b3 { position: absolute; bottom: 120px; width: 80px; height:80px; margin: 0 0 0 108px; -webkit-border-radius:50%; -moz-border-radius:50%; border-radius:50%;}\n#f99b4 { position: absolute; bottom: 120px; width: 45px; height:40px; margin: 0 0 0 148px; -webkit-border-top-left-radius: 15%; -moz-border-top-left-radius: 15%; border-top-left-radius: 15%;}\n#f99b5 { position: absolute; bottom: 160px; width: 40px; height:40px; margin: 0 0 0 148px;}\n#f99b6 { position: absolute; bottom: 160px; width: 20px; height:40px; margin: 0 0 0 175px; -webkit-transform: skewX(-15deg); -moz-transform: skewX(-15deg); -ms-transform: skewX(-15deg); -o-transform: skewX(-15deg); transform: skewX(-15deg);}#f99b7 { position: absolute; bottom: 80px; width: 20px; height:40px; margin: 0 0 0 165px; -webkit-transform: skewX(-15deg); -moz-transform: skewX(-15deg); -ms-transform: skewX(-15deg); -o-transform: skewX(-15deg); transform: skewX(-15deg);}\n.f99bColor1 { background: "+iconColor.value+";"+"}\n.f99bColor2 { background: "+divColor.value+";}\n";
+                exportHTML.innerHTML += '<div id="f99bIcon" class="f99bColor2"><a href="'+ahref.value+'" title="'+ahref.value+'" target="_blank" id="f99bhref"><div id="f90b"> <div id="f99b1" class="f99bColor1"></div> <div id="f99b2" class="f99bColor1"></div> <div id="f99b3" class="f99bColor1"></div> <div id="f99b4" class="f99bColor2"></div> <div id="f99b5" class="f99bColor1"></div> <div id="f99b6" class="f99bColor1"></div> <div id="f99b7" class="f99bColor1"></div> </div></a></div>';
+                if(f99bLogo.checked && divShadow.checked){
+                    if(whShadow == 0){
+                        exportSheet.innerHTML += "#f99bIcon{ box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                    }
+                    if(whShadow == 1){
+                        if(transitionShadow.checked){
+                            exportSheet.innerHTML += "#f99bIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #f99bIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                        }else {
+                            exportSheet.innerHTML += "#f99bIcon:hover{ box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                        }
+                    }
+                }
+                if(f99bLogo.checked && divBorder.checked){
+                    exportSheet.innerHTML += "#f99bIcon{ border: "+borderWidth.value+"px "+borStyle+" "+borderColor.value+";}";
+
+                }
+                if(f99bLogo.checked && animated.checked){
+                    if(animationStyle == 'aniBounce'){
+                        exportSheet.innerHTML += "\n"+aniBounceKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniBounceHover+"\n";
+
+                    }
+                    if(animationStyle == 'aniPulse'){
+                        exportSheet.innerHTML += "\n"+aniPulseKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniPulseHover+"\n";
+                    }
+                    if(animationStyle == 'aniRubberBand'){
+                        exportSheet.innerHTML += "\n"+aniRubberBandKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniRubberBandHover+"\n";
+                    }
+                    if(animationStyle == 'aniSwing'){
+                        exportSheet.innerHTML += "\n"+aniSwingKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniSwingHover+"\n";
+                    }
+                    if(animationStyle == 'aniTaDa'){
+                        exportSheet.innerHTML += "\n"+aniTaDaKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniTaDaHover+"\n";
+                    }
+                    if(animationStyle == 'aniJello'){
+                        exportSheet.innerHTML += "\n"+aniJelloKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniJelloHover+"\n";
+                    }
+                    if(animationStyle == 'aniFlip'){
+                        exportSheet.innerHTML += "\n"+aniFlipKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniFlipHover+"\n";
+                    }
+                    if(animationStyle == 'aniWobble'){
+                        exportSheet.innerHTML += "\n"+aniWobbleKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniWobbleHover+"\n";
+                    }
+                    exportHTML.innerHTML = '';
+                    exportHTML.innerHTML += '<div id="f99bIcon" class="f99bColor2"><a href="'+ahref.value+'" title="'+ahref.value+'" target="_blank" id="f99bhref"><div id="f90b" class="'+aniAnimatedClass+' '+animationStyle+'"> <div id="f99b1" class="f99bColor1"></div> <div id="f99b2" class="f99bColor1"></div> <div id="f99b3" class="f99bColor1"></div> <div id="f99b4" class="f99bColor2"></div> <div id="f99b5" class="f99bColor1"></div> <div id="f99b6" class="f99bColor1"></div> <div id="f99b7" class="f99bColor1"></div> </div></a></div>';
+
+                }
+                exportSheet.innerHTML += '&lt;/style&gt;';
+            }
+            if(t99wLogo.checked){
+                exportSheet.innerHTML += "\n#t99wIcon { z-index: 5; position: relative; width: 256px; height: 256px; overflow: hidden; -webkit-transform: scale("+logoSize.value+","+logoSize.value+"); -moz-transform: scale("+logoSize.value+","+logoSize.value+"); -ms-transform: scale("+logoSize.value+","+logoSize.value+"); -o-transform: scale("+logoSize.value+","+logoSize.value+");transform: scale("+logoSize.value+","+logoSize.value+"); -webkit-border-radius: "+borRadius+"; -moz-border-radius: "+borRadius+"; border-radius: "+borRadius+";}\n.t99wColor1 { background: "+iconColor.value+";"+"}.t99wColor2 { background: "+divColor.value+";"+"}\n#t99w { overflow: hidden;  position: relative; width: 256px; height: 256px;}\n.t99w1 { position: absolute; width: 210px; height: 210px; -webkit-border-radius:220px; -moz-border-radius:220px; border-radius:220px; left: 10px; top: 20px;}\n.t99w2 { position: absolute; width: 230px; height: 230px; border-radius: 230px/230px; -webkit-border-radius:230px/230px; -moz-border-radius:230px/230px; left: -75px; top: -40px;}\n.t99w3 { position: absolute; width: 100px; height: 100px; border-radius: 100px; -webkit-border-radius:100px; -moz-border-radius:100px; left: 50px; top: 80px;}\n.t99w4 { position: absolute; width: 100px; height: 100px; border-radius: 100px; -webkit-border-radius:100px; -moz-border-radius:100px; left: 20px; top: 50px;}\n.t99w5 { position: absolute; width: 100px; height: 100px; border-radius: 100px; -webkit-border-radius:100px; -moz-border-radius:100px; left: 40px; top: 50px;}\n.t99w6 { position: absolute; width: 100px; height: 100px; border-radius: 100px; -webkit-border-radius:100px; -moz-border-radius:100px; left: 20px; top: 20px;}\n.t99w7 { position: absolute; width: 100px; height: 100px; border-radius: 100px; -webkit-border-radius:100px; -moz-border-radius:100px; left: 45px; top: 30px;}\n.t99w8 { position: absolute; width: 150px; height: 150px; border-radius: 150px; -webkit-border-radius:150px; -moz-border-radius:150px; left: 50px; top: -30px;}\n.t99w9 { position: absolute; width: 100px; height: 100px; border-radius: 100px; -webkit-border-radius:100px; -moz-border-radius:100px; left: 117px; top: 55px; z-index: 1000;}\n.t99w10 { position: absolute; width: 80px; height: 80px; border-radius: 80px; -webkit-border-radius:80px; -moz-border-radius:80px; left: 155px; top: 30px;}\n.t99w11 { position: absolute; width: 130px; height: 130px; border-radius: 130px; -webkit-border-radius:130px; -moz-border-radius:130px; left: 140px; top: -40px;}\n.t99w12 { position: absolute; width: 80px; height: 80px; border-radius: 80px; -webkit-border-radius:80px; -moz-border-radius:80px; left: 155px; top: 15px;}\n.t99w13 { position: absolute; width: 130px; height: 130px; border-radius: 130px; -webkit-border-radius:130px; -moz-border-radius:130px; left: 130px; top: -48px;}\n";
+                exportHTML.innerHTML += '<div id="t99wIcon" class="t99wColor2"><a href="'+ahref.value+'" title="'+ahref.value+'" target="_blank" id="t99whref"><div id="t99w" class="t99wColor2"><div class="t99w1 t99wColor1"></div> <div class="t99w2 t99wColor2"></div> <div class="t99w3 t99wColor1"></div> <div class="t99w4 t99wColor2"></div> <div class="t99w5 t99wColor1"></div> <div class="t99w6 t99wColor2"></div> <div class="t99w7 t99wColor1"></div> <div class="t99w8 t99wColor2"></div> <div class="t99w9 t99wColor1"></div> <div class="t99w10 t99wColor1"></div> <div class="t99w11 t99wColor2"></div> <div class="t99w12 t99wColor1"></div> <div class="t99w13 t99wColor2"></div></div></a></div>';
+                if(t99wLogo.checked && divShadow.checked){
+                    if(whShadow == 0){
+                        exportSheet.innerHTML += "#t99wIcon{ box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                    }
+                    if(whShadow == 1){
+                        if(transitionShadow.checked){
+                            exportSheet.innerHTML += "#t99wIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #t99wIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                        }else {
+                            exportSheet.innerHTML += "#t99wIcon:hover{ box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                        }
+                    }
+                }
+                if(t99wLogo.checked && divBorder.checked){
+                    exportSheet.innerHTML += "#t99wIcon{ border: "+borderWidth.value+"px "+borStyle+" "+borderColor.value+";}";
+
+                }
+                if(t99wLogo.checked && animated.checked){
+                    if(animationStyle == 'aniBounce'){
+                        exportSheet.innerHTML += "\n"+aniBounceKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniBounceHover+"\n";
+
+                    }
+                    if(animationStyle == 'aniPulse'){
+                        exportSheet.innerHTML += "\n"+aniPulseKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniPulseHover+"\n";
+                    }
+                    if(animationStyle == 'aniRubberBand'){
+                        exportSheet.innerHTML += "\n"+aniRubberBandKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniRubberBandHover+"\n";
+                    }
+                    if(animationStyle == 'aniSwing'){
+                        exportSheet.innerHTML += "\n"+aniSwingKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniSwingHover+"\n";
+                    }
+                    if(animationStyle == 'aniTaDa'){
+                        exportSheet.innerHTML += "\n"+aniTaDaKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniTaDaHover+"\n";
+                    }
+                    if(animationStyle == 'aniJello'){
+                        exportSheet.innerHTML += "\n"+aniJelloKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniJelloHover+"\n";
+                    }
+                    if(animationStyle == 'aniFlip'){
+                        exportSheet.innerHTML += "\n"+aniFlipKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniFlipHover+"\n";
+                    }
+                    if(animationStyle == 'aniWobble'){
+                        exportSheet.innerHTML += "\n"+aniWobbleKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniWobbleHover+"\n";
+                    }
+                    exportHTML.innerHTML = '';
+                    exportHTML.innerHTML += '<div id="t99wIcon" class="t99wColor2"><a href="'+ahref.value+'" title="'+ahref.value+'" target="_blank" id="t99whref"><div id="t99w" class="'+aniAnimatedClass+' '+animationStyle+'"><div class="t99w1 t99wColor1"></div> <div class="t99w2 t99wColor2"></div> <div class="t99w3 t99wColor1"></div> <div class="t99w4 t99wColor2"></div> <div class="t99w5 t99wColor1"></div> <div class="t99w6 t99wColor2"></div> <div class="t99w7 t99wColor1"></div> <div class="t99w8 t99wColor2"></div> <div class="t99w9 t99wColor1"></div> <div class="t99w10 t99wColor1"></div> <div class="t99w11 t99wColor2"></div> <div class="t99w12 t99wColor1"></div> <div class="t99w13 t99wColor2"></div></div></a></div>';
+
+                }
+                exportSheet.innerHTML += '&lt;/style&gt;';
+            }
+            if(e99mLogo.checked){
+                exportSheet.innerHTML += "\n#m99ailIcon {overflow: hidden; position: relative; width: 256px; height: 256px; -webkit-transform: scale("+logoSize.value+","+logoSize.value+"); -moz-transform: scale("+logoSize.value+","+logoSize.value+"); -ms-transform: scale("+logoSize.value+","+logoSize.value+"); -o-transform: scale("+logoSize.value+","+logoSize.value+"); transform: scale("+logoSize.value+","+logoSize.value+"); z-index: 5; -webkit-border-radius:"+borRadius+"; -moz-border-radius:"+borRadius+"; border-radius:"+borRadius+";}\n#m99ail { position: relative; width: 256px; height: 256px;}\n#m99ail1 { position: relative; top: 63px; width: 160px; height: 130px; margin: 0 auto; overflow: hidden;}\n#m99ail0 { width: 150px; height: 120px; position: relative; top: 5px; left: 5px; overflow: hidden;}\n#m99ail2 { position: relative; top: 30px; right: 30px; width: 124px; height: 5px; -webkit-transform: rotateZ(45deg); -moz-transform: rotateZ(45deg); -ms-transform: rotateZ(45deg); -o-transform: rotateZ(45deg); transform: rotateZ(45deg);}\n#m99ail3 { position: relative; top: 25px; left: 55px; width: 124px; height: 5px; -webkit-transform: rotateZ(-45deg); -moz-transform: rotateZ(-45deg); -ms-transform: rotateZ(-45deg); -o-transform: rotateZ(-45deg); transform: rotateZ(-45deg);}\n.m99Color1 { background: "+divColor.value+";}\n.m99Color2 { background: "+iconColor.value+";}\n";
+                /*
+                * <div id="m99ailIcon" class="m99Color1" style="overflow: hidden; background: darkviolet; position: relative; width: 256px; height: 256px; padding: 40px;"> <a href="'+ahref.value+'" id="e99ailhref"> <div id="m99ail" style="position: relative; width: 256px; height: 256px;"> <div id="m99ail1" class="m99Color2" style="background: white; position: relative; top: 63px; width: 160px; height: 130px; margin: 0 auto; overflow: hidden;"> <div id="m99ail0" class="m99Color1" style="background: darkviolet; width: 150px; height: 120px; position: relative; top: 5px; left: 5px; overflow: hidden;"> <div id="m99ail2" class="m99Color2" style="background: white; position: relative; top: 30px; right: 30px; width: 124px; height: 5px; -webkit-transform: rotateZ(45deg); -moz-transform: rotateZ(45deg); -ms-transform: rotateZ(45deg); -o-transform: rotateZ(45deg); transform: rotateZ(45deg);"></div> <div id="m99ail3" class="m99Color2" style="background: white; position: relative; top: 25px; left: 55px; width: 124px; height: 5px; -webkit-transform: rotateZ(-45deg); -moz-transform: rotateZ(-45deg); -ms-transform: rotateZ(-45deg); -o-transform: rotateZ(-45deg); transform: rotateZ(-45deg);"></div> </div> </div> </div> </a> </div>
+                * */
+                exportHTML.innerHTML += '<div id="m99ailIcon" class="m99Color1"> <a href="mailto:'+ahref.value+'" title="'+ahref.value+'" target="_top" id="m99ailhref"> <div id="m99ail"> <div id="m99ail1" class="m99Color2"> <div id="m99ail0" class="m99Color1"> <div id="m99ail2" class="m99Color2"></div> <div id="m99ail3" class="m99Color2"></div> </div> </div> </div> </a> </div>';
+                if(e99mLogo.checked && divShadow.checked){
+                    if(whShadow == 0){
+                        exportSheet.innerHTML += "#m99ailIcon{ box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                    }
+                    if(whShadow == 1){
+                        if(transitionShadow.checked){
+                            exportSheet.innerHTML += "#m99ailIcon{box-shadow: none; transition-property: box-shadow; transition-duration: "+transitionShadowDuration.value+"s; transition-timing-function: "+tranFunction+";} #m99ailIcon:hover{box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                        }else {
+                            exportSheet.innerHTML += "#m99ailIcon:hover{ box-shadow: "+hShadow.value+"px "+vShadow.value+"px "+blurShadow.value+"px "+spreadShadow.value+"px "+shadowColor.value+";}\n";
+                        }
+                    }
+                }
+                if(e99mLogo.checked && divBorder.checked){
+                    exportSheet.innerHTML += "\n#m99ailIcon{ border: "+borderWidth.value+"px "+borStyle+" "+borderColor.value+";}\n";
+
+                }
+                if(e99mLogo.checked && animated.checked){
+                    if(animationStyle == 'aniBounce'){
+                        exportSheet.innerHTML += "\n"+aniBounceKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniBounceHover+"\n";
+
+                    }
+                    if(animationStyle == 'aniPulse'){
+                        exportSheet.innerHTML += "\n"+aniPulseKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniPulseHover+"\n";
+                    }
+                    if(animationStyle == 'aniRubberBand'){
+                        exportSheet.innerHTML += "\n"+aniRubberBandKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniRubberBandHover+"\n";
+                    }
+                    if(animationStyle == 'aniSwing'){
+                        exportSheet.innerHTML += "\n"+aniSwingKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniSwingHover+"\n";
+                    }
+                    if(animationStyle == 'aniTaDa'){
+                        exportSheet.innerHTML += "\n"+aniTaDaKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniTaDaHover+"\n";
+                    }
+                    if(animationStyle == 'aniJello'){
+                        exportSheet.innerHTML += "\n"+aniJelloKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniJelloHover+"\n";
+                    }
+                    if(animationStyle == 'aniFlip'){
+                        exportSheet.innerHTML += "\n"+aniFlipKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniFlipHover+"\n";
+                    }
+                    if(animationStyle == 'aniWobble'){
+                        exportSheet.innerHTML += "\n"+aniWobbleKeyframes+"\n";
+                        exportSheet.innerHTML += "\n"+aniAnimated+"\n";
+                        exportSheet.innerHTML += "\n"+aniWobbleHover+"\n";
+                    }
+                    exportHTML.innerHTML = '';
+                    exportHTML.innerHTML += '<div id="m99ailIcon" class="m99Color1"> <a href="mailto:'+ahref.value+'" title="'+ahref.value+'" target="_top" id="m99ailhref"> <div id="m99ail" class="'+aniAnimatedClass+' '+animationStyle+'"> <div id="m99ail1" class="m99Color2"> <div id="m99ail0" class="m99Color1"> <div id="m99ail2" class="m99Color2"></div> <div id="m99ail3" class="m99Color2"></div> </div> </div> </div> </a> </div>';
+
+                }
+                exportSheet.innerHTML += '&lt;/style&gt;';
+            }
+
+        }
+    </script>
+</body>
+</html>
